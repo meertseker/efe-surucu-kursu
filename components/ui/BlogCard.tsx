@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { springs, entranceAnimations } from '@/lib/spring-animations';
+import { glassCard } from '@/lib/glass-effects';
 
 interface BlogCardProps {
   title: string;
@@ -26,36 +28,67 @@ export default function BlogCard({
 }: BlogCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={entranceAnimations}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
+      transition={{ delay, ...springs.smooth }}
+      whileHover={{ y: -8, scale: 1.02 }}
       className="group"
     >
       <Link href={`/blog/${slug}`} className="block">
-        <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
-          {/* Image */}
-          <div className="relative h-48 bg-gradient-to-br from-primary-400 via-primary-500 to-success-500 overflow-hidden">
-            {/* Blog image placeholder */}
-            <svg viewBox="0 0 400 200" className="w-full h-full opacity-30" fill="currentColor">
-              <rect x="50" y="80" width="300" height="80" rx="10" />
-              <circle cx="100" cy="50" r="20" />
-              <path d="M 100 120 L 150 80 L 200 100 L 250 70 L 300 90 L 300 160 L 100 160 Z" opacity="0.5"/>
-            </svg>
-            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+        <div className="relative backdrop-blur-xl bg-white/95 dark:bg-gray-900/95 rounded-3xl shadow-glass-lg border border-white/30 dark:border-white/10 overflow-hidden">
+          {/* Image with glass gradient */}
+          <div className="relative h-48 overflow-hidden">
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-br from-primary-red via-secondary-orange to-accent-rose"
+              animate={{
+                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+              }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                ease: 'linear',
+              }}
+              style={{
+                backgroundSize: '200% 200%',
+              }}
+            >
+              {/* Blog image placeholder */}
+              <svg viewBox="0 0 400 200" className="w-full h-full opacity-20" fill="white">
+                <rect x="50" y="80" width="300" height="80" rx="10" />
+                <circle cx="100" cy="50" r="20" />
+                <path d="M 100 120 L 150 80 L 200 100 L 250 70 L 300 90 L 300 160 L 100 160 Z" opacity="0.5"/>
+              </svg>
+            </motion.div>
             
-            {/* Category badge */}
+            {/* Glass overlay */}
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 backdrop-blur-sm"></div>
+            
+            {/* Glass reflection */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent"></div>
+            
+            {/* Category badge with glass */}
             <div className="absolute top-4 left-4">
-              <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-primary-700 text-sm font-semibold rounded-full shadow-lg">
+              <motion.span 
+                className="px-4 py-2 backdrop-blur-xl bg-white/90 dark:bg-depth-dark-floating text-primary-red dark:text-primary-red-light text-sm font-semibold rounded-full shadow-glass border border-white/30 dark:border-white/20"
+                whileHover={{ scale: 1.05 }}
+                transition={springs.snappy}
+              >
                 {category}
-              </span>
+              </motion.span>
             </div>
 
-            {/* Overlay icon */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl">
+            {/* Overlay icon with glass effect */}
+            <motion.div 
+              className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              initial={{ scale: 0.8 }}
+              whileHover={{ scale: 1 }}
+              transition={springs.bouncy}
+            >
+              <div className="w-16 h-16 backdrop-blur-2xl bg-white/90 dark:bg-depth-dark-floating rounded-full flex items-center justify-center shadow-glass-lg border border-white/30 dark:border-white/20">
                 <svg
-                  className="w-8 h-8 text-primary-600"
+                  className="w-8 h-8 text-primary-red dark:text-primary-red-light"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -68,13 +101,13 @@ export default function BlogCard({
                   />
                 </svg>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Content */}
-          <div className="p-6">
+          <div className="p-6 relative">
             {/* Date */}
-            <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
+            <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-3 font-medium">
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
@@ -87,38 +120,57 @@ export default function BlogCard({
             </div>
 
             {/* Title */}
-            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors duration-300 line-clamp-2">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-red dark:group-hover:text-primary-red-light transition-colors duration-300 line-clamp-2">
               {title}
             </h3>
 
             {/* Excerpt */}
-            <p className="text-gray-600 mb-4 line-clamp-3">{excerpt}</p>
+            <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3 leading-relaxed">{excerpt}</p>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-2">
-              {tags.slice(0, 3).map((tag) => (
-                <span
+            <div className="flex flex-wrap gap-2 mb-4">
+              {tags.slice(0, 3).map((tag, index) => (
+                <motion.span
                   key={tag}
-                  className="px-3 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
+                  className="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-xs rounded-full font-medium"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: delay + 0.1 * index, ...springs.bouncy }}
+                  whileHover={{ scale: 1.1 }}
                 >
                   #{tag}
-                </span>
+                </motion.span>
               ))}
             </div>
 
             {/* Read more */}
-            <div className="mt-4 flex items-center gap-2 text-primary-600 font-semibold group-hover:gap-3 transition-all duration-300">
+            <div className="flex items-center gap-2 text-primary-red dark:text-primary-red-light font-semibold group-hover:gap-3 transition-all duration-300">
               <span>Devamını Oku</span>
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <motion.svg 
+                className="w-4 h-4" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+                animate={{ x: [0, 4, 0] }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                }}
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2}
                   d="M9 5l7 7-7 7"
                 />
-              </svg>
+              </motion.svg>
             </div>
           </div>
+          
+          {/* Glass reflection overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-transparent pointer-events-none rounded-3xl"></div>
         </div>
       </Link>
     </motion.div>

@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "question": "Ehliyet sınavına nasıl hazırlanırım?",
+    "answer": "Ehliyet sınavına hazırlık sürecinde teorik ve pratik eğitimlerinizi düzenli olarak takip etmeniz önemlidir. Kursumuzda deneyimli eğitmenlerimiz size sınav tekniklerini öğretir, örnek sorular çözer ve sınav sürecinde size rehberlik eder. Ayrıca online test sistemimiz ile istediğiniz zaman pratik yapabilirsiniz."
+  },
+  {
+    "id": "2",
+    "question": "Kaç saat ders almalıyım?",
+    "answer": "Yasal olarak minimum 12 saat teorik ve 12 saat pratik ders almanız gerekmektedir. Ancak biz öğrencilerimizin ihtiyaçlarına göre ek ders paketleri sunuyoruz. Standart paketimiz 16 saat pratik ders içerir, yoğun paketimiz ise 24 saat pratik eğitim sunar."
+  },
+  {
+    "id": "3",
+    "question": "Otomatik vites mi manuel vites mi daha iyi?",
+    "answer": "Her ikisinin de avantajları vardır. Otomatik vites öğrenmesi daha kolay ve şehir içinde kullanımı daha rahat olsa da, manuel vites ehliyeti ile her türlü aracı kullanabilirsiniz. Manuel vites ehliyeti otomatik vitesli araçları da kapsar, ancak otomatik vites ehliyeti sadece otomatik vitesli araçları kullanmanıza izin verir."
+  },
+  {
+    "id": "4",
+    "question": "Sınav ücreti paket fiyatına dahil mi?",
+    "answer": "Hayır, sınav ücretleri MEB tarafından belirlenir ve ayrı olarak ödenir. Paket fiyatlarımız sadece eğitim ücretlerini kapsar. Ancak sınavlara kayıt işlemlerinde size rehberlik eder ve gerekli evrak işlemlerinde yardımcı oluruz."
+  },
+  {
+    "id": "5",
+    "question": "Yaş sınırı var mı?",
+    "answer": "B sınıfı ehliyet için minimum yaş 18'dir. 17 yaşını doldurmuş adaylar kurs eğitimine başlayabilir, ancak sınava sadece 18 yaşını doldurduktan sonra girebilirler."
+  },
+  {
+    "id": "6",
+    "question": "Hangi bölgelerde eğitim veriyorsunuz?",
+    "answer": "Merkez ofisimiz Büyükçekmece'de bulunmaktadır. Ancak pratik eğitimler için Avcılar, Küçükçekmece, Beylikdüzü ve çevre ilçelerde de servis hizmeti sunuyoruz. İstediğiniz yerden alıp, istediğiniz yere bırakabiliriz."
+  },
+  {
+    "id": "7",
+    "question": "Ders saatleri nasıl belirleniyor?",
+    "answer": "Ders saatlerinizi kendi programınıza göre esnek bir şekilde planlayabilirsiniz. Hafta içi 09:00-19:00, Cumartesi 09:00-17:00 saatleri arasında randevu alabilirsiniz. Öğrencilerimize maksimum esneklik sağlamak için yoğun çalışma saatlerimiz vardır."
+  },
+  {
+    "id": "8",
+    "question": "Başarısız olursam ne olur?",
+    "answer": "Sınavda başarısız olmanız durumunda ek ders paketi alarak pratik yapabilirsiniz. Ayrıca eğitmenlerimiz zayıf olduğunuz konularda özel çalışma programı hazırlar. Kursumuzun başarı oranı %95'in üzerindedir ve öğrencilerimizin büyük çoğunluğu ilk sınavda başarılı olur."
+  },
+  {
+    "id": "9",
+    "question": "Ödeme seçenekleri nelerdir?",
+    "answer": "Nakit, kredi kartı (taksit seçenekleri mevcut) ve havale ile ödeme yapabilirsiniz. Ayrıca öğrenciler ve işsizler için özel indirimlerimiz bulunmaktadır. Detaylı bilgi için bizi arayabilirsiniz."
+  },
+  {
+    "id": "10",
+    "question": "Eğitim araçlarınız nasıl?",
+    "answer": "2023-2024 model, tam donanımlı, klimalı, ABS ve hava yastığı bulunan güvenli araçlarımız vardır. Hem manuel hem de otomatik vitesli araçlarımız mevcuttur. Tüm araçlarımız düzenli bakımdan geçer ve MEB standartlarına uygundur."
+  },
+  {
+    "id": "11",
+    "question": "Direksiyon sınavı nasıl geçer?",
+    "answer": "Direksiyon sınavı park, yokuş kalkış, dönüş teknikleri ve trafikte sürüş gibi temel becerileri ölçer. Kursumuzda sınav parkuruna benzer alanlarda bolca pratik yaparsınız. Eğitmenlerimiz sınav esnasında dikkat edilmesi gereken noktaları detaylıca anlatır."
+  },
+  {
+    "id": "12",
+    "question": "Yabancı uyruklu öğrenci kabul ediyor musunuz?",
+    "answer": "Evet, yabancı uyruklu öğrencilere de eğitim veriyoruz. Türkiye'de geçerli ikamet izniniz olması ve yasal süreçleri tamamlamanız yeterlidir. Gerekli evrak konusunda size yardımcı oluruz."
+  }
+]

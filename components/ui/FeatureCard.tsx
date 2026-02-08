@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { springs, entranceAnimations } from '@/lib/spring-animations';
+import { glassCard } from '@/lib/glass-effects';
 
 interface FeatureCardProps {
   icon: React.ReactNode;
@@ -12,31 +14,58 @@ interface FeatureCardProps {
 export default function FeatureCard({ icon, title, description, delay = 0 }: FeatureCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={entranceAnimations}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay }}
-      whileHover={{ y: -8 }}
-      className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300"
+      transition={{ delay, ...springs.smooth }}
+      whileHover={{ y: -8, scale: 1.02 }}
+      className="group relative backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 rounded-3xl p-8 shadow-glass-lg border border-white/30 dark:border-white/10 overflow-hidden"
     >
-      {/* Icon */}
-      <div className="inline-flex p-4 bg-gradient-to-br from-primary-500 to-primary-600 rounded-2xl mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
-        <div className="text-white w-8 h-8">{icon}</div>
-      </div>
+      {/* Icon with glass effect */}
+      <motion.div 
+        className="relative inline-flex p-4 bg-gradient-to-br from-primary-red to-secondary-orange rounded-2xl mb-6 shadow-glow-red overflow-hidden"
+        whileHover={{ scale: 1.15, rotate: 5 }}
+        transition={springs.bouncy}
+      >
+        {/* Glass overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent" />
+        
+        {/* Pulsing glow */}
+        <motion.div
+          className="absolute inset-0 bg-primary-red rounded-2xl opacity-50 blur-lg"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.5, 0.3, 0.5],
+          }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        
+        <div className="text-white w-8 h-8 relative z-10">{icon}</div>
+      </motion.div>
 
       {/* Title */}
-      <h3 className="text-2xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors duration-300">
+      <h3 className="text-h3 font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-red dark:group-hover:text-primary-red-light transition-colors duration-300">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-600 leading-relaxed">{description}</p>
+      <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{description}</p>
 
-      {/* Hover effect gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-400/0 via-success-400/0 to-primary-400/0 group-hover:from-primary-400/5 group-hover:via-success-400/5 group-hover:to-primary-400/5 rounded-2xl transition-all duration-500 pointer-events-none"></div>
+      {/* Glass reflection overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 rounded-3xl transition-all duration-500 pointer-events-none"></div>
 
-      {/* Decorative corner */}
-      <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-primary-400/10 to-success-400/10 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      {/* Decorative corner glow */}
+      <motion.div 
+        className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary-red/20 to-secondary-orange/20 rounded-bl-full blur-2xl"
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        transition={springs.smooth}
+      />
     </motion.div>
   );
 }

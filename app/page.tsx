@@ -8,7 +8,6 @@ import FeatureCard from '@/components/ui/FeatureCard';
 import CourseCard from '@/components/ui/CourseCard';
 import BlogCard from '@/components/ui/BlogCard';
 import TestimonialCard from '@/components/ui/TestimonialCard';
-import TrustBadge from '@/components/ui/TrustBadge';
 import Footer from '@/components/ui/Footer';
 
 export default function Home() {
@@ -41,7 +40,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 dark:from-black dark:via-gray-900 dark:to-gray-800">
       {/* Navigation */}
       <Navigation siteName={settings.siteName} />
 
@@ -61,61 +60,8 @@ export default function Home() {
         ]}
       />
 
-      {/* Trust Badges Section */}
-      <section className="py-16 bg-gradient-to-r from-primary-50 to-success-50">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <TrustBadge
-              icon={
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-              }
-              title="MEB Onaylı"
-              description="Milli Eğitim Bakanlığı onaylı eğitim programı"
-              color="blue"
-              delay={0}
-            />
-            <TrustBadge
-              icon={
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
-                  <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-              }
-              title="%95 Başarı"
-              description="İlk seferde sınavı kazanma oranımız"
-              color="green"
-              delay={0.1}
-            />
-            <TrustBadge
-              icon={
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
-                </svg>
-              }
-              title="15 Yıl Deneyim"
-              description="Sektörde kanıtlanmış tecrübe"
-              color="orange"
-              delay={0.2}
-            />
-            <TrustBadge
-              icon={
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
-                </svg>
-              }
-              title="Modern Araçlar"
-              description="2023-2024 model eğitim araçları"
-              color="purple"
-              delay={0.3}
-            />
-          </div>
-        </div>
-      </section>
-
       {/* Stats Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatsCard
@@ -169,10 +115,10 @@ export default function Home() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h2 font-bold text-gray-900 dark:text-white mb-4">
               Neden Efe Sürücü Kursu?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-400">
               Farkımızı yaratan özelliklerimiz
             </p>
           </div>
@@ -195,13 +141,15 @@ export default function Home() {
       </section>
 
       {/* Courses Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 relative overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-apple-teal/5 via-transparent to-apple-green/5"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Popüler Kurslarımız
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-900 dark:text-white">
               Size en uygun paketi seçin
             </p>
           </div>
@@ -225,10 +173,10 @@ export default function Home() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-h2 font-bold text-gray-900 dark:text-white mb-4">
               Öğrencilerimiz Ne Diyor?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-400">
               Başarı hikayelerini dinleyin
             </p>
           </div>
@@ -249,13 +197,15 @@ export default function Home() {
 
       {/* Blog Section */}
       {recentPosts.length > 0 && (
-        <section className="py-20 bg-gray-50">
-          <div className="container mx-auto px-4">
+        <section className="py-20 relative overflow-hidden">
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-bl from-accent-rose/10 via-transparent to-primary-red/10"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              <h2 className="text-h2 font-bold text-gray-900 dark:text-white mb-4">
                 Blog Yazılarımız
               </h2>
-              <p className="text-xl text-gray-600">
+              <p className="text-xl text-gray-600 dark:text-gray-400">
                 Faydalı bilgiler ve ipuçları
               </p>
             </div>
@@ -278,26 +228,36 @@ export default function Home() {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <section className="py-20 relative overflow-hidden">
+        {/* Animated gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-red via-secondary-orange to-accent-rose"></div>
+        
+        {/* Animated mesh overlay */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-radial from-secondary-gold/20 via-transparent to-transparent animate-pulse-slow"></div>
+        </div>
+        
+        {/* Glass overlay */}
+        <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-h2 font-bold mb-6 text-white drop-shadow-lg">
             Ehliyetinize Bugün Başlayın!
           </h2>
-          <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto drop-shadow-md">
             Hemen başvurun, hayalinizdeki ehliyete sahip olun. Deneyimli eğitmenlerimiz ve modern araçlarımızla size en iyi eğitimi sunuyoruz.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="/iletisim"
-              className="px-8 py-4 bg-success-500 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl hover:bg-success-600 transition-all duration-300 hover:scale-105"
+              className="px-8 py-4 backdrop-blur-xl bg-white/95 text-primary-red rounded-2xl font-semibold text-lg shadow-[0_10px_40px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300 border border-white/50"
             >
               ✉ Ücretsiz Bilgi Al
             </a>
             <a
               href="/kurslar"
-              className="px-8 py-4 bg-white text-primary-700 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="px-8 py-4 backdrop-blur-xl bg-white/10 border-2 border-white/50 hover:bg-white/20 text-white rounded-2xl font-semibold text-lg shadow-glass-xl hover:shadow-glass-xl transition-all duration-300 hover:scale-105"
             >
-              📚 Kursları İncele
+              🚗 Kursları İncele
             </a>
           </div>
         </div>

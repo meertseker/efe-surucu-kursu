@@ -1,12 +1,25 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { getSiteSettings } from "@/lib/content";
 import { getLocalBusinessSchema } from "@/lib/structured-data";
+import Analytics from "@/components/Analytics";
+import AnalyticsRouteTracker from "@/components/AnalyticsRouteTracker";
+import WebVitals from "@/components/WebVitals";
+import ScrollToTop from "@/components/ui/ScrollToTop";
+import Toaster from "@/components/ui/Toaster";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: 'swap',
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
 });
 
 const settings = getSiteSettings();
@@ -47,7 +60,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'your-google-verification-code', // Add your verification code
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || 'your-google-verification-code',
   },
 };
 
@@ -65,9 +78,34 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        
+        {/* PWA Meta Tags */}
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <meta name="theme-color" content="#3b82f6" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Efe Sürücü" />
       </head>
-      <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
+      <body className={`${jakarta.variable} ${inter.variable} font-sans antialiased bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900`}>
+        {/* Skip to content link for accessibility */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-6 py-3 rounded-lg z-50 font-semibold"
+        >
+          Ana içeriğe atla
+        </a>
+
+        <Analytics />
+        <AnalyticsRouteTracker />
+        <WebVitals />
+        <Toaster />
+        
+        <main id="main-content">
+          {children}
+        </main>
+        
+        <ScrollToTop />
       </body>
     </html>
   );

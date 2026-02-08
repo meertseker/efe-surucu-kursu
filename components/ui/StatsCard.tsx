@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { springs, entranceAnimations } from '@/lib/spring-animations';
+import { glassCard } from '@/lib/glass-effects';
 
 interface StatsCardProps {
   value: number;
@@ -21,9 +23,12 @@ export default function StatsCard({
   delay = 0,
 }: StatsCardProps) {
   const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    const duration = 2000; // 2 seconds
+    if (!isVisible) return;
+    
+    const duration = 2000;
     const steps = 60;
     const increment = value / steps;
     let current = 0;
@@ -39,38 +44,59 @@ export default function StatsCard({
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, [value]);
+  }, [value, isVisible]);
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      variants={entranceAnimations}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true }}
-      transition={{ duration: 0.6, delay }}
+      onViewportEnter={() => setIsVisible(true)}
+      transition={{ delay, ...springs.smooth }}
+      whileHover={{ y: -8, scale: 1.05 }}
       className="relative group"
     >
-      <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100">
+      <div className="relative backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 rounded-3xl p-8 shadow-glass-lg border border-white/30 dark:border-white/10 overflow-hidden">
         {/* Icon */}
         {icon && (
-          <div className="inline-flex p-3 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
-            <div className="text-white">{icon}</div>
-          </div>
+          <motion.div 
+            className="inline-flex p-3 bg-gradient-to-br from-primary-red to-secondary-orange rounded-2xl mb-4 shadow-glow-red overflow-hidden relative"
+            whileHover={{ scale: 1.15, rotate: 5 }}
+            transition={springs.bouncy}
+          >
+            {/* Glass overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent" />
+            
+            <div className="text-white relative z-10">{icon}</div>
+          </motion.div>
         )}
 
-        {/* Value */}
-        <div className="mb-2">
-          <span className="text-5xl font-bold bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent">
+        {/* Value with counter animation */}
+        <div className="mb-2 relative">
+          <motion.span 
+            className="text-5xl font-bold text-white"
+          >
             {prefix}
             {count.toLocaleString('tr-TR')}
             {suffix}
-          </span>
+          </motion.span>
         </div>
 
         {/* Label */}
-        <p className="text-gray-600 font-medium">{label}</p>
+        <p className="text-white dark:text-white font-medium relative z-10">{label}</p>
 
-        {/* Decorative gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-400/0 via-success-400/0 to-warning-400/0 group-hover:from-primary-400/5 group-hover:via-success-400/5 group-hover:to-warning-400/5 rounded-2xl transition-all duration-500 pointer-events-none"></div>
+        {/* Glass reflection overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent group-hover:from-white/20 rounded-3xl transition-all duration-500 pointer-events-none"></div>
+        
+        {/* Glow effect on hover */}
+        <motion.div
+          className="absolute inset-0 bg-gradient-to-br from-primary-red/0 to-secondary-orange/0 rounded-3xl blur-xl"
+          whileHover={{
+            background: 'linear-gradient(to bottom right, rgba(220,38,38,0.15), rgba(249,115,22,0.15))',
+          }}
+          transition={springs.smooth}
+        />
       </div>
     </motion.div>
   );

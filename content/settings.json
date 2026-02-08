@@ -34,24 +34,24 @@
   },
   "features": [
     {
-      "name": "Deneyimli Eğitmenler",
-      "description": "15+ yıl tecrübeli, MEB onaylı profesyonel eğitmen kadromuz",
-      "icon": "users"
+      "name": "Kapıdan Alım",
+      "description": "Eğitim saatlerinizde evinizden veya iş yerinizden alıp bırakıyoruz",
+      "icon": "map"
     },
     {
-      "name": "Modern Araçlar",
-      "description": "2023-2024 model, tam donanımlı eğitim araçları",
-      "icon": "car"
-    },
-    {
-      "name": "Yüksek Başarı Oranı",
-      "description": "%95 üzeri ilk seferde sınavı kazanma başarısı",
-      "icon": "trophy"
+      "name": "Teorik Destek",
+      "description": "Online test sistemi ve birebir teorik sınav hazırlık desteği",
+      "icon": "book"
     },
     {
       "name": "Esnek Ders Saatleri",
-      "description": "Size uygun zaman dilimlerinde ders programı",
+      "description": "Hafta içi ve hafta sonu size uygun zaman dilimlerinde eğitim",
       "icon": "clock"
+    },
+    {
+      "name": "Taksit İmkanı",
+      "description": "Kredi kartına taksit seçenekleri ile uygun ödeme planları",
+      "icon": "credit-card"
     }
   ],
   "stats": {
