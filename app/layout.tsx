@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import { getSiteSettings } from "@/lib/content";
 import { getLocalBusinessSchema } from "@/lib/structured-data";
@@ -97,7 +98,9 @@ export default function RootLayout({
         </a>
 
         <Analytics />
-        <AnalyticsRouteTracker />
+        <Suspense fallback={null}>
+          <AnalyticsRouteTracker />
+        </Suspense>
         <WebVitals />
         <Toaster />
         

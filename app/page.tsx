@@ -52,7 +52,7 @@ export default function Home() {
         title="Güvenli Sürüş İçin Doğru Adres"
         subtitle={`${stats.yearsOfExperience} yıllık deneyimimiz, %${stats.successRate} başarı oranımız ve modern eğitim araçlarımızla ehliyetinize güvenle kavuşun.`}
         primaryCta={{ text: 'Kursları İncele', href: '/kurslar' }}
-        secondaryCta={{ text: 'Hemen Başvur', href: '/iletisim' }}
+        secondaryCta={{ text: 'WhatsApp ile İletişim', href: 'https://wa.me/902125550123?text=Merhaba,%20sürücü%20kursu%20hakkında%20bilgi%20almak%20istiyorum' }}
         stats={[
           { value: `${stats.yearsOfExperience}+`, label: 'Yıl Deneyim' },
           { value: `%${stats.successRate}`, label: 'Başarı Oranı' },
@@ -143,7 +143,7 @@ export default function Home() {
       {/* Courses Section */}
       <section className="py-20 relative overflow-hidden">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-apple-teal/5 via-transparent to-apple-green/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-red/5 via-transparent to-secondary-orange/5"></div>
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">

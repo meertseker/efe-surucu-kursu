@@ -93,7 +93,7 @@ export default function StatsCard({
         <motion.div
           className="absolute inset-0 bg-gradient-to-br from-primary-red/0 to-secondary-orange/0 rounded-3xl blur-xl"
           whileHover={{
-            background: 'linear-gradient(to bottom right, rgba(220,38,38,0.15), rgba(249,115,22,0.15))',
+            background: 'linear-gradient(to bottom right, rgba(154,50,34,0.15), rgba(212,96,62,0.15))',
           }}
           transition={springs.smooth}
         />

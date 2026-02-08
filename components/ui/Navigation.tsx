@@ -14,8 +14,10 @@ interface NavigationProps {
 export default function Navigation({ siteName, logo }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -36,53 +38,39 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={springs.smooth}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${glassNavbar(isScrolled)}`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isMounted ? glassNavbar(isScrolled) : glassNavbar(false)}`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
             <motion.div 
-              className="relative w-12 h-12 bg-gradient-to-br from-primary-red to-secondary-orange rounded-2xl flex items-center justify-center shadow-glow-red"
-              whileHover={{ scale: 1.1, rotate: 5 }}
+              className="relative h-12 flex items-center"
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={springs.bouncy}
             >
-              {/* Glass overlay */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent rounded-2xl" />
-              
-              <svg
-                className="w-7 h-7 text-white relative z-10"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                />
-              </svg>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src="/logo.png" 
+                alt={siteName}
+                className="h-12 w-auto object-contain drop-shadow-[0_0_15px_rgba(154,50,34,0.6)]"
+              />
               
               {/* Pulsing glow effect */}
               <motion.div
-                className="absolute inset-0 bg-primary-red rounded-2xl opacity-50 blur-lg"
+                className="absolute inset-0 bg-primary-red/30 rounded-full opacity-50 blur-xl -z-10"
                 animate={{
-                  scale: [1, 1.2, 1],
-                  opacity: [0.5, 0.3, 0.5],
+                  scale: [1, 1.3, 1],
+                  opacity: [0.5, 0.2, 0.5],
                 }}
                 transition={{
-                  duration: 2,
+                  duration: 3,
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
               />
             </motion.div>
-            
-            <span className="text-2xl font-bold text-white dark:text-white">
-              {siteName}
-            </span>
           </Link>
 
           {/* Desktop Menu */}
@@ -125,7 +113,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
                 className="relative px-6 py-3 bg-gradient-to-r from-primary-red to-secondary-orange text-white rounded-2xl font-semibold shadow-glow-red overflow-hidden"
                 whileHover={{ 
                   scale: 1.05,
-                  boxShadow: '0 0 40px rgba(220, 38, 38, 0.7)',
+                  boxShadow: '0 0 40px rgba(154, 50, 34, 0.7)',
                 }}
                 whileTap={{ scale: 0.95 }}
                 transition={springs.smooth}
@@ -154,12 +142,16 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
           {/* Mobile Menu Button */}
           <motion.button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-xl backdrop-blur-lg bg-white/60 dark:bg-white/10 hover:bg-white/80 dark:hover:bg-white/20 transition-all duration-300"
+            className={`md:hidden p-2 rounded-xl transition-all duration-300 ${
+              isMounted && isScrolled 
+                ? 'backdrop-blur-lg bg-white/20 hover:bg-white/30' 
+                : 'backdrop-blur-lg bg-white/10 hover:bg-white/20'
+            }`}
             whileTap={{ scale: 0.9 }}
             transition={springs.snappy}
           >
             <motion.svg
-              className="w-6 h-6 text-gray-900 dark:text-white"
+              className="w-6 h-6 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -194,7 +186,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={springs.smooth}
-            className="md:hidden backdrop-blur-2xl bg-white/90 dark:bg-depth-dark-elevated border-t border-white/20 dark:border-white/10 shadow-glass-lg"
+            className="md:hidden backdrop-blur-2xl bg-primary-red/95 border-t border-primary-red/30 shadow-glass-lg"
           >
             <motion.div 
               className="container mx-auto px-4 py-4 space-y-2"
@@ -212,7 +204,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
                   <Link
                     href={item.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block px-4 py-3 rounded-xl backdrop-blur-lg bg-white/60 dark:bg-white/5 hover:bg-white/80 dark:hover:bg-white/10 text-gray-900 dark:text-white font-medium transition-all duration-300 border border-white/30 dark:border-white/10"
+                    className="block px-4 py-3 rounded-xl backdrop-blur-lg bg-white/10 hover:bg-white/20 text-white font-medium transition-all duration-300 border border-white/20"
                   >
                     {item.label}
                   </Link>

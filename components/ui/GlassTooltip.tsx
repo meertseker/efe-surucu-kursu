@@ -19,7 +19,7 @@ export default function GlassTooltip({
 }: GlassTooltipProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [coords, setCoords] = useState({ x: 0, y: 0 });
-  const timeoutRef = useRef<NodeJS.Timeout>();
+  const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined);
   const triggerRef = useRef<HTMLDivElement>(null);
 
   const showTooltip = () => {

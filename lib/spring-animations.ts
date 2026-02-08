@@ -214,24 +214,28 @@ export const slideDown: Variants = {
   },
 };
 
-// Floating animation
+// Floating animation (values only - use with separate transition prop)
 export const floatingAnimation = {
   y: [-10, 10, -10],
-  transition: {
-    duration: 6,
-    repeat: Infinity,
-    ease: 'easeInOut',
-  },
 };
 
-// Shimmer animation
+// Floating animation transition config
+export const floatingTransition: Transition = {
+  duration: 6,
+  repeat: Infinity,
+  ease: easings.standard,
+};
+
+// Shimmer animation (values only - use with separate transition prop)
 export const shimmerAnimation = {
   backgroundPosition: ['200% 0', '-200% 0'],
-  transition: {
-    duration: 2,
-    repeat: Infinity,
-    ease: 'linear',
-  },
+};
+
+// Shimmer animation transition config
+export const shimmerTransition: Transition = {
+  duration: 2,
+  repeat: Infinity,
+  ease: 'linear',
 };
 
 // Ripple animation (for button press)
@@ -244,14 +248,16 @@ export const rippleAnimation = {
   },
 };
 
-// Gradient shift animation
+// Gradient shift animation (values only - use with separate transition prop)
 export const gradientShift = {
   backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-  transition: {
-    duration: 8,
-    repeat: Infinity,
-    ease: 'linear',
-  },
+};
+
+// Gradient shift transition config
+export const gradientShiftTransition: Transition = {
+  duration: 8,
+  repeat: Infinity,
+  ease: 'linear',
 };
 
 // Page transition

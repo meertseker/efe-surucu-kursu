@@ -93,7 +93,7 @@ export default function CourseCard({
 
         {/* Price with glass effect */}
         <motion.div 
-          className="mb-6 backdrop-blur-lg bg-white/40 dark:bg-white/5 p-4 rounded-2xl border border-white/30 dark:border-white/10 overflow-hidden relative"
+          className="mb-6 backdrop-blur-lg bg-white/80 dark:bg-gray-800/80 p-4 rounded-2xl border border-white/30 dark:border-white/10 overflow-hidden relative"
           whileHover={{ scale: 1.02 }}
           transition={springs.snappy}
         >
@@ -102,12 +102,12 @@ export default function CourseCard({
           
           <div className="relative z-10">
             <div className="flex items-baseline gap-2">
-              <span className="text-4xl font-bold bg-gradient-to-r from-primary-red to-secondary-orange bg-clip-text text-transparent">
+              <span className="text-4xl font-bold text-primary-red dark:text-secondary-orange">
                 {price.toLocaleString('tr-TR')}
               </span>
-              <span className="text-gray-600 dark:text-gray-400 font-medium">₺</span>
+              <span className="text-primary-red dark:text-secondary-orange font-bold text-2xl">₺</span>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 flex items-center gap-1">
+            <p className="text-sm text-gray-700 dark:text-gray-300 mt-1 flex items-center gap-1">
               <span>💳</span> {duration}
             </p>
           </div>
@@ -156,7 +156,7 @@ export default function CourseCard({
             }`}
             whileHover={{ 
               scale: 1.05,
-              boxShadow: '0 0 50px rgba(220, 38, 38, 0.7)',
+              boxShadow: '0 0 50px rgba(154, 50, 34, 0.7)',
             }}
             whileTap={{ scale: 0.95 }}
             transition={springs.smooth}

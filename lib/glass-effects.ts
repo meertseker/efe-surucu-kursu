@@ -13,8 +13,8 @@ export const glassEffects = {
   
   // Navigation variants
   navbar: {
-    default: 'backdrop-blur-xl backdrop-saturate-180 bg-white/70 dark:bg-depth-dark-elevated border-b border-white/20 dark:border-white/10 shadow-glass',
-    scrolled: 'backdrop-blur-2xl backdrop-saturate-180 bg-white/80 dark:bg-depth-dark-floating border-b border-white/30 dark:border-white/15 shadow-glass-lg',
+    default: 'backdrop-blur-sm bg-transparent border-b border-transparent',
+    scrolled: 'backdrop-blur-xl bg-primary-red/80 border-b border-primary-red/30 shadow-glow-red',
   },
   
   // Button variants  
@@ -77,10 +77,10 @@ export const lensEffect = {
 
 // Glow effects
 export const glowEffect = {
-  subtle: 'shadow-[0_0_20px_rgba(220,38,38,0.3)]',
-  medium: 'shadow-[0_0_30px_rgba(220,38,38,0.4)]',
-  strong: 'shadow-[0_0_40px_rgba(220,38,38,0.5)]',
-  pulse: 'animate-glow-pulse shadow-[0_0_30px_rgba(220,38,38,0.4)]',
+  subtle: 'shadow-[0_0_20px_rgba(154,50,34,0.3)]',
+  medium: 'shadow-[0_0_30px_rgba(154,50,34,0.4)]',
+  strong: 'shadow-[0_0_40px_rgba(154,50,34,0.5)]',
+  pulse: 'animate-glow-pulse shadow-[0_0_30px_rgba(154,50,34,0.4)]',
 };
 
 // Reflection overlay

@@ -4,7 +4,10 @@ import { motion } from 'framer-motion';
 import { useState, forwardRef, InputHTMLAttributes } from 'react';
 import { springs } from '@/lib/spring-animations';
 
-interface GlassInputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface GlassInputProps extends Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  'onDrag' | 'onDragStart' | 'onDragEnd' | 'onAnimationStart' | 'onAnimationEnd' | 'onAnimationIteration'
+> {
   label?: string;
   error?: string;
   success?: string;
