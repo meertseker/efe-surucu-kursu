@@ -35,12 +35,18 @@ export default function BlogCard({
       <Link href={`/blog/${slug}`} className="block">
         <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden">
           {/* Image */}
-          <div className="relative h-48 bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 overflow-hidden">
+          <div className="relative h-48 bg-gradient-to-br from-primary-400 via-primary-500 to-success-500 overflow-hidden">
+            {/* Blog image placeholder */}
+            <svg viewBox="0 0 400 200" className="w-full h-full opacity-30" fill="currentColor">
+              <rect x="50" y="80" width="300" height="80" rx="10" />
+              <circle cx="100" cy="50" r="20" />
+              <path d="M 100 120 L 150 80 L 200 100 L 250 70 L 300 90 L 300 160 L 100 160 Z" opacity="0.5"/>
+            </svg>
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
             
             {/* Category badge */}
             <div className="absolute top-4 left-4">
-              <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-blue-600 text-sm font-semibold rounded-full shadow-lg">
+              <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-primary-700 text-sm font-semibold rounded-full shadow-lg">
                 {category}
               </span>
             </div>
@@ -49,7 +55,7 @@ export default function BlogCard({
             <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-xl">
                 <svg
-                  className="w-8 h-8 text-blue-600"
+                  className="w-8 h-8 text-primary-600"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -81,7 +87,7 @@ export default function BlogCard({
             </div>
 
             {/* Title */}
-            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
+            <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary-600 transition-colors duration-300 line-clamp-2">
               {title}
             </h3>
 
@@ -101,7 +107,7 @@ export default function BlogCard({
             </div>
 
             {/* Read more */}
-            <div className="mt-4 flex items-center gap-2 text-blue-600 font-semibold group-hover:gap-3 transition-all duration-300">
+            <div className="mt-4 flex items-center gap-2 text-primary-600 font-semibold group-hover:gap-3 transition-all duration-300">
               <span>Devamını Oku</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path

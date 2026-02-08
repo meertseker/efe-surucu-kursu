@@ -13,16 +13,23 @@ interface HeroProps {
 
 export default function Hero({ title, subtitle, primaryCta, secondaryCta, stats }: HeroProps) {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-primary-700 via-primary-800 to-primary-900">
-      {/* Background Image Overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[url('/images/hero-road-bg.jpg')] bg-cover bg-center"></div>
+    <div className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800">
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" strokeWidth="1"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
       </div>
       
       {/* Animated background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-warning-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-success-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-warning-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-success-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
       </div>
 
       <div className="relative container mx-auto px-4 py-20 md:py-32">
@@ -60,15 +67,15 @@ export default function Hero({ title, subtitle, primaryCta, secondaryCta, stats 
             >
               <Link
                 href={primaryCta.href}
-                className="group relative px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="group relative px-8 py-4 bg-white text-primary-700 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
               >
                 <span className="relative z-10">{primaryCta.text}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-warning-400 to-success-400 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
               </Link>
               
               <Link
                 href={secondaryCta.href}
-                className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-semibold text-lg border-2 border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+                className="px-8 py-4 bg-success-500 text-white rounded-xl font-semibold text-lg border-2 border-success-400 hover:bg-success-600 transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 {secondaryCta.text}
               </Link>
@@ -100,23 +107,39 @@ export default function Hero({ title, subtitle, primaryCta, secondaryCta, stats 
             className="hidden lg:block"
           >
             <div className="relative">
-              {/* Car Image - Replace with your actual car photo */}
-              <div className="relative w-full h-96 rounded-3xl overflow-hidden shadow-2xl">
-                {/* Placeholder for car image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-road-800 to-road-900"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center text-white/80">
-                    <svg className="w-32 h-32 mx-auto mb-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/>
+              {/* Placeholder: Modern driving school car */}
+              <div className="relative w-full h-96 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-100 to-gray-200">
+                {/* Car placeholder image */}
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                  <div className="relative w-full h-full">
+                    {/* Modern car illustration */}
+                    <svg viewBox="0 0 400 300" className="w-full h-full" fill="none">
+                      {/* Car body */}
+                      <rect x="50" y="120" width="300" height="100" rx="20" fill="#0284c7" opacity="0.9"/>
+                      <rect x="80" y="80" width="240" height="80" rx="15" fill="#0369a1"/>
+                      {/* Windows */}
+                      <rect x="90" y="90" width="100" height="50" rx="8" fill="#bae6fd" opacity="0.7"/>
+                      <rect x="210" y="90" width="100" height="50" rx="8" fill="#bae6fd" opacity="0.7"/>
+                      {/* Wheels */}
+                      <circle cx="110" cy="220" r="30" fill="#1e293b"/>
+                      <circle cx="110" cy="220" r="20" fill="#475569"/>
+                      <circle cx="290" cy="220" r="30" fill="#1e293b"/>
+                      <circle cx="290" cy="220" r="20" fill="#475569"/>
+                      {/* L Badge (Learner) */}
+                      <rect x="320" y="95" width="25" height="25" rx="4" fill="#22c55e"/>
+                      <text x="332.5" y="112" fontSize="18" fontWeight="bold" fill="white" textAnchor="middle">L</text>
+                      {/* Headlight */}
+                      <circle cx="60" cy="150" r="8" fill="#fbbf24" opacity="0.8"/>
                     </svg>
-                    <p className="text-sm opacity-60">
-                      FOTOĞRAF: Modern eğitim aracınızın fotoğrafını<br />
-                      <code className="text-xs">/public/images/hero-car.jpg</code> olarak ekleyin
-                    </p>
                   </div>
                 </div>
-                {/* Glassmorphism overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/80 via-transparent to-transparent"></div>
+                {/* Info overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-primary-900/90 to-transparent p-6">
+                  <p className="text-white text-sm font-medium">
+                    🚗 2024 Model Eğitim Aracı<br/>
+                    <span className="text-xs text-primary-200">Kendi aracınızın fotoğrafını ekleyin</span>
+                  </p>
+                </div>
               </div>
               
               {/* Floating elements */}

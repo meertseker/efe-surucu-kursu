@@ -30,19 +30,35 @@ export default function CourseCard({
     >
       {/* Popular badge */}
       {popular && (
-        <div className="absolute top-0 right-0 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-6 py-2 rounded-bl-2xl font-semibold text-sm shadow-lg">
-          ⭐ Popüler Seçim
+        <div className="absolute top-0 right-0 bg-gradient-to-r from-warning-500 to-warning-600 text-white px-6 py-2 rounded-bl-2xl font-semibold text-sm shadow-lg">
+          ⭐ En Çok Tercih Edilen
         </div>
       )}
 
-      {/* Gradient header */}
-      <div className={`p-6 ${popular ? 'bg-gradient-to-r from-blue-600 to-purple-600' : 'bg-gradient-to-r from-gray-600 to-gray-700'} text-white`}>
+      {/* Gradient header with image placeholder */}
+      <div className="relative h-48 overflow-hidden">
+        {/* Placeholder driving image */}
+        <div className={`absolute inset-0 ${popular ? 'bg-gradient-to-br from-primary-500 to-primary-700' : 'bg-gradient-to-br from-road-600 to-road-800'}`}>
+          <svg viewBox="0 0 400 200" className="w-full h-full opacity-20" fill="currentColor">
+            <circle cx="100" cy="140" r="35" />
+            <circle cx="300" cy="140" r="35" />
+            <rect x="60" y="80" width="280" height="80" rx="15" />
+          </svg>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <div className="absolute bottom-4 left-4 text-white">
+          <h3 className="text-2xl font-bold">{title}</h3>
+          <p className="text-sm opacity-90">{duration}</p>
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className={`p-6 ${popular ? 'bg-gradient-to-br from-primary-50 to-white' : 'bg-white'}`}>
         <h3 className="text-2xl font-bold mb-2">{title}</h3>
         <p className="text-sm opacity-90">{duration}</p>
       </div>
 
-      <div className="p-6">
-        <p className="text-gray-600 mb-6 line-clamp-2">{description}</p>
+        <p className="text-gray-600 mb-6">{description}</p>
 
         {/* Price */}
         <div className="mb-6">
@@ -86,16 +102,16 @@ export default function CourseCard({
           href="/iletisim"
           className={`block w-full py-4 rounded-xl font-semibold text-center transition-all duration-300 ${
             popular
-              ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-lg hover:scale-105'
-              : 'bg-gray-800 text-white hover:bg-gray-900 hover:scale-105'
+              ? 'bg-gradient-to-r from-success-500 to-success-600 text-white hover:shadow-lg hover:scale-105'
+              : 'bg-primary-600 text-white hover:bg-primary-700 hover:scale-105'
           }`}
         >
-          Hemen Kayıt Ol
+          Hemen Kayıt Ol →
         </Link>
       </div>
 
       {/* Hover glow effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/0 via-purple-400/0 to-blue-400/0 hover:from-blue-400/10 hover:via-purple-400/10 hover:to-blue-400/10 pointer-events-none transition-all duration-500 rounded-2xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-primary-400/0 via-success-400/0 to-warning-400/0 hover:from-primary-400/10 hover:via-success-400/10 hover:to-warning-400/10 pointer-events-none transition-all duration-500 rounded-2xl"></div>
     </motion.div>
   );
 }

@@ -31,12 +31,18 @@ export default function InstructorCard({
       className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
     >
       {/* Image / Avatar */}
-      <div className="relative h-64 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500">
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
+      <div className="relative h-64 bg-gradient-to-br from-primary-500 to-primary-700">
+        {/* Professional instructor placeholder */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <svg className="w-32 h-32 text-white/30" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+          </svg>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         <div className="absolute bottom-4 left-4 right-4">
-          <div className="bg-white/90 backdrop-blur-sm p-4 rounded-xl">
+          <div className="bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg">
             <h3 className="text-xl font-bold text-gray-900">{name}</h3>
-            <p className="text-blue-600 font-medium">{title}</p>
+            <p className="text-primary-600 font-medium">{title}</p>
           </div>
         </div>
       </div>
@@ -44,8 +50,8 @@ export default function InstructorCard({
       {/* Content */}
       <div className="p-6">
         {/* Experience Badge */}
-        <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full mb-4">
-          <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+        <div className="inline-flex items-center gap-2 bg-success-50 px-4 py-2 rounded-full mb-4">
+          <svg className="w-5 h-5 text-success-600" fill="currentColor" viewBox="0 0 20 20">
             <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
             <path
               fillRule="evenodd"
@@ -53,7 +59,7 @@ export default function InstructorCard({
               clipRule="evenodd"
             />
           </svg>
-          <span className="text-sm font-semibold text-blue-600">{experience} deneyim</span>
+          <span className="text-sm font-semibold text-success-600">{experience} deneyim</span>
         </div>
 
         {/* Bio */}
@@ -66,7 +72,7 @@ export default function InstructorCard({
             {specialties.map((specialty, index) => (
               <span
                 key={index}
-                className="px-3 py-1 bg-gradient-to-r from-blue-50 to-purple-50 text-blue-700 text-sm rounded-full border border-blue-100"
+                className="px-3 py-1 bg-primary-50 text-primary-700 text-sm rounded-full border border-primary-100"
               >
                 {specialty}
               </span>
@@ -76,7 +82,7 @@ export default function InstructorCard({
       </div>
 
       {/* Hover gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-400/0 via-purple-400/0 to-pink-400/0 group-hover:from-blue-400/5 group-hover:via-purple-400/5 group-hover:to-pink-400/5 pointer-events-none transition-all duration-500"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-400/0 via-success-400/0 to-primary-400/0 group-hover:from-primary-400/5 group-hover:via-success-400/5 group-hover:to-primary-400/5 pointer-events-none transition-all duration-500"></div>
     </motion.div>
   );
 }

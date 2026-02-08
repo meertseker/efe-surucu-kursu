@@ -9,18 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Sürücü Kursu Renk Paleti - Renk Teorisi
+        // Sürücü Kursu Renk Paleti - Profesyonel & Güvenilir
         primary: {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',  // Ana mavi - Güven & Güvenlik
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          50: '#e0f2fe',
+          100: '#bae6fd',
+          200: '#7dd3fc',
+          300: '#38bdf8',
+          400: '#0ea5e9',
+          500: '#0284c7',  // Koyu mavi - Güven & Profesyonellik
+          600: '#0369a1',
+          700: '#075985',
+          800: '#0c4a6e',
+          900: '#0a3a54',
         },
         success: {
           50: '#f0fdf4',

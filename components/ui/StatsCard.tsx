@@ -52,14 +52,14 @@ export default function StatsCard({
       <div className="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100">
         {/* Icon */}
         {icon && (
-          <div className="inline-flex p-3 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <div className="inline-flex p-3 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
             <div className="text-white">{icon}</div>
           </div>
         )}
 
         {/* Value */}
         <div className="mb-2">
-          <span className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <span className="text-5xl font-bold bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent">
             {prefix}
             {count.toLocaleString('tr-TR')}
             {suffix}
@@ -70,7 +70,7 @@ export default function StatsCard({
         <p className="text-gray-600 font-medium">{label}</p>
 
         {/* Decorative gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-400/0 via-purple-400/0 to-blue-400/0 group-hover:from-blue-400/5 group-hover:via-purple-400/5 group-hover:to-blue-400/5 rounded-2xl transition-all duration-500 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-400/0 via-success-400/0 to-warning-400/0 group-hover:from-primary-400/5 group-hover:via-success-400/5 group-hover:to-warning-400/5 rounded-2xl transition-all duration-500 pointer-events-none"></div>
       </div>
     </motion.div>
   );
