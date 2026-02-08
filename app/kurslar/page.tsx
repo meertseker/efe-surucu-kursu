@@ -1,5 +1,8 @@
-import { getCourses } from '@/lib/content';
+import { getCourses, getSiteSettings } from '@/lib/content';
 import { Metadata } from 'next';
+import Navigation from '@/components/ui/Navigation';
+import CourseCard from '@/components/ui/CourseCard';
+import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
   title: 'Kurslarımız - Efe Sürücü Kursu',
@@ -8,69 +11,70 @@ export const metadata: Metadata = {
 
 export default function CoursesPage() {
   const courses = getCourses();
+  const settings = getSiteSettings();
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Navigation will be added later */}
+    <div className="min-h-screen bg-white">
+      <Navigation siteName={settings.siteName} />
       
-      <main className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+      <div className="h-20"></div>
+      
+      {/* Header */}
+      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Kurslarımız
           </h1>
-          <p className="text-xl text-gray-600">
-            Size en uygun eğitim paketini seçin
+          <p className="text-xl text-blue-100 max-w-2xl mx-auto">
+            Size en uygun eğitim paketini seçin ve güvenle sürmeye başlayın
           </p>
         </div>
+      </section>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {courses.map((course) => (
-            <div
-              key={course.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
-            >
-              {course.popular && (
-                <div className="bg-blue-600 text-white text-center py-2 text-sm font-semibold">
-                  Popüler Seçim
-                </div>
-              )}
-              <div className="p-6">
-                <h3 className="text-2xl font-bold mb-2">{course.title}</h3>
-                <p className="text-gray-600 mb-4">{course.description}</p>
-                <div className="mb-4">
-                  <span className="text-3xl font-bold text-blue-600">
-                    {course.price.toLocaleString('tr-TR')} ₺
-                  </span>
-                  <span className="text-gray-500 ml-2">/ {course.duration}</span>
-                </div>
-                <ul className="space-y-2 mb-6">
-                  {course.features.map((feature, index) => (
-                    <li key={index} className="flex items-start">
-                      <svg
-                        className="w-5 h-5 text-green-500 mr-2 mt-0.5 flex-shrink-0"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                  Kayıt Ol
-                </button>
-              </div>
-            </div>
-          ))}
+      {/* Courses Grid */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {courses.map((course) => (
+              <CourseCard
+                key={course.id}
+                title={course.title}
+                description={course.description}
+                price={course.price}
+                duration={course.duration}
+                features={course.features}
+                popular={course.popular}
+              />
+            ))}
+          </div>
         </div>
-      </main>
+      </section>
 
-      {/* Footer will be added later */}
+      {/* CTA Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Hangi Kursu Seçeceğinizden Emin Değil Misiniz?
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            Size en uygun paketi bulmak için bizimle iletişime geçin
+          </p>
+          <a
+            href="/iletisim"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+          >
+            Bize Ulaşın
+          </a>
+        </div>
+      </section>
+
+      <Footer
+        siteName={settings.siteName}
+        phone={settings.contact.phone}
+        email={settings.contact.email}
+        address={settings.contact.address}
+        socialMedia={settings.socialMedia}
+      />
     </div>
   );
 }
