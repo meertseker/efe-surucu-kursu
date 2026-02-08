@@ -19,7 +19,7 @@ export default function ContactPage() {
       <div className="h-20"></div>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             İletişim

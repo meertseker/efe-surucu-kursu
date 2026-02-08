@@ -278,7 +278,7 @@ export default function Home() {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Ehliyetinize Bugün Başlayın!
@@ -289,15 +289,15 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="/iletisim"
-              className="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+              className="px-8 py-4 bg-success-500 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl hover:bg-success-600 transition-all duration-300 hover:scale-105"
             >
-              Ücretsiz Bilgi Al
+              ✉ Ücretsiz Bilgi Al
             </a>
             <a
               href="/kurslar"
-              className="px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-semibold text-lg border-2 border-white/20 hover:bg-white/20 transition-all duration-300 hover:scale-105"
+              className="px-8 py-4 bg-white text-primary-700 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
             >
-              Kursları İncele
+              📚 Kursları İncele
             </a>
           </div>
         </div>

@@ -43,7 +43,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <div className="w-12 h-12 bg-gradient-to-br from-primary-600 to-primary-700 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
               <svg
                 className="w-7 h-7 text-white"
                 fill="none"
@@ -58,7 +58,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
                 />
               </svg>
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-gradient-to-r from-primary-600 to-success-600 bg-clip-text text-transparent">
               {siteName}
             </span>
           </Link>
@@ -69,10 +69,10 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 group"
+                className="relative text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 group"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary-600 to-success-600 group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
           </div>
@@ -81,7 +81,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
           <div className="hidden md:block">
             <Link
               href="/iletisim"
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
+              className="px-6 py-3 bg-gradient-to-r from-success-500 to-success-600 text-white rounded-xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
               Kayıt Ol
             </Link>
@@ -141,7 +141,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
               <Link
                 href="/iletisim"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold text-center"
+                className="block px-4 py-3 bg-gradient-to-r from-success-500 to-success-600 text-white rounded-lg font-semibold text-center"
               >
                 Kayıt Ol
               </Link>

@@ -23,7 +23,7 @@ export default function AboutPage() {
       <div className="h-20"></div>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Hakkımızda
@@ -139,7 +139,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Aramıza Katılın!
@@ -149,9 +149,9 @@ export default function AboutPage() {
           </p>
           <a
             href="/iletisim"
-            className="inline-block px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            className="inline-block px-8 py-4 bg-success-500 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl hover:bg-success-600 transition-all duration-300 hover:scale-105"
           >
-            Hemen Başvur
+            ✓ Hemen Başvur
           </a>
         </div>
       </section>

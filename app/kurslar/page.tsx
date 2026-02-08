@@ -20,7 +20,7 @@ export default function CoursesPage() {
       <div className="h-20"></div>
       
       {/* Header */}
-      <section className="py-20 bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white">
+      <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Kurslarımız
@@ -61,9 +61,9 @@ export default function CoursesPage() {
           </p>
           <a
             href="/iletisim"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-success-500 to-success-600 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
           >
-            Bize Ulaşın
+            📞 Bize Ulaşın
           </a>
         </div>
       </section>

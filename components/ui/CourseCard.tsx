@@ -30,45 +30,37 @@ export default function CourseCard({
     >
       {/* Popular badge */}
       {popular && (
-        <div className="absolute top-0 right-0 bg-gradient-to-r from-warning-500 to-warning-600 text-white px-6 py-2 rounded-bl-2xl font-semibold text-sm shadow-lg">
-          ⭐ En Çok Tercih Edilen
+        <div className="absolute top-4 right-4 z-10 bg-gradient-to-r from-warning-500 to-warning-600 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg">
+          ⭐ Popüler
         </div>
       )}
 
-      {/* Gradient header with image placeholder */}
+      {/* Image placeholder */}
       <div className="relative h-48 overflow-hidden">
-        {/* Placeholder driving image */}
         <div className={`absolute inset-0 ${popular ? 'bg-gradient-to-br from-primary-500 to-primary-700' : 'bg-gradient-to-br from-road-600 to-road-800'}`}>
-          <svg viewBox="0 0 400 200" className="w-full h-full opacity-20" fill="currentColor">
+          <svg viewBox="0 0 400 200" className="w-full h-full opacity-20" fill="white">
             <circle cx="100" cy="140" r="35" />
             <circle cx="300" cy="140" r="35" />
             <rect x="60" y="80" width="280" height="80" rx="15" />
           </svg>
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div className="absolute bottom-4 left-4 text-white">
-          <h3 className="text-2xl font-bold">{title}</h3>
-          <p className="text-sm opacity-90">{duration}</p>
-        </div>
       </div>
 
       {/* Content */}
-      <div className={`p-6 ${popular ? 'bg-gradient-to-br from-primary-50 to-white' : 'bg-white'}`}>
-        <h3 className="text-2xl font-bold mb-2">{title}</h3>
-        <p className="text-sm opacity-90">{duration}</p>
-      </div>
-
-        <p className="text-gray-600 mb-6">{description}</p>
+      <div className="p-6">
+        <h3 className="text-2xl font-bold text-gray-900 mb-2">{title}</h3>
+        <p className="text-gray-600 mb-6 text-sm">{description}</p>
 
         {/* Price */}
-        <div className="mb-6">
+        <div className="mb-6 bg-gray-50 p-4 rounded-xl">
           <div className="flex items-baseline gap-2">
             <span className="text-4xl font-bold text-gray-900">
               {price.toLocaleString('tr-TR')}
             </span>
             <span className="text-gray-500 font-medium">₺</span>
           </div>
-          <p className="text-sm text-gray-500 mt-1">Toplam kurs ücreti</p>
+          <p className="text-sm text-gray-500 mt-1">💳 {duration}</p>
         </div>
 
         {/* Features */}
@@ -82,7 +74,7 @@ export default function CourseCard({
               className="flex items-start gap-3"
             >
               <svg
-                className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0"
+                className="w-5 h-5 text-success-500 mt-0.5 flex-shrink-0"
                 fill="currentColor"
                 viewBox="0 0 20 20"
               >
