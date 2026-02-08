@@ -45,7 +45,7 @@ export default function Hero({ title, subtitle, primaryCta, secondaryCta, stats 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-lg"
             >
               {title}
             </motion.h1>
@@ -54,7 +54,7 @@ export default function Hero({ title, subtitle, primaryCta, secondaryCta, stats 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-xl md:text-2xl mb-8 text-blue-100"
+              className="text-xl md:text-2xl mb-8 text-white/95 drop-shadow-md"
             >
               {subtitle}
             </motion.p>
@@ -67,17 +67,16 @@ export default function Hero({ title, subtitle, primaryCta, secondaryCta, stats 
             >
               <Link
                 href={primaryCta.href}
-                className="group relative px-8 py-4 bg-white text-primary-700 rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-105"
+                className="group relative px-8 py-4 bg-white text-primary-700 rounded-xl font-semibold text-lg shadow-2xl hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.4)] transition-all duration-300 hover:scale-105"
               >
-                <span className="relative z-10">{primaryCta.text}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-warning-400 to-success-400 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <span className="relative z-10">📚 {primaryCta.text}</span>
               </Link>
               
               <Link
                 href={secondaryCta.href}
-                className="px-8 py-4 bg-success-500 text-white rounded-xl font-semibold text-lg border-2 border-success-400 hover:bg-success-600 transition-all duration-300 hover:scale-105 shadow-lg"
+                className="px-8 py-4 bg-success-500 text-white rounded-xl font-semibold text-lg border-2 border-success-400/50 hover:bg-success-600 transition-all duration-300 hover:scale-105 shadow-2xl"
               >
-                {secondaryCta.text}
+                ✓ {secondaryCta.text}
               </Link>
             </motion.div>
 
