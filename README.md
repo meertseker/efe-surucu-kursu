@@ -1,36 +1,268 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Efe Sürücü Kursu - Website
 
-## Getting Started
+Modern, responsive ve SEO uyumlu sürücü kursu web sitesi. Next.js 14 ile geliştirilmiştir.
 
-First, run the development server:
+## 🚀 Özellikler
+
+- ✅ **Modern Stack**: Next.js 14, TypeScript, Tailwind CSS
+- ✅ **Tamamen Ücretsiz**: Database gerektirmez, dosya tabanlı içerik yönetimi
+- ✅ **SEO Optimize**: Sitemap, robots.txt, structured data
+- ✅ **Blog Sistemi**: MDX ile güçlendirilmiş blog
+- ✅ **İletişim Formu**: Resend ile email gönderimi
+- ✅ **Responsive**: Mobil, tablet ve desktop uyumlu
+- ✅ **Hızlı**: Static generation ile yüksek performans
+
+## 📁 Proje Yapısı
+
+```
+efe-surucu-kursu/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx           # Ana sayfa
+│   ├── kurslar/           # Kurslar sayfası
+│   ├── hakkimizda/        # Hakkımızda sayfası
+│   ├── iletisim/          # İletişim sayfası
+│   ├── blog/              # Blog sayfaları
+│   └── api/               # API routes
+├── components/             # React components
+│   ├── ui/                # UI components
+│   ├── layout/            # Layout components
+│   └── sections/          # Page sections
+├── content/               # İçerik dosyaları (JSON + MDX)
+│   ├── blog/             # Blog yazıları (MDX)
+│   ├── courses.json      # Kurslar
+│   ├── instructors.json  # Eğitmenler
+│   └── settings.json     # Site ayarları
+├── lib/                   # Utility functions
+│   ├── mdx.ts            # MDX okuma fonksiyonları
+│   ├── content.ts        # JSON okuma fonksiyonları
+│   ├── types.ts          # TypeScript types
+│   └── utils.ts          # Yardımcı fonksiyonlar
+└── public/               # Static files
+    └── images/           # Görseller
+```
+
+## 🛠️ Kurulum
+
+### 1. Projeyi Klonlayın
+
+```bash
+git clone <repository-url>
+cd efe-surucu-kursu
+```
+
+### 2. Bağımlılıkları Yükleyin
+
+```bash
+npm install
+```
+
+### 3. Ortam Değişkenlerini Ayarlayın
+
+`.env.example` dosyasını `.env.local` olarak kopyalayın:
+
+```bash
+cp .env.example .env.local
+```
+
+Ardından `.env.local` dosyasını düzenleyin:
+
+```env
+# Resend API Key (https://resend.com adresinden ücretsiz alınabilir)
+RESEND_API_KEY=re_your_api_key_here
+
+# İletişim formu email adresi
+CONTACT_EMAIL=info@efesurucukursu.com
+```
+
+### 4. Development Server'ı Başlatın
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açın.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 📝 İçerik Yönetimi
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Kurs Ekleme/Düzenleme
 
-## Learn More
+`content/courses.json` dosyasını düzenleyin:
 
-To learn more about Next.js, take a look at the following resources:
+```json
+{
+  "id": "kurs-id",
+  "title": "Kurs Adı",
+  "description": "Kurs açıklaması",
+  "price": 15000,
+  "duration": "2 ay",
+  "features": ["Özellik 1", "Özellik 2"],
+  "image": "/images/courses/kurs.jpg",
+  "popular": false,
+  "vehicleType": "both"
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Blog Yazısı Ekleme
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+`content/blog/` klasörüne yeni `.mdx` dosyası ekleyin:
 
-## Deploy on Vercel
+```mdx
+---
+title: "Yazı Başlığı"
+date: "2024-02-08"
+author: "Efe Sürücü Kursu"
+category: "Kategori"
+tags: ["tag1", "tag2"]
+image: "/images/blog/image.jpg"
+excerpt: "Kısa özet..."
+published: true
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Yazı İçeriği
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Buraya yazı içeriğinizi yazın...
+```
+
+### Site Ayarları
+
+`content/settings.json` dosyasını düzenleyin.
+
+## 🚀 Deploy
+
+### Vercel'e Deploy (Önerilen - Ücretsiz)
+
+1. GitHub'a projeyi yükleyin
+2. [Vercel](https://vercel.com)'e gidin ve GitHub ile giriş yapın
+3. Projeyi import edin
+4. Environment variables ekleyin:
+   - `RESEND_API_KEY`
+   - `CONTACT_EMAIL`
+5. Deploy butonuna tıklayın
+
+Vercel otomatik olarak:
+- Her commit'te yeniden deploy eder
+- SSL sertifikası ekler
+- CDN üzerinden serve eder
+- Önizleme deployment'ları oluşturur
+
+### Manual Build
+
+```bash
+npm run build
+npm run start
+```
+
+## 🔧 Geliştirme Komutları
+
+```bash
+# Development server
+npm run dev
+
+# Production build
+npm run build
+
+# Production server
+npm run start
+
+# Linting
+npm run lint
+```
+
+## 📦 Teknolojiler
+
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 4
+- **Content**: MDX + JSON
+- **Forms**: React Hook Form + Zod
+- **Email**: Resend
+- **SEO**: Built-in Next.js features
+- **Deployment**: Vercel
+
+## 🎨 Magic MCP Kullanımı
+
+Bu proje [21st.dev Magic MCP](https://21st.dev/magic) ile geliştirilmiştir. UI componentleri oluşturmak için:
+
+1. Cursor IDE'de chat'i açın
+2. `/ui` komutunu kullanın:
+   ```
+   /ui create a modern hero section with gradient background
+   ```
+3. Magic otomatik olarak component oluşturur
+
+## 📧 İletişim Formu Kurulumu
+
+Resend ücretsiz tier özellikleri:
+- 3,000 email/ay
+- 100 email/gün
+- Kendi domain'inizi ekleyebilirsiniz
+
+### Resend Kurulumu:
+
+1. [resend.com](https://resend.com) adresinden hesap oluşturun
+2. API key oluşturun
+3. `.env.local` dosyasına ekleyin
+4. (Opsiyonel) Kendi domain'inizi verify edin
+
+## 🗺️ Google Maps
+
+İletişim sayfasındaki harita Büyükçekmece lokasyonunu gösterir. Kendi lokasyonunuzu eklemek için:
+
+1. [Google Maps](https://maps.google.com) adresinde lokasyonunuzu bulun
+2. "Paylaş" > "Harita Ekle" > Embed kodunu kopyalayın
+3. `app/iletisim/page.tsx` dosyasında iframe src'yi güncelleyin
+
+## 📊 SEO
+
+Site otomatik olarak şunları içerir:
+- Sitemap (`/sitemap.xml`)
+- Robots.txt (`/robots.txt`)
+- Structured Data (JSON-LD)
+- Open Graph tags
+- Twitter Card tags
+
+## 🔒 Güvenlik
+
+- Environment variables ile hassas bilgiler korunur
+- Form validation (client & server-side)
+- Rate limiting (Vercel otomatik)
+- CSRF protection (Next.js built-in)
+
+## 📱 Responsive Design
+
+- Mobile-first yaklaşım
+- Breakpoints: sm (640px), md (768px), lg (1024px), xl (1280px)
+- Touch-friendly navigation
+
+## 🆘 Sorun Giderme
+
+### Build Hatası
+
+```bash
+rm -rf .next node_modules
+npm install
+npm run build
+```
+
+### Type Errors
+
+```bash
+npm run lint
+```
+
+### Environment Variables Çalışmıyor
+
+- `.env.local` dosyasının doğru konumda olduğundan emin olun
+- Development server'ı restart edin
+
+## 📄 Lisans
+
+Bu proje Efe Sürücü Kursu için özel olarak geliştirilmiştir.
+
+## 🤝 Katkıda Bulunma
+
+Hata raporu veya önerileri için issue açabilirsiniz.
+
+---
+
+**Geliştirici Notu**: Bu proje database kullanmadan, tamamen dosya tabanlı bir sistem ile çalışır. Bu sayede hiçbir ek maliyet yoktur ve bakımı çok kolaydır.

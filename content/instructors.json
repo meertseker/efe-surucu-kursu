@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ahmet-yilmaz",
+    "name": "Ahmet Yılmaz",
+    "title": "Baş Eğitmen",
+    "experience": "18 yıl",
+    "photo": "/images/instructors/ahmet.jpg",
+    "bio": "MEB onaylı sürücü kursu eğitmeni. 18 yıllık deneyimi ile 2000'den fazla öğrenciye ehliyet kazandırmıştır.",
+    "specialties": ["B Sınıfı", "Savunmalı Sürüş", "Trafik Psikolojisi"]
+  },
+  {
+    "id": "mehmet-demir",
+    "name": "Mehmet Demir",
+    "title": "Kıdemli Eğitmen",
+    "experience": "12 yıl",
+    "photo": "/images/instructors/mehmet.jpg",
+    "bio": "Otomotiv mühendisliği mezunu. Teknik bilgisi ve sabırlı yaklaşımı ile öğrencilerin favorisidir.",
+    "specialties": ["B Sınıfı", "Otomatik Vites", "Motor Bilgisi"]
+  },
+  {
+    "id": "ayse-kaya",
+    "name": "Ayşe Kaya",
+    "title": "Eğitmen",
+    "experience": "10 yıl",
+    "photo": "/images/instructors/ayse.jpg",
+    "bio": "Özellikle kadın öğrenciler tarafından tercih edilen, empatik ve destekleyici yaklaşımıyla tanınan eğitmenimiz.",
+    "specialties": ["B Sınıfı", "İlk Defa Direksiyon", "Park Teknikleri"]
+  },
+  {
+    "id": "mustafa-ozturk",
+    "name": "Mustafa Öztürk",
+    "title": "Eğitmen",
+    "experience": "15 yıl",
+    "photo": "/images/instructors/mustafa.jpg",
+    "bio": "Yoğun trafik ve şehir içi sürüş konusunda uzman. Pratik ipuçları ve gerçek hayat senaryoları ile eğitim verir.",
+    "specialties": ["B Sınıfı", "Şehir İçi Sürüş", "Acil Durum Yönetimi"]
+  }
+]

@@ -1,0 +1,63 @@
+{
+  "siteName": "Efe Sürücü Kursu",
+  "logo": "/images/logo.png",
+  "contact": {
+    "phone": "+90 (212) 555 0123",
+    "email": "info@efesurucukursu.com",
+    "address": "Büyükçekmece, İstanbul",
+    "fullAddress": "Cumhuriyet Mahallesi, Atatürk Caddesi No: 123, Büyükçekmece/İstanbul",
+    "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12045.123!2d28.5853!3d41.0246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAxJzI4LjYiTiAyOMKwMzUnMDcuMSJF!5e0!3m2!1str!2str!4v1234567890"
+  },
+  "socialMedia": {
+    "facebook": "https://facebook.com/efesurucukursu",
+    "instagram": "https://instagram.com/efesurucukursu",
+    "twitter": "https://twitter.com/efesurucukursu",
+    "youtube": "https://youtube.com/@efesurucukursu"
+  },
+  "workingHours": {
+    "weekdays": "09:00 - 19:00",
+    "saturday": "09:00 - 17:00",
+    "sunday": "Kapalı"
+  },
+  "seo": {
+    "title": "Efe Sürücü Kursu - İstanbul Büyükçekmece Ehliyet Kursu",
+    "description": "İstanbul Büyükçekmece'de güvenilir sürücü kursu. B sınıfı ehliyet eğitimi, deneyimli eğitmenler, modern araçlar ve yüksek başarı oranı ile ehliyetinize güvenle kavuşun.",
+    "keywords": [
+      "Büyükçekmece sürücü kursu",
+      "İstanbul ehliyet kursu",
+      "Efe sürücü kursu",
+      "B sınıfı ehliyet",
+      "otomatik vites kursu",
+      "ehliyet eğitimi",
+      "direksiyon kursu"
+    ]
+  },
+  "features": [
+    {
+      "name": "Deneyimli Eğitmenler",
+      "description": "15+ yıl tecrübeli, MEB onaylı profesyonel eğitmen kadromuz",
+      "icon": "users"
+    },
+    {
+      "name": "Modern Araçlar",
+      "description": "2023-2024 model, tam donanımlı eğitim araçları",
+      "icon": "car"
+    },
+    {
+      "name": "Yüksek Başarı Oranı",
+      "description": "%95 üzeri ilk seferde sınavı kazanma başarısı",
+      "icon": "trophy"
+    },
+    {
+      "name": "Esnek Ders Saatleri",
+      "description": "Size uygun zaman dilimlerinde ders programı",
+      "icon": "clock"
+    }
+  ],
+  "stats": {
+    "yearsOfExperience": 15,
+    "successRate": 95,
+    "totalStudents": 5000,
+    "instructors": 8
+  }
+}

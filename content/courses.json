@@ -1,0 +1,70 @@
+[
+  {
+    "id": "b-sinifi-standart",
+    "title": "B Sınıfı Ehliyet - Standart Paket",
+    "description": "Kapsamlı teori eğitimi ve pratik direksiyon dersleri ile ehliyet almanız için gereken her şey. Deneyimli eğitmenlerimiz eşliğinde güvenli sürüş tekniklerini öğrenin.",
+    "price": 15000,
+    "duration": "2-3 ay",
+    "features": [
+      "20 saat pratik direksiyon eğitimi",
+      "Kapsamlı teorik eğitim",
+      "Sınav takibi ve rehberlik",
+      "Modern eğitim araçları",
+      "Deneyimli eğitmen kadrosu"
+    ],
+    "image": "/images/courses/standart.jpg",
+    "popular": false,
+    "vehicleType": "both"
+  },
+  {
+    "id": "b-sinifi-yogun",
+    "title": "B Sınıfı Ehliyet - Yoğun Paket",
+    "description": "Kısa sürede ehliyet almak isteyenler için özel olarak hazırlanmış yoğun eğitim programı. Hızlandırılmış ders programı ile 1 ayda ehliyetinize kavuşun.",
+    "price": 18000,
+    "duration": "1 ay",
+    "features": [
+      "30 saat pratik direksiyon eğitimi",
+      "Hızlandırılmış teorik eğitim",
+      "Öncelikli sınav takibi",
+      "Modern eğitim araçları",
+      "Özel ders programı",
+      "Hafta sonu ders imkanı"
+    ],
+    "image": "/images/courses/yogun.jpg",
+    "popular": true,
+    "vehicleType": "both"
+  },
+  {
+    "id": "b-sinifi-otomatik",
+    "title": "B Sınıfı Ehliyet - Otomatik Vites",
+    "description": "Otomatik vites ile daha kolay ve konforlu bir eğitim deneyimi. Vites değiştirme stresi olmadan sürüş öğrenin.",
+    "price": 16000,
+    "duration": "2 ay",
+    "features": [
+      "20 saat otomatik vitesli araçta eğitim",
+      "Teorik eğitim paketi",
+      "Sınav takibi",
+      "Modern otomatik vitesli araçlar",
+      "Konforlu öğrenme deneyimi"
+    ],
+    "image": "/images/courses/otomatik.jpg",
+    "popular": false,
+    "vehicleType": "otomatik"
+  },
+  {
+    "id": "ek-ders-paketi",
+    "title": "Ek Direksiyon Dersleri",
+    "description": "Kendinizi daha güvende hissetmek için ek direksiyon dersi almak isteyenler için esnek paketler.",
+    "price": 800,
+    "duration": "Saat başı",
+    "features": [
+      "Deneyimli eğitmen eşliğinde",
+      "Modern araçlarla eğitim",
+      "Esnek ders saatleri",
+      "Özel rota belirleme"
+    ],
+    "image": "/images/courses/ek-ders.jpg",
+    "popular": false,
+    "vehicleType": "both"
+  }
+]
