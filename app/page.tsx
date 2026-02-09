@@ -163,6 +163,7 @@ export default function Home() {
                 duration={course.duration}
                 features={course.features}
                 popular={course.popular}
+                image={course.image}
               />
             ))}
           </div>
@@ -219,6 +220,7 @@ export default function Home() {
                   date={formatDate(post.date)}
                   slug={post.slug}
                   tags={post.tags}
+                  image={post.image}
                   delay={index * 0.1}
                 />
               ))}

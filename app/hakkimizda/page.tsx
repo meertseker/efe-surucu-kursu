@@ -17,18 +17,19 @@ export default function AboutPage() {
   const stats = settings.stats;
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
       <Navigation siteName={settings.siteName} />
       
       <div className="h-20"></div>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+      <section className="py-20 bg-gradient-to-br from-primary-red via-primary-red-dark to-accent-burgundy text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-radial from-secondary-gold/20 via-transparent to-transparent animate-pulse-slow"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 drop-shadow-lg">
             Hakkımızda
           </h1>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
             {stats.yearsOfExperience} yıllık deneyimimiz ile İstanbul Büyükçekmece'nin
             en güvenilir sürücü kursu
           </p>
@@ -36,7 +37,7 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatsCard
@@ -90,8 +91,8 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Neden Biz?</h2>
-            <p className="text-xl text-gray-600">Farkımızı yaratan özelliklerimiz</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">Neden Biz?</h2>
+            <p className="text-xl text-gray-300">Farkımızı yaratan özelliklerimiz</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {settings.features.map((feature, index) => (
@@ -112,13 +113,14 @@ export default function AboutPage() {
       </section>
 
       {/* Instructors Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-red/5 via-transparent to-secondary-orange/5"></div>
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
               Eğitmen Kadromuz
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-300">
               Deneyimli ve profesyonel eğitmenlerimiz
             </p>
           </div>
@@ -139,17 +141,19 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+      <section className="py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-red via-secondary-orange to-accent-rose"></div>
+        <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>
+        <div className="container mx-auto px-4 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">
             Aramıza Katılın!
           </h2>
-          <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
+          <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto drop-shadow-md">
             Binlerce başarılı öğrencimize siz de katılın
           </p>
           <a
             href="/iletisim"
-            className="inline-block px-8 py-4 bg-success-500 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-2xl hover:bg-success-600 transition-all duration-300 hover:scale-105"
+            className="inline-block px-8 py-4 backdrop-blur-xl bg-white/95 text-primary-red rounded-2xl font-semibold text-lg shadow-[0_10px_40px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300 border border-white/50"
           >
             ✓ Hemen Başvur
           </a>

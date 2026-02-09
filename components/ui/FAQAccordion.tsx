@@ -25,19 +25,19 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
       {faqs.map((faq) => (
         <div
           key={faq.id}
-          className="border border-gray-200 rounded-lg overflow-hidden hover:border-primary-300 transition-colors"
+          className="border border-white/10 rounded-lg overflow-hidden hover:border-primary-red/50 transition-colors backdrop-blur-xl bg-white/5"
         >
           <button
             onClick={() => toggleFAQ(faq.id)}
-            className="w-full px-6 py-4 text-left bg-white hover:bg-gray-50 transition-colors flex items-center justify-between gap-4"
+            className="w-full px-6 py-4 text-left hover:bg-white/5 transition-colors flex items-center justify-between gap-4"
             aria-expanded={openId === faq.id}
             aria-controls={`faq-answer-${faq.id}`}
           >
-            <span className="font-semibold text-gray-900 text-lg">
+            <span className="font-semibold text-white text-lg">
               {faq.question}
             </span>
             <svg
-              className={`w-6 h-6 text-primary-600 flex-shrink-0 transition-transform duration-300 ${
+              className={`w-6 h-6 text-secondary-orange shrink-0 transition-transform duration-300 ${
                 openId === faq.id ? 'rotate-180' : ''
               }`}
               fill="none"
@@ -63,8 +63,8 @@ export default function FAQAccordion({ faqs }: FAQAccordionProps) {
                 transition={{ duration: 0.3 }}
                 className="overflow-hidden"
               >
-                <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                <div className="px-6 py-4 bg-white/5 border-t border-white/10">
+                  <p className="text-gray-300 leading-relaxed">{faq.answer}</p>
                 </div>
               </motion.div>
             )}

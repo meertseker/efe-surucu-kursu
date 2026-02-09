@@ -13,6 +13,7 @@ interface CourseCardProps {
   features: string[];
   popular?: boolean;
   className?: string;
+  image?: string;
 }
 
 export default function CourseCard({
@@ -23,6 +24,7 @@ export default function CourseCard({
   features,
   popular = false,
   className = '',
+  image,
 }: CourseCardProps) {
   return (
     <motion.div
@@ -56,28 +58,41 @@ export default function CourseCard({
         </motion.div>
       )}
 
-      {/* Glass header with gradient */}
+      {/* Glass header with image or gradient */}
       <div className="relative h-48 overflow-hidden">
-        <motion.div 
-          className={`absolute inset-0 ${popular ? 'bg-gradient-to-br from-primary-red via-secondary-orange to-accent-rose' : 'bg-gradient-to-br from-primary-red/80 to-secondary-orange/80'}`}
-          animate={{
-            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-          }}
-          transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-          style={{
-            backgroundSize: '200% 200%',
-          }}
-        >
-          <svg viewBox="0 0 400 200" className="w-full h-full opacity-20" fill="white">
-            <circle cx="100" cy="140" r="35" />
-            <circle cx="300" cy="140" r="35" />
-            <rect x="60" y="80" width="280" height="80" rx="15" />
-          </svg>
-        </motion.div>
+        {image ? (
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <motion.img
+              src={image}
+              alt={title}
+              className="w-full h-full object-cover"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+            />
+          </>
+        ) : (
+          <motion.div 
+            className={`absolute inset-0 ${popular ? 'bg-gradient-to-br from-primary-red via-secondary-orange to-accent-rose' : 'bg-gradient-to-br from-primary-red/80 to-secondary-orange/80'}`}
+            animate={{
+              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+            }}
+            transition={{
+              duration: 10,
+              repeat: Infinity,
+              ease: 'linear',
+            }}
+            style={{
+              backgroundSize: '200% 200%',
+            }}
+          >
+            <svg viewBox="0 0 400 200" className="w-full h-full opacity-20" fill="white">
+              <circle cx="100" cy="140" r="35" />
+              <circle cx="300" cy="140" r="35" />
+              <rect x="60" y="80" width="280" height="80" rx="15" />
+            </svg>
+          </motion.div>
+        )}
         
         {/* Glass overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent backdrop-blur-sm"></div>

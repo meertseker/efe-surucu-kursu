@@ -40,27 +40,40 @@ export default function BlogCard({
         <div className="relative backdrop-blur-xl bg-white/95 dark:bg-gray-900/95 rounded-3xl shadow-glass-lg border border-white/30 dark:border-white/10 overflow-hidden">
           {/* Image with glass gradient */}
           <div className="relative h-48 overflow-hidden">
-            <motion.div 
-              className="absolute inset-0 bg-gradient-to-br from-primary-red via-secondary-orange to-accent-rose"
-              animate={{
-                backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-              }}
-              transition={{
-                duration: 10,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              style={{
-                backgroundSize: '200% 200%',
-              }}
-            >
-              {/* Blog image placeholder */}
-              <svg viewBox="0 0 400 200" className="w-full h-full opacity-20" fill="white">
-                <rect x="50" y="80" width="300" height="80" rx="10" />
-                <circle cx="100" cy="50" r="20" />
-                <path d="M 100 120 L 150 80 L 200 100 L 250 70 L 300 90 L 300 160 L 100 160 Z" opacity="0.5"/>
-              </svg>
-            </motion.div>
+            {image ? (
+              <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <motion.img
+                  src={image}
+                  alt={title}
+                  className="w-full h-full object-cover"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                />
+              </>
+            ) : (
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-br from-primary-red via-secondary-orange to-accent-rose"
+                animate={{
+                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                }}
+                transition={{
+                  duration: 10,
+                  repeat: Infinity,
+                  ease: 'linear',
+                }}
+                style={{
+                  backgroundSize: '200% 200%',
+                }}
+              >
+                {/* Blog image placeholder */}
+                <svg viewBox="0 0 400 200" className="w-full h-full opacity-20" fill="white">
+                  <rect x="50" y="80" width="300" height="80" rx="10" />
+                  <circle cx="100" cy="50" r="20" />
+                  <path d="M 100 120 L 150 80 L 200 100 L 250 70 L 300 90 L 300 160 L 100 160 Z" opacity="0.5"/>
+                </svg>
+              </motion.div>
+            )}
             
             {/* Glass overlay */}
             <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300 backdrop-blur-sm"></div>

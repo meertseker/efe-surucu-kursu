@@ -1,8 +1,11 @@
 import { getAllBlogSlugs, getBlogPostBySlug } from '@/lib/mdx';
+import { getSiteSettings } from '@/lib/content';
 import { formatDate } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Navigation from '@/components/ui/Navigation';
+import Footer from '@/components/ui/Footer';
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -34,19 +37,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
   const post = getBlogPostBySlug(slug);
+  const settings = getSiteSettings();
 
   if (!post) {
     notFound();
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
+      <Navigation siteName={settings.siteName} />
+      
+      <div className="h-20"></div>
+      
       <article className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
           <Link
             href="/blog"
-            className="inline-flex items-center text-blue-600 hover:text-blue-700 mb-8"
+            className="inline-flex items-center text-secondary-orange hover:text-secondary-amber mb-8 transition-colors"
           >
             <svg
               className="w-5 h-5 mr-2"
@@ -67,24 +75,24 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Header */}
           <header className="mb-8">
             <div className="flex items-center gap-3 mb-4">
-              <span className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded">
+              <span className="bg-primary-red/20 text-secondary-orange border border-primary-red/30 text-sm font-medium px-3 py-1 rounded">
                 {post.category}
               </span>
-              <span className="text-gray-500">{formatDate(post.date)}</span>
+              <span className="text-gray-400">{formatDate(post.date)}</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">
               {post.title}
             </h1>
-            <p className="text-xl text-gray-600">{post.excerpt}</p>
+            <p className="text-xl text-gray-300">{post.excerpt}</p>
             <div className="flex items-center gap-2 mt-4">
-              <span className="text-sm text-gray-500">Yazar:</span>
-              <span className="text-sm font-medium">{post.author}</span>
+              <span className="text-sm text-gray-400">Yazar:</span>
+              <span className="text-sm font-medium text-white">{post.author}</span>
             </div>
             <div className="flex flex-wrap gap-2 mt-4">
               {post.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-sm text-gray-600 bg-gray-100 px-3 py-1 rounded-full"
+                  className="text-sm text-gray-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full"
                 >
                   #{tag}
                 </span>
@@ -92,37 +100,56 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </header>
 
-          {/* Featured Image Placeholder */}
-          <div className="h-96 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg mb-8"></div>
+          {/* Featured Image */}
+          <div className="h-96 relative rounded-lg overflow-hidden mb-8 shadow-glow">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={post.image || `https://source.unsplash.com/1600x900/?driving,car,${post.category}`}
+              alt={post.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          </div>
 
           {/* Content */}
-          <div className="bg-white rounded-lg shadow-md p-8 md:p-12">
+          <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-lg shadow-glass-xl p-8 md:p-12">
             <div className="prose prose-lg max-w-none">
               {/* Simple content renderer - will be enhanced with MDX later */}
-              <div className="whitespace-pre-wrap text-gray-700 leading-relaxed">
+              <div className="whitespace-pre-wrap text-gray-300 leading-relaxed">
                 {post.content}
               </div>
             </div>
           </div>
 
           {/* CTA */}
-          <div className="mt-12 bg-blue-600 text-white rounded-lg p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">
-              Ehliyet Almak İçin Hazır mısınız?
-            </h2>
-            <p className="mb-6">
-              Deneyimli eğitmenlerimiz ve modern araçlarımızla size en iyi
-              eğitimi sunuyoruz.
-            </p>
-            <Link
-              href="/iletisim"
-              className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-            >
-              Hemen Başvur
-            </Link>
+          <div className="mt-12 bg-gradient-to-br from-primary-red via-secondary-orange to-accent-rose text-white rounded-lg p-8 text-center shadow-glow-lg relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-radial from-secondary-gold/20 via-transparent to-transparent animate-pulse-slow"></div>
+            <div className="relative z-10">
+              <h2 className="text-2xl font-bold mb-4 drop-shadow-lg">
+                Ehliyet Almak İçin Hazır mısınız?
+              </h2>
+              <p className="mb-6 text-white/90">
+                Deneyimli eğitmenlerimiz ve modern araçlarımızla size en iyi
+                eğitimi sunuyoruz.
+              </p>
+              <Link
+                href="/iletisim"
+                className="inline-block backdrop-blur-xl bg-white/95 text-primary-red px-8 py-3 rounded-lg font-semibold shadow-[0_10px_40px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105 border border-white/50"
+              >
+                Hemen Başvur
+              </Link>
+            </div>
           </div>
         </div>
       </article>
+
+      <Footer
+        siteName={settings.siteName}
+        phone={settings.contact.phone}
+        email={settings.contact.email}
+        address={settings.contact.address}
+        socialMedia={settings.socialMedia}
+      />
     </div>
   );
 }

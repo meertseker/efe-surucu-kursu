@@ -21,11 +21,11 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 px-4">
       <div className="text-center max-w-2xl">
         <div className="mb-8">
           <svg
-            className="w-24 h-24 mx-auto text-red-500"
+            className="w-24 h-24 mx-auto text-primary-red drop-shadow-[0_0_20px_rgba(154,50,34,0.5)]"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -39,22 +39,22 @@ export default function Error({
           </svg>
         </div>
 
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">
           Bir Hata Oluştu
         </h1>
         
-        <p className="text-lg text-gray-600 mb-8">
+        <p className="text-lg text-gray-300 mb-8">
           Üzgünüz, beklenmeyen bir hata oluştu. Lütfen sayfayı yenilemeyi deneyin 
           veya ana sayfaya dönün.
         </p>
 
         {process.env.NODE_ENV === 'development' && error.message && (
-          <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg text-left">
-            <p className="text-sm font-mono text-red-800">
+          <div className="mb-8 p-4 bg-primary-red/10 border border-primary-red/30 rounded-lg text-left backdrop-blur-sm">
+            <p className="text-sm font-mono text-primary-red-light">
               <strong>Error:</strong> {error.message}
             </p>
             {error.digest && (
-              <p className="text-sm font-mono text-red-600 mt-2">
+              <p className="text-sm font-mono text-accent-rose mt-2">
                 <strong>Digest:</strong> {error.digest}
               </p>
             )}
@@ -64,7 +64,7 @@ export default function Error({
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             onClick={reset}
-            className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold"
+            className="inline-flex items-center justify-center px-6 py-3 bg-primary-red text-white rounded-lg hover:bg-primary-red-dark transition-all duration-300 font-semibold shadow-glow hover:shadow-glow-lg hover:scale-105"
           >
             <svg
               className="w-5 h-5 mr-2"
@@ -84,7 +84,7 @@ export default function Error({
 
           <Link
             href="/"
-            className="inline-flex items-center justify-center px-6 py-3 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition-colors font-semibold"
+            className="inline-flex items-center justify-center px-6 py-3 backdrop-blur-xl bg-white/10 border-2 border-white/30 hover:bg-white/20 text-white rounded-lg transition-all duration-300 font-semibold hover:scale-105"
           >
             <svg
               className="w-5 h-5 mr-2"
@@ -104,11 +104,11 @@ export default function Error({
         </div>
 
         <div className="mt-8">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-gray-400">
             Sorun devam ederse lütfen bizimle iletişime geçin:{' '}
             <a
               href="mailto:info@efesurucukursu.com"
-              className="text-primary-600 hover:underline"
+              className="text-secondary-orange hover:text-secondary-amber hover:underline transition-colors"
             >
               info@efesurucukursu.com
             </a>

@@ -8,13 +8,13 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-blue-50 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-800 px-4">
       <div className="text-center max-w-2xl">
         <div className="mb-8">
-          <h1 className="text-9xl font-bold text-primary-600 mb-4">404</h1>
+          <h1 className="text-9xl font-bold text-primary-red mb-4 drop-shadow-[0_0_30px_rgba(154,50,34,0.5)]">404</h1>
           <div className="relative">
             <svg
-              className="w-32 h-32 mx-auto text-primary-400 opacity-50"
+              className="w-32 h-32 mx-auto text-secondary-orange opacity-60 drop-shadow-[0_0_20px_rgba(212,96,62,0.4)]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -29,11 +29,11 @@ export default function NotFound() {
           </div>
         </div>
 
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <h2 className="text-3xl font-bold text-white mb-4 drop-shadow-lg">
           Sayfa Bulunamadı
         </h2>
         
-        <p className="text-lg text-gray-600 mb-8">
+        <p className="text-lg text-gray-300 mb-8">
           Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir. 
           Lütfen URL'yi kontrol edin veya ana sayfaya dönün.
         </p>
@@ -41,7 +41,7 @@ export default function NotFound() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <Link
             href="/"
-            className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors font-semibold"
+            className="inline-flex items-center justify-center px-6 py-3 bg-primary-red text-white rounded-lg hover:bg-primary-red-dark transition-all duration-300 font-semibold shadow-glow hover:shadow-glow-lg hover:scale-105"
           >
             <svg
               className="w-5 h-5 mr-2"
@@ -61,42 +61,42 @@ export default function NotFound() {
 
           <Link
             href="/kurslar"
-            className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 border-2 border-primary-600 rounded-lg hover:bg-primary-50 transition-colors font-semibold"
+            className="inline-flex items-center justify-center px-6 py-3 backdrop-blur-xl bg-white/10 border-2 border-white/30 hover:bg-white/20 text-white rounded-lg transition-all duration-300 font-semibold hover:scale-105"
           >
             Kursları İncele
           </Link>
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h3 className="font-semibold text-gray-900 mb-4">Popüler Sayfalar:</h3>
+        <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-glass-xl p-6">
+          <h3 className="font-semibold text-white mb-4">Popüler Sayfalar:</h3>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <Link
               href="/kurslar"
-              className="text-primary-600 hover:underline text-left"
+              className="text-secondary-orange hover:text-secondary-amber hover:underline text-left transition-colors"
             >
               → Kurslarımız
             </Link>
             <Link
               href="/hakkimizda"
-              className="text-primary-600 hover:underline text-left"
+              className="text-secondary-orange hover:text-secondary-amber hover:underline text-left transition-colors"
             >
               → Hakkımızda
             </Link>
             <Link
               href="/blog"
-              className="text-primary-600 hover:underline text-left"
+              className="text-secondary-orange hover:text-secondary-amber hover:underline text-left transition-colors"
             >
               → Blog
             </Link>
             <Link
               href="/iletisim"
-              className="text-primary-600 hover:underline text-left"
+              className="text-secondary-orange hover:text-secondary-amber hover:underline text-left transition-colors"
             >
               → İletişim
             </Link>
             <Link
               href="/sss"
-              className="text-primary-600 hover:underline text-left"
+              className="text-secondary-orange hover:text-secondary-amber hover:underline text-left transition-colors"
             >
               → SSS
             </Link>

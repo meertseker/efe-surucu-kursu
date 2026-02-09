@@ -1,7 +1,10 @@
 import { getAllBlogPosts, getAllCategories } from '@/lib/mdx';
+import { getSiteSettings } from '@/lib/content';
 import { formatDate } from '@/lib/utils';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import Navigation from '@/components/ui/Navigation';
+import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
   title: 'Blog - Efe Sürücü Kursu',
@@ -11,26 +14,31 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = getAllBlogPosts();
   const categories = getAllCategories();
+  const settings = getSiteSettings();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
+      <Navigation siteName={settings.siteName} />
+      
+      <div className="h-20"></div>
+      
       <main className="container mx-auto px-4 py-16">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog</h1>
-          <p className="text-xl text-gray-600">
+          <h1 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">Blog</h1>
+          <p className="text-xl text-gray-300">
             Ehliyet ve sürüş hakkında faydalı bilgiler
           </p>
         </div>
 
         {/* Categories */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium">
+          <button className="px-4 py-2 bg-primary-red text-white rounded-full text-sm font-medium shadow-glow hover:shadow-glow-lg transition-all hover:scale-105">
             Tümü
           </button>
           {categories.map((category) => (
             <button
               key={category}
-              className="px-4 py-2 bg-white text-gray-700 rounded-full text-sm font-medium hover:bg-gray-100 transition-colors"
+              className="px-4 py-2 backdrop-blur-xl bg-white/10 border border-white/20 text-white rounded-full text-sm font-medium hover:bg-white/20 transition-all hover:scale-105"
             >
               {category}
             </button>
@@ -43,29 +51,37 @@ export default function BlogPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow group"
+              className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-lg shadow-glass-xl overflow-hidden hover:shadow-glass-xl transition-all hover:scale-105 group"
             >
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-blue-600"></div>
+              <div className="h-48 relative overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img 
+                  src={post.image || `https://source.unsplash.com/800x400/?driving,car,${post.category}`}
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+              </div>
               <div className="p-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">
+                  <span className="bg-primary-red/20 text-secondary-orange border border-primary-red/30 text-xs font-medium px-2.5 py-0.5 rounded">
                     {post.category}
                   </span>
-                  <span className="text-gray-500 text-sm">
+                  <span className="text-gray-400 text-sm">
                     {formatDate(post.date)}
                   </span>
                 </div>
-                <h2 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                <h2 className="text-xl font-bold text-white mb-2 group-hover:text-secondary-orange transition-colors">
                   {post.title}
                 </h2>
-                <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+                <p className="text-gray-300 text-sm mb-4 line-clamp-3">
                   {post.excerpt}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {post.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded"
+                      className="text-xs text-gray-400 bg-white/5 border border-white/10 px-2 py-1 rounded"
                     >
                       #{tag}
                     </span>
@@ -78,10 +94,18 @@ export default function BlogPage() {
 
         {posts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500">Henüz blog yazısı bulunmuyor.</p>
+            <p className="text-gray-400">Henüz blog yazısı bulunmuyor.</p>
           </div>
         )}
       </main>
+
+      <Footer
+        siteName={settings.siteName}
+        phone={settings.contact.phone}
+        email={settings.contact.email}
+        address={settings.contact.address}
+        socialMedia={settings.socialMedia}
+      />
     </div>
   );
 }
