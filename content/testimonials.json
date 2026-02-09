@@ -3,60 +3,60 @@
     "id": "1",
     "name": "Ahmet Yılmaz",
     "rating": 5,
-    "text": "Efe Sürücü Kursu'nda aldığım eğitim sayesinde ilk sınavda ehliyetimi aldım. Eğitmenler çok deneyimli ve sabırlı. Özellikle park ve yokuş kalkış konusunda çok yardımcı oldular. Herkese tavsiye ederim!",
+    "text": "Mavi Sigorta - Allianz ile çalışmak harika bir deneyimdi. Danışmanlar çok deneyimli ve yardımcı. Özellikle kasko ve trafik sigortası konusunda en uygun teklifi bulmamda çok yardımcı oldular. Herkese tavsiye ederim!",
     "date": "2024-01-15",
     "verified": true,
-    "courseType": "B Sınıfı - Standart Paket",
+    "courseType": "Kasko Sigortası",
     "image": "/images/testimonials/placeholder-1.jpg"
   },
   {
     "id": "2",
     "name": "Ayşe Demir",
     "rating": 5,
-    "text": "Otomatik vites kursuna katıldım. Eğitim araçları çok temiz ve modern. Eğitmenlerim sürekli motive edici bir yaklaşım sergiledi. Korkularımı yenmeme yardımcı oldular. 3 haftada ehliyetimi aldım, çok mutluyum!",
+    "text": "Konut sigortası için başvurdum. Hizmet çok hızlı ve profesyonel. Danışmanlarım tüm detayları açıkladı ve en uygun poliçeyi bulmama yardımcı oldu. Allianz güvencesi de ayrıca çok önemli. Çok mutluyum!",
     "date": "2024-01-20",
     "verified": true,
-    "courseType": "B Sınıfı - Otomatik Vites",
+    "courseType": "Konut Sigortası",
     "image": "/images/testimonials/placeholder-2.jpg"
   },
   {
     "id": "3",
     "name": "Mehmet Kaya",
     "rating": 5,
-    "text": "Yoğun paketi tercih ettim ve çok memnun kaldım. 3 haftada tüm eğitimi tamamlayıp sınava girdim. Eğitim kalitesi gerçekten üst düzey. Fiyat-performans olarak da çok iyi. Teşekkürler Efe Sürücü Kursu!",
+    "text": "Tüm sigorta ihtiyaçlarım için Mavi Sigorta ile çalışıyorum. Hem araç hem de sağlık sigortası için en iyi teklifleri aldım. Hizmet kalitesi gerçekten üst düzey. Fiyat-performans olarak da çok iyi. Teşekkürler!",
     "date": "2024-02-01",
     "verified": true,
-    "courseType": "B Sınıfı - Yoğun Paket",
+    "courseType": "Trafik + Sağlık Sigortası",
     "image": "/images/testimonials/placeholder-3.jpg"
   },
   {
     "id": "4",
     "name": "Zeynep Arslan",
     "rating": 5,
-    "text": "İlk sınavda başarısız olmuştum ama ek ders paketi sayesinde eksiklerimi tamamladım. Eğitmenler hiç yıldırmadı, tam tersine daha çok motive etti. İkinci sınavda rahatlıkla geçtim. İnanın size iyi bir kurs seçimi çok önemli!",
+    "text": "Daha önce başka bir aracıyla çalışıyordum ama Mavi Sigorta'ya geçtiğimde farkı gördüm. Danışmanlar çok ilgili ve her zaman ulaşılabilir. Hasar durumunda bile hızlıca yardımcı oldular. İyi bir aracı seçimi çok önemli!",
     "date": "2024-02-10",
     "verified": true,
-    "courseType": "Ek Ders Paketi",
+    "courseType": "Kasko Sigortası",
     "image": "/images/testimonials/placeholder-4.jpg"
   },
   {
     "id": "5",
     "name": "Can Öztürk",
     "rating": 5,
-    "text": "Büyükçekmece'de böyle kaliteli bir sürücü kursu olduğunu bilmiyordum. Ders saatleri çok esnek, çalışma programıma göre ayarlabildik. Eğitmenler gerçekten işinin ehli. Sınava giderken hiç stresli değildim çünkü çok iyi hazırlanmıştım.",
+    "text": "Büyükçekmece'de böyle kaliteli bir sigorta aracısı olduğunu bilmiyordum. Randevu saatleri çok esnek, çalışma programıma göre ayarlabildik. Danışmanlar gerçekten işinin ehli. Allianz güvencesiyle çok rahatım.",
     "date": "2024-02-15",
     "verified": true,
-    "courseType": "B Sınıfı - Standart Paket",
+    "courseType": "Trafik Sigortası",
     "image": "/images/testimonials/placeholder-5.jpg"
   },
   {
     "id": "6",
     "name": "Elif Şahin",
     "rating": 4,
-    "text": "Genel olarak çok memnunum. Eğitim kalitesi çok iyi, sadece bazen randevu almakta biraz gecikme oldu ama sonuçta istediğim saatlerde ders alabildim. Sonuç olarak ehliyetimi aldım ve mutluyum!",
+    "text": "Genel olarak çok memnunum. Hizmet kalitesi çok iyi, sadece bazen yoğunluktan randevu almakta biraz gecikme oldu ama sonuçta istediğim zamanda görüşebildik. Poliçemi aldım ve mutluyum!",
     "date": "2024-02-20",
     "verified": true,
-    "courseType": "B Sınıfı - Standart Paket",
+    "courseType": "Konut Sigortası",
     "image": "/images/testimonials/placeholder-6.jpg"
   }
 ]

@@ -1,18 +1,18 @@
 {
-  "siteName": "Efe Sürücü Kursu",
+  "siteName": "Mavi Sigorta - Allianz Aracılık Hizmetleri",
   "logo": "/images/logo.png",
   "contact": {
     "phone": "+90 (212) 555 0123",
-    "email": "info@efesurucukursu.com",
+    "email": "info@mavisigorta.com",
     "address": "Büyükçekmece, İstanbul",
     "fullAddress": "Cumhuriyet Mahallesi, Atatürk Caddesi No: 123, Büyükçekmece/İstanbul",
     "mapEmbed": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12045.123!2d28.5853!3d41.0246!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAxJzI4LjYiTiAyOMKwMzUnMDcuMSJF!5e0!3m2!1str!2str!4v1234567890"
   },
   "socialMedia": {
-    "facebook": "https://facebook.com/efesurucukursu",
-    "instagram": "https://instagram.com/efesurucukursu",
-    "twitter": "https://twitter.com/efesurucukursu",
-    "youtube": "https://youtube.com/@efesurucukursu"
+    "facebook": "https://facebook.com/mavisigorta",
+    "instagram": "https://instagram.com/mavisigorta",
+    "twitter": "https://twitter.com/mavisigorta",
+    "youtube": "https://youtube.com/@mavisigorta"
   },
   "workingHours": {
     "weekdays": "09:00 - 19:00",
@@ -20,16 +20,16 @@
     "sunday": "Kapalı"
   },
   "seo": {
-    "title": "Efe Sürücü Kursu - İstanbul Büyükçekmece Ehliyet Kursu",
-    "description": "İstanbul Büyükçekmece'de güvenilir sürücü kursu. B sınıfı ehliyet eğitimi, deneyimli eğitmenler, modern araçlar ve yüksek başarı oranı ile ehliyetinize güvenle kavuşun.",
+    "title": "Mavi Sigorta - Allianz Aracılık Hizmetleri | İstanbul Büyükçekmece",
+    "description": "İstanbul Büyükçekmece'de güvenilir sigorta aracılık hizmetleri. Allianz Sigorta ile profesyonel çözümler, deneyimli ekip ve müşteri memnuniyeti odaklı hizmet.",
     "keywords": [
-      "Büyükçekmece sürücü kursu",
-      "İstanbul ehliyet kursu",
-      "Efe sürücü kursu",
-      "B sınıfı ehliyet",
-      "otomatik vites kursu",
-      "ehliyet eğitimi",
-      "direksiyon kursu"
+      "Büyükçekmece sigorta",
+      "İstanbul sigorta aracılık",
+      "Mavi Sigorta",
+      "Allianz Sigorta",
+      "sigorta danışmanlığı",
+      "araç sigortası",
+      "kasko sigortası"
     ]
   },
   "features": [

@@ -5,8 +5,8 @@ import Navigation from '@/components/ui/Navigation';
 import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
-  title: 'İletişim - Efe Sürücü Kursu',
-  description: 'Efe Sürücü Kursu ile iletişime geçin. Sorularınız için bize ulaşın.',
+  title: 'İletişim - Mavi Sigorta - Allianz',
+  description: 'Mavi Sigorta - Allianz Aracılık Hizmetleri ile iletişime geçin. Sorularınız için bize ulaşın.',
 };
 
 export default function ContactPage() {
@@ -155,7 +155,7 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Efe Sürücü Kursu Lokasyon"
+                  title="Mavi Sigorta - Allianz Lokasyon"
                 ></iframe>
               </div>
             </div>

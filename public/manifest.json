@@ -1,7 +1,7 @@
 {
-  "name": "Efe Sürücü Kursu",
-  "short_name": "Efe Sürücü",
-  "description": "İstanbul Büyükçekmece Ehliyet Kursu - B Sınıfı Sürücü Belgesi Eğitimi",
+  "name": "Mavi Sigorta - Allianz Aracılık Hizmetleri",
+  "short_name": "Mavi Sigorta",
+  "description": "İstanbul Büyükçekmece Sigorta Aracılık Hizmetleri - Allianz Sigorta",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
@@ -21,7 +21,7 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["education", "business"],
+  "categories": ["business", "finance"],
   "lang": "tr",
   "dir": "ltr"
 }

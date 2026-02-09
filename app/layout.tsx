@@ -26,22 +26,22 @@ const jakarta = Plus_Jakarta_Sans({
 const settings = getSiteSettings();
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://efesurucukursu.com'),
+  metadataBase: new URL('https://mavisigorta.com'),
   title: {
     default: settings.seo.title,
-    template: '%s | Efe Sürücü Kursu',
+    template: '%s | Mavi Sigorta - Allianz',
   },
   description: settings.seo.description,
   keywords: settings.seo.keywords,
-  authors: [{ name: 'Efe Sürücü Kursu' }],
-  creator: 'Efe Sürücü Kursu',
-  publisher: 'Efe Sürücü Kursu',
+  authors: [{ name: 'Mavi Sigorta - Allianz Aracılık Hizmetleri' }],
+  creator: 'Mavi Sigorta - Allianz Aracılık Hizmetleri',
+  publisher: 'Mavi Sigorta - Allianz Aracılık Hizmetleri',
   openGraph: {
     title: settings.seo.title,
     description: settings.seo.description,
     type: "website",
     locale: "tr_TR",
-    url: 'https://efesurucukursu.com',
+    url: 'https://mavisigorta.com',
     siteName: settings.siteName,
   },
   twitter: {
@@ -86,7 +86,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#3b82f6" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Efe Sürücü" />
+        <meta name="apple-mobile-web-app-title" content="Mavi Sigorta" />
       </head>
       <body className={`${jakarta.variable} ${inter.variable} font-sans antialiased bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900`}>
         {/* Skip to content link for accessibility */}

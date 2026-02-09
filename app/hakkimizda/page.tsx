@@ -7,8 +7,8 @@ import InstructorCard from '@/components/ui/InstructorCard';
 import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
-  title: 'Hakkımızda - Efe Sürücü Kursu',
-  description: 'Deneyimli eğitmen kadromuz, modern araçlarımız ve başarı hikayemiz hakkında bilgi edinin.',
+  title: 'Hakkımızda - Mavi Sigorta - Allianz',
+  description: 'Deneyimli ekibimiz, profesyonel hizmet anlayışımız ve başarı hikayemiz hakkında bilgi edinin.',
 };
 
 export default function AboutPage() {
