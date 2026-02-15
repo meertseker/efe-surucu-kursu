@@ -5,8 +5,8 @@ import CourseCard from '@/components/ui/CourseCard';
 import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
-  title: 'Hizmetlerimiz - Mavi Sigorta - Allianz',
-  description: 'Sigorta danışmanlığı, araç sigortası, kasko ve tüm sigorta ihtiyaçlarınız için profesyonel çözümler.',
+  title: 'Kurslarımız - Efe Sürücü Kursu',
+  description: 'B sınıfı ehliyet, otomatik ve manuel vites eğitimi, yoğun paket ve ek direksiyon dersleri.',
 };
 
 export default function CoursesPage() {

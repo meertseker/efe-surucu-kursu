@@ -7,8 +7,8 @@ import Navigation from '@/components/ui/Navigation';
 import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
-  title: 'Blog - Mavi Sigorta - Allianz',
-  description: 'Sigorta, güvenlik ve finansal planlama hakkında faydalı bilgiler.',
+  title: 'Blog - Efe Sürücü Kursu',
+  description: 'Ehliyet, güvenli sürüş ve trafik kuralları hakkında faydalı bilgiler.',
 };
 
 export default function BlogPage() {

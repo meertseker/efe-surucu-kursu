@@ -21,21 +21,21 @@ export default function Home() {
   const testimonials = [
     {
       name: 'Ayşe Yılmaz',
-      course: 'Kasko Sigortası',
+      course: 'B Sınıfı Ehliyet',
       rating: 5,
-      text: 'Harika bir hizmet! Danışmanlar çok profesyonel ve yardımcı. En uygun poliçeyi bulmamda çok yardımcı oldular.',
+      text: 'Harika bir eğitim! Eğitmenler çok profesyonel ve sabırlı. Direksiyon derslerinde kendimi çok güvende hissettim.',
     },
     {
       name: 'Mehmet Demir',
-      course: 'Trafik Sigortası',
+      course: 'B Sınıfı Ehliyet',
       rating: 5,
-      text: 'Mavi Sigorta - Allianz\'ı herkese tavsiye ederim. Profesyonel hizmet ve uygun fiyatlar.',
+      text: 'Efe Sürücü Kursu\'nu herkese tavsiye ederim. Kaliteli eğitim ve uygun fiyatlar.',
     },
     {
       name: 'Zeynep Kaya',
-      course: 'Konut Sigortası',
+      course: 'Yoğun Paket',
       rating: 5,
-      text: 'Konut sigortası sürecim çok rahat geçti. Teşekkürler Mavi Sigorta!',
+      text: 'Ehliyet sürecim çok rahat geçti. Teşekkürler Efe Sürücü Kursu!',
     },
   ];
 
@@ -50,13 +50,13 @@ export default function Home() {
       {/* Hero Section */}
       <Hero
         title="Güvenli Gelecek İçin Doğru Adres"
-        subtitle={`${stats.yearsOfExperience} yıllık deneyimimiz, %${stats.successRate} müşteri memnuniyeti ve Allianz güvencesiyle sigorta ihtiyaçlarınıza profesyonel çözümler.`}
-        primaryCta={{ text: 'Hizmetleri İncele', href: '/kurslar' }}
-        secondaryCta={{ text: 'WhatsApp ile İletişim', href: 'https://wa.me/902125550123?text=Merhaba,%20sigorta%20hizmetleri%20hakkında%20bilgi%20almak%20istiyorum' }}
+        subtitle={`${stats.yearsOfExperience} yıllık deneyimimiz, %${stats.successRate} başarı oranı ve binlerce mezun öğrencimizle ehliyet eğitiminde güvenilir adres.`}
+        primaryCta={{ text: 'Kurslarımız', href: '/kurslar' }}
+        secondaryCta={{ text: 'WhatsApp ile İletişim', href: 'https://wa.me/902125550123?text=Merhaba,%20ehliyet%20kursu%20hakkında%20bilgi%20almak%20istiyorum' }}
         stats={[
           { value: `${stats.yearsOfExperience}+`, label: 'Yıl Deneyim' },
           { value: `%${stats.successRate}`, label: 'Müşteri Memnuniyeti' },
-          { value: `${stats.totalStudents}+`, label: 'Mutlu Müşteri' },
+          { value: `${stats.totalStudents}+`, label: 'Mezun Öğrenci' },
         ]}
       />
 
@@ -116,7 +116,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-h2 font-bold text-gray-900 dark:text-white mb-4">
-              Neden Mavi Sigorta - Allianz?
+              Neden Efe Sürücü Kursu?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
               Farkımızı yaratan özelliklerimiz
@@ -150,7 +150,7 @@ export default function Home() {
               Popüler Hizmetlerimiz
             </h2>
             <p className="text-xl text-gray-900 dark:text-white">
-              Size en uygun sigorta çözümünü seçin
+              Size en uygun ehliyet paketini seçin
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -243,10 +243,10 @@ export default function Home() {
         <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-h2 font-bold mb-6 text-white drop-shadow-lg">
-            Sigorta İhtiyaçlarınız İçin Bugün Başlayın!
+            Ehliyetinize Bugün Başlayın!
           </h2>
           <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto drop-shadow-md">
-            Hemen başvurun, güvenli bir geleceğe sahip olun. Deneyimli danışmanlarımız ve Allianz güvencesiyle size en iyi hizmeti sunuyoruz.
+            Hemen kayıt olun, güvenli sürüşe adım atın. Deneyimli eğitmenlerimiz ve yüksek başarı oranımızla ehliyetinize kavuşun.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -259,7 +259,7 @@ export default function Home() {
               href="/kurslar"
               className="px-8 py-4 backdrop-blur-xl bg-white/10 border-2 border-white/50 hover:bg-white/20 text-white rounded-2xl font-semibold text-lg shadow-glass-xl hover:shadow-glass-xl transition-all duration-300 hover:scale-105"
             >
-              🛡 Hizmetleri İncele
+              📋 Kurslarımız
             </a>
           </div>
         </div>

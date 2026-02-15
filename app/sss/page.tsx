@@ -11,19 +11,19 @@ const settings = getSiteSettings();
 
 export const metadata: Metadata = {
   title: 'Sıkça Sorulan Sorular',
-  description: 'Mavi Sigorta - Allianz Aracılık Hizmetleri hakkında merak ettiğiniz her şey. Sigorta poliçeleri, teminatlar ve daha fazlası hakkında sorularınızın cevapları.',
-  keywords: ['sigorta SSS', 'sigorta soruları', 'allianz sigorta', 'sigorta teminatları'],
+  description: 'Efe Sürücü Kursu hakkında merak ettiğiniz her şey. Ehliyet sınavı, ders saatleri, paketler ve daha fazlası hakkında sorularınızın cevapları.',
+  keywords: ['ehliyet SSS', 'sürücü kursu soruları', 'efe sürücü kursu', 'ehliyet sınavı'],
   openGraph: {
-    title: 'Sıkça Sorulan Sorular | Mavi Sigorta - Allianz',
-    description: 'Sigorta hizmetleri hakkında merak ettiğiniz soruların cevapları.',
-    url: 'https://mavisigorta.com/sss',
+    title: 'Sıkça Sorulan Sorular | Efe Sürücü Kursu',
+    description: 'Ehliyet kursu hakkında merak ettiğiniz soruların cevapları.',
+    url: 'https://efesurucukursu.com/sss',
   },
 };
 
 export default function SSSPage() {
   const faqSchema = getFAQPageSchema(faqs);
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: 'SSS', url: 'https://mavisigorta.com/sss' }
+    { name: 'SSS', url: 'https://efesurucukursu.com/sss' }
   ]);
 
   return (
@@ -50,7 +50,7 @@ export default function SSSPage() {
               Sıkça Sorulan Sorular
             </h1>
             <p className="text-xl text-white/90 max-w-3xl drop-shadow-md">
-              Sigorta hizmetleri hakkında merak ettiğiniz soruların cevapları burada. 
+              Ehliyet kursu hakkında merak ettiğiniz soruların cevapları burada. 
               Aradığınızı bulamadıysanız bize ulaşabilirsiniz.
             </p>
           </div>

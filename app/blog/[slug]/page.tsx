@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return {
-    title: `${post.title} - Mavi Sigorta Blog`,
+    title: `${post.title} - Efe Sürücü Kursu Blog`,
     description: post.excerpt,
   };
 }
