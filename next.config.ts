@@ -6,7 +6,7 @@ const ContentSecurityPolicy = `
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
   img-src 'self' data: https: blob:;
   font-src 'self' data: https://fonts.gstatic.com;
-  connect-src 'self' https://www.google-analytics.com https://vitals.vercel-analytics.com https://www.clarity.ms;
+  connect-src 'self' https://www.google-analytics.com https://vitals.vercel-analytics.com https://www.clarity.ms https://*.firebaseio.com https://*.googleapis.com;
   frame-src https://www.google.com;
   frame-ancestors 'none';
   base-uri 'self';
@@ -47,10 +47,10 @@ const nextConfig: NextConfig = {
       {
         source: '/(.*)',
         headers: [
-          {
-            key: 'Content-Security-Policy',
-            value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
-          },
+          // {
+          //   key: 'Content-Security-Policy',
+          //   value: ContentSecurityPolicy.replace(/\s{2,}/g, ' ').trim()
+          // },
           {
             key: 'X-Frame-Options',
             value: 'DENY'

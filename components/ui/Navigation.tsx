@@ -30,6 +30,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
     { label: 'Kurslar', href: '/kurslar' },
     { label: 'Hakkımızda', href: '/hakkimizda' },
     { label: 'Blog', href: '/blog' },
+    { label: 'Geri Bildirim', href: '/geri-bildirim' },
     { label: 'İletişim', href: '/iletisim' },
   ];
 

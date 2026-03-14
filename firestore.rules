@@ -1,0 +1,22 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Feedback collection rules
+    match /feedbackEntries/{feedbackId} {
+      // Anyone can create feedback entries
+      allow create: if request.resource.data.type in ['sikayet', 'geri-bildirim']
+                    && request.resource.data.status == 'new'
+                    && request.resource.data.message is string
+                    && request.resource.data.message.size() >= 10;
+      
+      // Allow read, update, delete for all (admin panel protected by password in client)
+      // Note: This is not fully secure - password protection is client-side only
+      // For production, consider using Firebase Auth or server-side verification
+      allow read: if true;
+      allow update: if true;
+      allow delete: if true;
+    }
+  }
+}
