@@ -1,5 +1,5 @@
 // Simple Service Worker for PWA
-const CACHE_NAME = 'efe-surucu-kursu-v1';
+const CACHE_NAME = 'efe-surucu-kursu-v2';
 const urlsToCache = [
   '/',
   '/kurslar',
@@ -19,18 +19,38 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Fetch event - serve from cache when offline
+// Fetch event - keep documents fresh, cache as fallback
 self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request)
-      .then((response) => {
-        // Cache hit - return response
-        if (response) {
+  if (event.request.method !== 'GET') {
+    return;
+  }
+
+  // For page navigations, use network-first so deploys are reflected quickly.
+  if (event.request.mode === 'navigate') {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
           return response;
-        }
-        return fetch(event.request);
+        })
+        .catch(() => caches.match(event.request).then((response) => response || caches.match('/')))
+    );
+    return;
+  }
+
+  // For non-navigation assets, use cache-first fallback to network.
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
       }
-    )
+      return fetch(event.request).then((networkResponse) => {
+        const responseToCache = networkResponse.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+        return networkResponse;
+      });
+    })
   );
 });
 
@@ -48,4 +68,6 @@ self.addEventListener('activate', (event) => {
       );
     })
   );
+
+  self.clients.claim();
 });
