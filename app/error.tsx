@@ -44,8 +44,8 @@ export default function Error({
         </h1>
         
         <p className="text-lg text-gray-300 mb-8">
-          Üzgünüz, beklenmeyen bir hata oluştu. Lütfen sayfayı yenilemeyi deneyin 
-          veya ana sayfaya dönün.
+          Sayfa yüklenirken beklenmeyen bir sorun oluştu. Tekrar deneyebilir
+          veya ana sayfadan devam edebilirsiniz.
         </p>
 
         {process.env.NODE_ENV === 'development' && error.message && (
@@ -79,7 +79,7 @@ export default function Error({
                 d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"
               />
             </svg>
-            Tekrar Dene
+            Yeniden Dene
           </button>
 
           <Link
@@ -99,18 +99,18 @@ export default function Error({
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
               />
             </svg>
-            Anasayfaya Dön
+            Ana Sayfaya Dön
           </Link>
         </div>
 
         <div className="mt-8">
           <p className="text-sm text-gray-400">
-            Sorun devam ederse lütfen bizimle iletişime geçin:{' '}
+            Sorun devam ederse bize e-posta ile ulaşabilirsiniz:{' '}
             <a
-              href="mailto:info@efesurucukursu.com"
+              href="mailto:info@efesurucukursu.com.tr"
               className="text-secondary-orange hover:text-secondary-amber hover:underline transition-colors"
             >
-              info@efesurucukursu.com
+              info@efesurucukursu.com.tr
             </a>
           </p>
         </div>

@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: '404 - Sayfa Bulunamadı',
-  description: 'Aradığınız sayfa bulunamadı.',
+  description: 'Aradığınız sayfa şu anda bulunamadı.',
 };
 
 export default function NotFound() {
@@ -34,8 +34,8 @@ export default function NotFound() {
         </h2>
         
         <p className="text-lg text-gray-300 mb-8">
-          Aradığınız sayfa taşınmış, silinmiş veya hiç var olmamış olabilir. 
-          Lütfen URL'yi kontrol edin veya ana sayfaya dönün.
+          Aradığınız içerik taşınmış olabilir ya da bağlantı artık geçerli olmayabilir.
+          Ana sayfaya dönebilir veya aşağıdaki yönlendirmelerden devam edebilirsiniz.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
@@ -56,19 +56,19 @@ export default function NotFound() {
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
               />
             </svg>
-            Anasayfaya Dön
+            Ana Sayfaya Dön
           </Link>
 
           <Link
             href="/kurslar"
             className="inline-flex items-center justify-center px-6 py-3 backdrop-blur-xl bg-white/10 border-2 border-white/30 hover:bg-white/20 text-white rounded-lg transition-all duration-300 font-semibold hover:scale-105"
           >
-            Kursları İncele
+            Kursları Gör
           </Link>
         </div>
 
         <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-glass-xl p-6">
-          <h3 className="font-semibold text-white mb-4">Popüler Sayfalar:</h3>
+          <h3 className="font-semibold text-white mb-4">Devam edebileceğiniz sayfalar</h3>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <Link
               href="/kurslar"

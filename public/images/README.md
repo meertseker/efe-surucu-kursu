@@ -11,10 +11,11 @@ Bu klasöre aşağıdaki görselleri ekleyin. Next.js Image optimization sayesin
 - `hero-road-bg.jpg` - Arka plan için yol dokusu (1920x1080px)
 
 ### Kurslar (`courses/`)
-- `standart.jpg` - Standart paket görseli (800x600px)
-- `yogun.jpg` - Yoğun paket görseli (800x600px)
-- `otomatik.jpg` - Otomatik vites görseli (800x600px)
-- `ek-ders.jpg` - Ek ders görseli (800x600px)
+- `b-manuel.jpg` - B sınıfı manuel ehliyet kartı görseli (800x600px)
+- `b-otomatik.jpg` - B sınıfı otomatik ehliyet kartı görseli (800x600px)
+- `a1-motosiklet.jpg` - A1 motosiklet ehliyeti kartı görseli (800x600px)
+- `a2-motosiklet.jpg` - A2 motosiklet ehliyeti kartı görseli (800x600px)
+- `ozel-direksiyon.jpg` - Özel direksiyon dersi kartı görseli (800x600px)
 
 ### Eğitmenler (`instructors/`)
 - `ahmet.jpg` - Ahmet Yılmaz profil (400x400px, square)
@@ -65,8 +66,8 @@ import Image from 'next/image';
 ### Course Cards:
 ```tsx
 <Image
-  src="/images/courses/standart.jpg"
-  alt="B Sınıfı Standart Ehliyet Paketi - 16 saat pratik eğitim"
+  src="/images/courses/b-manuel.jpg"
+  alt="B sınıfı manuel ehliyet eğitimi sırasında araç içi ders"
   width={800}
   height={600}
   className="rounded-lg"

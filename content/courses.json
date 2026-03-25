@@ -1,69 +1,86 @@
 [
   {
-    "id": "b-sinifi-standart",
-    "title": "B Sınıfı Ehliyet - Standart Paket",
-    "description": "Kapsamlı teori eğitimi ve pratik direksiyon dersleri ile ehliyet almanız için gereken her şey. Deneyimli eğitmenlerimiz eşliğinde güvenli sürüş tekniklerini öğrenin.",
-    "price": 15000,
-    "duration": "2-3 ay",
+    "id": "b-sinifi-manuel",
+    "title": "B Sınıfı Ehliyet - Manuel Vites",
+    "description": "Manuel vites tercih eden adaylar için kayıt, teorik eğitim, direksiyon planı ve sınav hazırlığı tek akışta takip edilir. Manuel belge almak isteyenler kadar ileride araç seçimini geniş tutmak isteyen adaylar için de uygundur.",
+    "price": 20100,
+    "duration": "Ortalama 1-2 ay",
     "features": [
-      "20 saat pratik direksiyon eğitimi",
-      "Kapsamlı teorik eğitim",
-      "Sınav takibi ve rehberlik",
-      "Modern eğitim araçları",
-      "Deneyimli eğitmen kadrosu"
+      "Bilgi amaçlı başlangıç bedelidir; resmi harçlar dahil değildir",
+      "Teorik eğitim ve zorunlu direksiyon dersleri birlikte planlanır",
+      "Kalkış, park, kavşak ve yoğun trafik pratiğine odaklanılır",
+      "Evrak ve sınav aşamaları kayıt öncesinde açıklanır",
+      "Ödeme planı için danışma üzerinden bilgi verilir"
     ],
-    "image": "/images/courses/standart.jpg",
-    "popular": false,
-    "vehicleType": "both"
-  },
-  {
-    "id": "b-sinifi-yogun",
-    "title": "B Sınıfı Ehliyet - Yoğun Paket",
-    "description": "Kısa sürede ehliyet almak isteyenler için özel olarak hazırlanmış yoğun eğitim programı. Hızlandırılmış ders programı ile 1 ayda ehliyetinize kavuşun.",
-    "price": 18000,
-    "duration": "1 ay",
-    "features": [
-      "30 saat pratik direksiyon eğitimi",
-      "Hızlandırılmış teorik eğitim",
-      "Öncelikli sınav takibi",
-      "Modern eğitim araçları",
-      "Özel ders programı",
-      "Hafta sonu ders imkanı"
-    ],
-    "image": "/images/courses/yogun.jpg",
+    "image": "/images/courses/b-manuel.jpg",
     "popular": true,
-    "vehicleType": "both"
+    "vehicleType": "manuel"
   },
   {
     "id": "b-sinifi-otomatik",
     "title": "B Sınıfı Ehliyet - Otomatik Vites",
-    "description": "Otomatik vites ile daha kolay ve konforlu bir eğitim deneyimi. Vites değiştirme stresi olmadan sürüş öğrenin.",
-    "price": 16000,
-    "duration": "2 ay",
+    "description": "Trafikte ilk kez araç kullanacak veya vites stresini azaltmak isteyen adaylar için daha sade bir öğrenme akışı sunar. Özellikle şehir içi kullanım odaklı ilerlemek isteyenler için sık tercih edilen seçenektir.",
+    "price": 20100,
+    "duration": "Ortalama 1-2 ay",
     "features": [
-      "20 saat otomatik vitesli araçta eğitim",
-      "Teorik eğitim paketi",
-      "Sınav takibi",
-      "Modern otomatik vitesli araçlar",
-      "Konforlu öğrenme deneyimi"
+      "Bilgi amaçlı başlangıç bedelidir; resmi harçlar dahil değildir",
+      "Otomatik vitesli araçla direksiyon eğitimi verilir",
+      "Yeni başlayanlar için daha sakin bir başlangıç planı yapılır",
+      "Şehir içi kullanım ve sınav hazırlığı birlikte ele alınır",
+      "Kayıt evrakları ve sınav takvimi danışmada netleştirilir"
     ],
-    "image": "/images/courses/otomatik.jpg",
+    "image": "/images/courses/b-otomatik.jpg",
     "popular": false,
     "vehicleType": "otomatik"
   },
   {
-    "id": "ek-ders-paketi",
-    "title": "Ek Direksiyon Dersleri",
-    "description": "Kendinizi daha güvende hissetmek için ek direksiyon dersi almak isteyenler için esnek paketler.",
-    "price": 800,
-    "duration": "Saat başı",
+    "id": "a1-motosiklet",
+    "title": "A1 Motosiklet Ehliyeti",
+    "description": "A1 sınıfında kayıt yaptırmak isteyen adaylar için dönem, evrak ve uygulama süreci görüşme sırasında netleştirilir. İlk kez motosiklet eğitimi alacak adaylarda temel denge ve güvenli sürüş alışkanlıkları öne çıkarılır.",
+    "price": 14250,
+    "duration": "Ortalama 3-6 hafta",
     "features": [
-      "Deneyimli eğitmen eşliğinde",
-      "Modern araçlarla eğitim",
-      "Esnek ders saatleri",
-      "Özel rota belirleme"
+      "Bilgi amaçlı başlangıç bedelidir; resmi harçlar dahil değildir",
+      "Yaş ve evrak uygunluğu kayıt öncesinde kontrol edilir",
+      "Denge, slalom ve parkur tekrarlarına odaklanılır",
+      "Güvenli sürüş ve ekipman kullanımı birlikte anlatılır",
+      "Dönem planı ve sınav süreci için danışma desteği verilir"
     ],
-    "image": "/images/courses/ek-ders.jpg",
+    "image": "/images/courses/a1-motosiklet.jpg",
+    "popular": false,
+    "vehicleType": "both"
+  },
+  {
+    "id": "a2-motosiklet",
+    "title": "A2 Motosiklet Ehliyeti",
+    "description": "A2 sınıfı için başvuru yapacak adaylarda evrak kontrolü, dönem planı ve parkur hazırlığı birlikte yürütülür. Mevcut motosiklet tecrübesi olan ve daha üst sınıfa geçmek isteyen adaylar için net bir kayıt çerçevesi sunulur.",
+    "price": 15500,
+    "duration": "Ortalama 3-6 hafta",
+    "features": [
+      "Bilgi amaçlı başlangıç bedelidir; resmi harçlar dahil değildir",
+      "A2 başvuru şartları kayıt öncesinde teyit edilir",
+      "Parkur, denge ve kontrollu manevra çalışmaları planlanır",
+      "Sınav öncesi tekrar ihtiyacı adayın seviyesine göre değerlendirilir",
+      "Ödeme ve kayıt adımları danışmada açıklanır"
+    ],
+    "image": "/images/courses/a2-motosiklet.jpg",
+    "popular": false,
+    "vehicleType": "both"
+  },
+  {
+    "id": "ozel-direksiyon",
+    "title": "Özel Direksiyon Dersi",
+    "description": "Ehliyeti olup trafikte rahat hissetmeyenler, sınava yakın tekrar isteyenler veya belirli manevralarda ek çalışma yapmak isteyenler için birebir planlanan direksiyon dersidir.",
+    "price": 950,
+    "duration": "Saatlik başlangıç",
+    "features": [
+      "Bilgi amaçlı saatlik başlangıç bedelidir",
+      "Manuel veya otomatik araç talebi görüşmede netleştirilir",
+      "Park, yokuş kalkış ve trafik pratiği için birebir çalışma yapılır",
+      "Sınav öncesi tekrar veya günlük sürüş özgüveni için uygundur",
+      "Buluşma noktası ve ders saati programa göre planlanır"
+    ],
+    "image": "/images/courses/ozel-direksiyon.jpg",
     "popular": false,
     "vehicleType": "both"
   }

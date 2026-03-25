@@ -6,7 +6,7 @@ import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
   title: 'İletişim - Efe Sürücü Kursu',
-  description: 'Efe Sürücü Kursu ile iletişime geçin. Ehliyet ve kurs hakkında sorularınız için bize ulaşın.',
+  description: 'Efe Sürücü Kursu ile iletişime geçin. Kayıt, fiyat, evrak ve ders planı hakkında bilgi alın.',
 };
 
 export default function ContactPage() {
@@ -26,7 +26,7 @@ export default function ContactPage() {
             İletişim
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md">
-            Sorularınız için bize ulaşın, size yardımcı olmaktan mutluluk duyarız
+            Kurs seçimi, kayıt evrakları, fiyat çerçevesi ve ders planı için bize ulaşın
           </p>
         </div>
       </section>
@@ -42,6 +42,9 @@ export default function ContactPage() {
             <div className="space-y-8">
               <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-glass-xl p-8">
                 <h2 className="text-2xl font-bold mb-6 text-white">İletişim Bilgileri</h2>
+                <p className="text-gray-300 mb-6">
+                  Hızlı bilgi almak isterseniz telefonla, detay bırakmak isterseniz form üzerinden bize ulaşabilirsiniz.
+                </p>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-primary-red/20 rounded-xl border border-primary-red/30">
@@ -148,7 +151,7 @@ export default function ContactPage() {
               {/* Map */}
               <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-glass-xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d192697.8017470453!2d28.38544!3d41.01226!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b55fbd91e47e75%3A0x13e5a6c8c428b01f!2zQsO8ecO8a8OnZWttZWNlLCDEsHN0YW5idWw!5e0!3m2!1str!2str!4v1234567890123!5m2!1str!2str"
+                  src={settings.contact.mapEmbed}
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
@@ -167,7 +170,7 @@ export default function ContactPage() {
         siteName={settings.siteName}
         phone={settings.contact.phone}
         email={settings.contact.email}
-        address={settings.contact.address}
+        address={settings.contact.fullAddress}
         socialMedia={settings.socialMedia}
       />
     </div>

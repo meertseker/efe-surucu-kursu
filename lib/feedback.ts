@@ -12,7 +12,7 @@ import {
 } from 'firebase/firestore';
 import { db } from './firebase';
 
-export type FeedbackType = 'sikayet' | 'geri-bildirim';
+export type FeedbackType = 'sikayet' | 'geri-bildirim' | 'iletisim';
 export type FeedbackStatus = 'new' | 'in_review' | 'resolved';
 
 export interface FeedbackEntry {
@@ -20,7 +20,9 @@ export interface FeedbackEntry {
   type: FeedbackType;
   message: string;
   name?: string;
+  email?: string;
   phone?: string;
+  courseInterest?: string;
   createdAt: Timestamp | Date;
   status: FeedbackStatus;
 }
@@ -29,10 +31,33 @@ export interface CreateFeedbackInput {
   type: FeedbackType;
   message: string;
   name?: string;
+  email?: string;
   phone?: string;
+  courseInterest?: string;
 }
 
 const COLLECTION_NAME = 'feedbackEntries';
+
+type FeedbackError = Error & {
+  code?: string;
+};
+
+function normalizeFeedbackError(error: unknown): FeedbackError {
+  if (error instanceof Error) {
+    return error as FeedbackError;
+  }
+
+  const fallback = new Error('Bilinmeyen hata') as FeedbackError;
+  if (typeof error === 'object' && error !== null) {
+    return Object.assign(fallback, error);
+  }
+
+  if (typeof error === 'string') {
+    fallback.message = error;
+  }
+
+  return fallback;
+}
 
 export async function createFeedbackEntry(input: CreateFeedbackInput): Promise<string> {
   try {
@@ -46,7 +71,9 @@ export async function createFeedbackEntry(input: CreateFeedbackInput): Promise<s
       type: input.type,
       message: input.message,
       name: input.name || '',
+      email: input.email || '',
       phone: input.phone || '',
+      courseInterest: input.courseInterest || '',
       status: 'new' as FeedbackStatus,
       createdAt: serverTimestamp(),
     };
@@ -55,7 +82,7 @@ export async function createFeedbackEntry(input: CreateFeedbackInput): Promise<s
     console.log('🔥 addDoc fonksiyonu çağrılıyor...');
     
     // Timeout'u 30 saniyeye çıkarıyoruz ve daha detaylı log
-    const timeoutPromise = new Promise((_, reject) => {
+    const timeoutPromise = new Promise<never>((_, reject) => {
       setTimeout(() => {
         console.error('⏰ 30 saniye timeout! Firebase yanıt vermiyor.');
         reject(new Error('TIMEOUT_ERROR'));
@@ -78,21 +105,23 @@ export async function createFeedbackEntry(input: CreateFeedbackInput): Promise<s
         throw error;
       });
     
-    const docRef = await Promise.race([addDocPromise, timeoutPromise]) as any;
+    const docRef = await Promise.race([addDocPromise, timeoutPromise]);
     
     console.log('✅ Firestore yazma başarılı! Doc ID:', docRef.id);
     return docRef.id;
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const feedbackError = normalizeFeedbackError(error);
+
     console.error('❌ CATCH bloğunda yakalanan hata:', error);
     console.error('❌ Hata tipi:', typeof error);
-    console.error('❌ Hata constructor:', error?.constructor?.name);
-    console.error('❌ Hata code:', error?.code);
-    console.error('❌ Hata name:', error?.name);
-    console.error('❌ Hata message:', error?.message);
+    console.error('❌ Hata constructor:', feedbackError.constructor?.name);
+    console.error('❌ Hata code:', feedbackError.code);
+    console.error('❌ Hata name:', feedbackError.name);
+    console.error('❌ Hata message:', feedbackError.message);
     console.error('❌ Tam hata:', JSON.stringify(error, Object.getOwnPropertyNames(error), 2));
     
     // Timeout hatası mı?
-    if (error.message === 'TIMEOUT_ERROR') {
+    if (feedbackError.message === 'TIMEOUT_ERROR') {
       throw new Error('❌ FIREBASE YANIT VERMİYOR!\n\n' +
         'Olası nedenler:\n' +
         '1. Firestore Database oluşturulmamış (Firebase Console > Firestore Database > Create Database)\n' +
@@ -103,33 +132,33 @@ export async function createFeedbackEntry(input: CreateFeedbackInput): Promise<s
     }
     
     // Firebase hata kodları
-    if (error.code === 'permission-denied') {
+    if (feedbackError.code === 'permission-denied') {
       throw new Error('❌ İZİN HATASI (permission-denied)\n\n' +
         'Firestore Security Rules izin vermiyor.\n' +
         'Firebase Console > Firestore Database > Rules\n' +
         'Veya komutu çalıştırın: firebase deploy --only firestore:rules');
-    } else if (error.code === 'unavailable') {
+    } else if (feedbackError.code === 'unavailable') {
       throw new Error('❌ BAĞLANTI HATASI (unavailable)\n\n' +
         'Firestore\'a bağlanılamıyor.\n' +
         '1. İnternet bağlantınızı kontrol edin\n' +
         '2. Firebase servisi çalışıyor mu kontrol edin: https://status.firebase.google.com/');
-    } else if (error.code === 'failed-precondition') {
+    } else if (feedbackError.code === 'failed-precondition') {
       throw new Error('❌ DATABASE BULUNAMADI (failed-precondition)\n\n' +
         'Firestore Database oluşturulmamış!\n' +
         'Firebase Console > Firestore Database > Create Database\n' +
         'Link: https://console.firebase.google.com/project/efesurucukursu-da77d/firestore');
-    } else if (error.code === 'invalid-argument') {
+    } else if (feedbackError.code === 'invalid-argument') {
       throw new Error('❌ GEÇERSİZ VERİ (invalid-argument)\n\n' +
-        'Gönderilen veri formatı hatalı: ' + error.message);
-    } else if (error.code === 'not-found') {
+        'Gönderilen veri formatı hatalı: ' + feedbackError.message);
+    } else if (feedbackError.code === 'not-found') {
       throw new Error('❌ COLLECTION BULUNAMADI (not-found)\n\n' +
         'Collection veya database bulunamadı.\n' +
         'Database oluşturulmuş mu kontrol edin.');
     } else {
       throw new Error(`❌ BİLİNMEYEN FIREBASE HATASI\n\n` +
-        `Hata Kodu: ${error.code || 'YOK'}\n` +
-        `Hata Mesajı: ${error.message}\n` +
-        `Hata Tipi: ${error.constructor?.name}\n\n` +
+        `Hata Kodu: ${feedbackError.code || 'YOK'}\n` +
+        `Hata Mesajı: ${feedbackError.message}\n` +
+        `Hata Tipi: ${feedbackError.constructor?.name}\n\n` +
         `Detaylı log için konsola bakın.`);
     }
   }
@@ -162,13 +191,15 @@ export async function listFeedbackEntries(): Promise<FeedbackEntry[]> {
       });
     
     return await Promise.race([queryPromise, timeoutPromise]);
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const feedbackError = normalizeFeedbackError(error);
+
     console.error('❌ Firestore okuma hatası:', error);
-    console.error('❌ Hata kodu:', error.code);
-    console.error('❌ Hata mesajı:', error.message);
+    console.error('❌ Hata kodu:', feedbackError.code);
+    console.error('❌ Hata mesajı:', feedbackError.message);
     
     // Timeout hatası
-    if (error.message === 'TIMEOUT_ERROR') {
+    if (feedbackError.message === 'TIMEOUT_ERROR') {
       throw new Error('❌ FIRESTORE OKUMA ZAMAN AŞIMI\n\n' +
         'Veriler yüklenemedi (10 saniye timeout).\n' +
         'Olası nedenler:\n' +
@@ -178,22 +209,22 @@ export async function listFeedbackEntries(): Promise<FeedbackEntry[]> {
     }
     
     // Firebase hata kodları
-    if (error.code === 'permission-denied') {
+    if (feedbackError.code === 'permission-denied') {
       throw new Error('❌ İZİN HATASI\n\nFirestore Security Rules okuma izni vermiyor.');
-    } else if (error.code === 'failed-precondition') {
+    } else if (feedbackError.code === 'failed-precondition') {
       throw new Error('❌ INDEX EKSİK\n\nFirestore Console\'da index oluşturmanız gerekiyor.\n' +
         'createdAt field için descending index oluşturun.');
-    } else if (error.code === 'unavailable') {
+    } else if (feedbackError.code === 'unavailable') {
       throw new Error('❌ BAĞLANTI HATASI\n\nFirestore servisine bağlanılamıyor.\n' +
         'İnternet bağlantınızı kontrol edin.');
-    } else if (error.code === 'not-found') {
+    } else if (feedbackError.code === 'not-found') {
       // Collection yok - boş array dön
       console.log('ℹ️ Collection henüz oluşturulmamış, boş array dönülüyor');
       return [];
     } else {
       throw new Error(`❌ GERİ BİLDİRİMLER YÜKLENEMEDİ\n\n` +
-        `Hata: ${error.code || 'Bilinmeyen'}\n` +
-        `Mesaj: ${error.message}`);
+        `Hata: ${feedbackError.code || 'Bilinmeyen'}\n` +
+        `Mesaj: ${feedbackError.message}`);
     }
   }
 }

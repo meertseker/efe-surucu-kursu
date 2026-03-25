@@ -276,8 +276,8 @@ export default function Hero({ title, subtitle, primaryCta, secondaryCta, stats 
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-red/30 via-transparent to-transparent" />
                 
                 <div className="relative z-10">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-white to-secondary-gold bg-clip-text text-transparent">%95</div>
-                  <div className="text-xs text-white font-medium">Başarı Oranı</div>
+                  <div className="text-2xl font-bold bg-gradient-to-r from-white to-secondary-gold bg-clip-text text-transparent">2003</div>
+                  <div className="text-xs text-white font-medium">Büyükçekmece&apos;de faaliyet</div>
                 </div>
               </div>
               
@@ -286,8 +286,8 @@ export default function Hero({ title, subtitle, primaryCta, secondaryCta, stats 
                 <div className="absolute inset-0 bg-gradient-to-br from-secondary-orange/30 via-transparent to-transparent" />
                 
                 <div className="relative z-10">
-                  <div className="text-2xl font-bold bg-gradient-to-r from-white to-secondary-gold bg-clip-text text-transparent">5000+</div>
-                  <div className="text-xs text-white font-medium">Mezun Öğrenci</div>
+                  <div className="text-2xl font-bold bg-gradient-to-r from-white to-secondary-gold bg-clip-text text-transparent">B / A1 / A2</div>
+                  <div className="text-xs text-white font-medium">Ehliyet ve direksiyon dersi</div>
                 </div>
               </div>
             </div>

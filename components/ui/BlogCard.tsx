@@ -159,7 +159,7 @@ export default function BlogCard({
 
             {/* Read more */}
             <div className="flex items-center gap-2 text-primary-red dark:text-primary-red-light font-semibold group-hover:gap-3 transition-all duration-300">
-              <span>Devamını Oku</span>
+              <span>Yazıyı İncele</span>
               <motion.svg 
                 className="w-4 h-4" 
                 fill="none" 

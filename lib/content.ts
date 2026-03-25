@@ -50,31 +50,54 @@ export function getSiteSettings(): SiteSettings {
     // Return default settings if file doesn't exist
     return {
       siteName: 'Efe Sürücü Kursu',
-      logo: '/images/logo.png',
+      logo: '/logo.png',
       contact: {
-        phone: '+90 (212) 555 0123',
-        email: 'info@efesurucukursu.com',
-        address: 'Büyükçekmece, İstanbul',
-        fullAddress: 'Cumhuriyet Mahallesi, Atatürk Caddesi No: 123, Büyükçekmece/İstanbul',
-        mapEmbed: '',
+        phone: '0212 883 08 83',
+        email: 'info@efesurucukursu.com.tr',
+        address: '19 Mayıs Mah. D100 Karayolu Cad. No: 1079, Kat 1, Büyükçekmece / İstanbul',
+        fullAddress: 'Ressam Efe Motorlu Taşıt Sürücü Kursu, 19 Mayıs Mah. D100 Karayolu Cad. No: 1079, Kat 1, Büyükçekmece / İstanbul',
+        mapEmbed: 'https://www.google.com/maps?q=19+May%C4%B1s+Mah.+D100+Karayolu+Cad.+No:+1079+Kat+1,+B%C3%BCy%C3%BCk%C3%A7ekmece,+%C4%B0stanbul&output=embed',
       },
-      socialMedia: {},
+      socialMedia: {
+        facebook: 'https://www.facebook.com/efesurucukursubuyukcekmece/',
+      },
       workingHours: {
-        weekdays: '09:00 - 19:00',
-        saturday: '09:00 - 17:00',
-        sunday: 'Kapalı',
+        weekdays: '09:00 - 21:00',
+        saturday: '09:00 - 21:00',
+        sunday: '09:00 - 21:00',
       },
       seo: {
-        title: 'Efe Sürücü Kursu',
-        description: 'İstanbul Büyükçekmece Sürücü Kursu',
-        keywords: [],
+        title: 'Efe Sürücü Kursu | Büyükçekmece Ehliyet ve Direksiyon Dersi',
+        description: 'Büyükçekmece\'de B sınıfı manuel ve otomatik ehliyet, A1-A2 motosiklet ehliyeti ve özel direksiyon dersi için kayıt ve eğitim planı.',
+        keywords: ['Büyükçekmece ehliyet kursu', 'B sınıfı ehliyet kursu', 'özel direksiyon dersi'],
       },
-      features: [],
+      features: [
+        {
+          name: 'Basvuru ve Evrak Kontrolu',
+          description: 'Kayit oncesinde gerekli belgeler, uygun kurs turu ve surec adimlari birlikte netlestirilir.',
+          icon: 'map',
+        },
+        {
+          name: 'Teorik Egitim Sureci',
+          description: 'Trafik, ilk yardim ve motor dersleri planli sekilde ilerletilir; sinav oncesi eksik konular tekrar edilir.',
+          icon: 'book',
+        },
+        {
+          name: 'Direksiyon Dersi Plani',
+          description: 'Park, kalkis, kavsak ve akan trafikte surus calismalari adayin seviyesine gore programlanir.',
+          icon: 'check-circle',
+        },
+        {
+          name: 'Sinav ve Belge Teslimi',
+          description: 'E-sinav, direksiyon sinavi ve belge basvuru adimlari bastan sona acik sekilde aktarilir.',
+          icon: 'clock',
+        },
+      ],
       stats: {
-        yearsOfExperience: 15,
-        successRate: 95,
-        totalStudents: 5000,
-        instructors: 8,
+        yearsOfExperience: 23,
+        successRate: 90,
+        totalStudents: 20,
+        instructors: 7,
       },
     };
   }

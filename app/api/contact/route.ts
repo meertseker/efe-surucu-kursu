@@ -44,9 +44,9 @@ export async function POST(request: NextRequest) {
     }
 
     // Send email using Resend
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'Efe Sürücü Kursu <onboarding@resend.dev>', // In production, use your verified domain
-      to: process.env.CONTACT_EMAIL || 'info@efesurucukursu.com',
+      to: process.env.CONTACT_EMAIL || 'info@efesurucukursu.com.tr',
       replyTo: email,
       subject: `Yeni İletişim Formu - ${name}`,
       html: `

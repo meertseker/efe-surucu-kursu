@@ -54,7 +54,7 @@ export default function CourseCard({
             transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
           />
           
-          <span className="relative z-10">⭐ Popüler</span>
+          <span className="relative z-10">En çok sorulan</span>
         </motion.div>
       )}
 
@@ -116,6 +116,9 @@ export default function CourseCard({
           <div className="absolute inset-0 bg-gradient-to-br from-white/30 via-transparent to-transparent" />
           
           <div className="relative z-10">
+            <p className="text-xs uppercase tracking-wide text-gray-600 dark:text-gray-400 mb-2">
+              Başlangıç kurs ücreti
+            </p>
             <div className="flex items-baseline gap-2">
               <span className="text-4xl font-bold text-primary-red dark:text-secondary-orange">
                 {price.toLocaleString('tr-TR')}
@@ -123,7 +126,10 @@ export default function CourseCard({
               <span className="text-primary-red dark:text-secondary-orange font-bold text-2xl">₺</span>
             </div>
             <p className="text-sm text-gray-700 dark:text-gray-300 mt-1 flex items-center gap-1">
-              <span>💳</span> {duration}
+              <span>⏱</span> {duration}
+            </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+              Sınav harçları ve resmi belge bedelleri dahil değildir.
             </p>
           </div>
         </motion.div>
@@ -186,7 +192,7 @@ export default function CourseCard({
               transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
             />
             
-            <span className="relative z-10">Hemen Kayıt Ol →</span>
+            <span className="relative z-10">Detay ve Bilgi Al</span>
           </motion.div>
         </Link>
       </div>

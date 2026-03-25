@@ -11,6 +11,7 @@ import {
   trackContactFormError,
   trackCourseInterest,
 } from '@/lib/analytics';
+import { createFeedbackEntry } from '@/lib/feedback';
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Ad soyad en az 2 karakter olmalıdır'),
@@ -58,6 +59,15 @@ export default function ContactForm() {
       const result = await response.json();
 
       if (response.ok) {
+        await createFeedbackEntry({
+          type: 'iletisim',
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          courseInterest: data.courseInterest,
+          message: data.message,
+        });
+
         // Track successful submission
         trackContactFormComplete();
         if (data.courseInterest) {
@@ -72,7 +82,7 @@ export default function ContactForm() {
         trackContactFormError(result.error || 'Submission failed');
         toast.error(result.error || 'Bir hata oluştu, lütfen tekrar deneyiniz.');
       }
-    } catch (error) {
+    } catch {
       trackContactFormError('Network error');
       toast.error('Bir hata oluştu, lütfen daha sonra tekrar deneyiniz.');
     } finally {
@@ -90,7 +100,10 @@ export default function ContactForm() {
 
   return (
     <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-lg shadow-glass-xl p-8">
-      <h2 className="text-2xl font-bold mb-6 text-white">Bize Mesaj Gönderin</h2>
+      <h2 className="text-2xl font-bold mb-3 text-white">Bilgi Talep Formu</h2>
+      <p className="text-gray-300 mb-6">
+        Hangi kursla ilgilendiğinizi ve hangi konuda bilgi almak istediğinizi yazın, size uygun çerçeveyi paylaşalım.
+      </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div>
@@ -167,10 +180,11 @@ export default function ContactForm() {
             className="w-full px-4 py-2 backdrop-blur-xl bg-white/10 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent text-white"
           >
             <option value="" className="bg-gray-900">Seçiniz...</option>
-            <option value="B Sınıfı - Standart" className="bg-gray-900">B Sınıfı - Standart</option>
-            <option value="B Sınıfı - Yoğun" className="bg-gray-900">B Sınıfı - Yoğun</option>
+            <option value="B Sınıfı - Manuel" className="bg-gray-900">B Sınıfı - Manuel</option>
             <option value="B Sınıfı - Otomatik" className="bg-gray-900">B Sınıfı - Otomatik</option>
-            <option value="Ek Ders" className="bg-gray-900">Ek Ders Paketi</option>
+            <option value="A1 Motosiklet" className="bg-gray-900">A1 Motosiklet</option>
+            <option value="A2 Motosiklet" className="bg-gray-900">A2 Motosiklet</option>
+            <option value="Özel Direksiyon Dersi" className="bg-gray-900">Özel Direksiyon Dersi</option>
             <option value="Diğer" className="bg-gray-900">Diğer</option>
           </select>
         </div>
@@ -184,7 +198,7 @@ export default function ContactForm() {
             {...register('message')}
             rows={4}
             className="w-full px-4 py-2 backdrop-blur-xl bg-white/10 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent text-white placeholder-gray-400"
-            placeholder="Mesajınızı buraya yazınız..."
+            placeholder="Ornek: B sinifi otomatik kursu ve kayit evraklari hakkinda bilgi almak istiyorum."
             aria-required="true"
             aria-invalid={errors.message ? 'true' : 'false'}
             aria-describedby={errors.message ? 'message-error' : undefined}
@@ -201,7 +215,7 @@ export default function ContactForm() {
           disabled={isSubmitting}
           className="w-full bg-primary-red text-white py-3 rounded-lg font-semibold hover:bg-primary-red-dark transition-all duration-300 disabled:bg-gray-600 disabled:cursor-not-allowed shadow-glow hover:shadow-glow-lg hover:scale-105 disabled:hover:scale-100"
         >
-          {isSubmitting ? 'Gönderiliyor...' : 'Gönder'}
+          {isSubmitting ? 'Gönderiliyor...' : 'Bilgi Talep Et'}
         </button>
       </form>
     </div>

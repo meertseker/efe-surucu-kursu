@@ -47,8 +47,8 @@ export default function FeedbackForm() {
       
       toast.success(
         data.type === 'sikayet' 
-          ? 'Şikayetiniz başarıyla kaydedildi. En kısa sürede değerlendireceğiz.' 
-          : 'Geri bildiriminiz başarıyla kaydedildi. Teşekkür ederiz!'
+          ? 'Bildiriminiz alındı. Konu değerlendirmeye alınacaktır.' 
+          : 'Geri bildiriminiz alındı. Paylaştığınız görüş için teşekkür ederiz.'
       );
       reset();
     } catch (error) {
@@ -92,8 +92,7 @@ export default function FeedbackForm() {
     <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-lg shadow-glass-xl p-8">
       <h2 className="text-2xl font-bold mb-6 text-white">Görüş ve Önerileriniz</h2>
       <p className="text-gray-300 mb-6">
-        Hizmetlerimiz hakkındaki şikayet ve geri bildirimlerinizi bizimle paylaşın. 
-        Görüşleriniz bizim için değerlidir.
+        Yaşadığınız bir sorun, memnuniyetiniz veya geliştirme öneriniz varsa kısa ve net şekilde bize iletebilirsiniz.
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -109,9 +108,9 @@ export default function FeedbackForm() {
             aria-invalid={errors.type ? 'true' : 'false'}
             aria-describedby={errors.type ? 'type-error' : undefined}
           >
-            <option value="" className="bg-gray-900">Seçiniz...</option>
+            <option value="" className="bg-gray-900">Kategori seçin</option>
             <option value="sikayet" className="bg-gray-900">Şikayet</option>
-            <option value="geri-bildirim" className="bg-gray-900">Geri Bildirim / Öneri</option>
+            <option value="geri-bildirim" className="bg-gray-900">Görüş / Öneri</option>
           </select>
           {errors.type && (
             <p id="type-error" className="mt-1 text-sm text-accent-rose" role="alert">
@@ -129,7 +128,7 @@ export default function FeedbackForm() {
             type="text"
             {...register('name')}
             className="w-full px-4 py-2 backdrop-blur-xl bg-white/10 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent text-white placeholder-gray-400"
-            placeholder="Ad Soyad"
+            placeholder="İsterseniz adınızı yazabilirsiniz"
           />
         </div>
 
@@ -142,7 +141,7 @@ export default function FeedbackForm() {
             type="tel"
             {...register('phone')}
             className="w-full px-4 py-2 backdrop-blur-xl bg-white/10 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent text-white placeholder-gray-400"
-            placeholder="0555 123 45 67"
+            placeholder="Geri dönüş isterseniz telefon bırakabilirsiniz"
           />
         </div>
 
@@ -155,7 +154,7 @@ export default function FeedbackForm() {
             {...register('message')}
             rows={6}
             className="w-full px-4 py-2 backdrop-blur-xl bg-white/10 border border-white/20 rounded-lg focus:ring-2 focus:ring-primary-red focus:border-transparent text-white placeholder-gray-400"
-            placeholder="Şikayet veya geri bildiriminizi detaylı olarak yazınız..."
+            placeholder="Örnek: Direksiyon planlamasıyla ilgili yaşadığım durumu paylaşmak istiyorum."
             aria-required="true"
             aria-invalid={errors.message ? 'true' : 'false'}
             aria-describedby={errors.message ? 'message-error' : undefined}
@@ -172,7 +171,7 @@ export default function FeedbackForm() {
           disabled={isSubmitting}
           className="w-full bg-primary-red text-white py-3 rounded-lg font-semibold hover:bg-primary-red-dark transition-all duration-300 disabled:bg-gray-600 disabled:cursor-not-allowed shadow-glow hover:shadow-glow-lg hover:scale-105 disabled:hover:scale-100"
         >
-          {isSubmitting ? 'Gönderiliyor...' : 'Gönder'}
+          {isSubmitting ? 'Kaydediliyor...' : 'Bildirimi Gönder'}
         </button>
       </form>
     </div>

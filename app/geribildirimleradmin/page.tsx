@@ -11,7 +11,7 @@ export default function AdminFeedbackPage() {
   const [password, setPassword] = useState('');
   const [feedbacks, setFeedbacks] = useState<FeedbackEntry[]>([]);
   const [loading, setLoading] = useState(false);
-  const [filter, setFilter] = useState<'all' | 'sikayet' | 'geri-bildirim'>('all');
+  const [filter, setFilter] = useState<'all' | 'sikayet' | 'geri-bildirim' | 'iletisim'>('all');
 
   useEffect(() => {
     const savedAuth = sessionStorage.getItem('admin_authenticated');
@@ -59,7 +59,7 @@ export default function AdminFeedbackPage() {
       setFeedbacks(data);
       
       if (data.length === 0) {
-        toast('Henüz geri bildirim bulunmuyor', { icon: 'ℹ️' });
+        toast('Henüz kayıtlı bildirim görünmüyor', { icon: 'ℹ️' });
       }
     } catch (error) {
       const loadTime = Date.now() - startTime;
@@ -87,7 +87,7 @@ export default function AdminFeedbackPage() {
       await deleteFeedbackEntry(id);
       setFeedbacks(feedbacks.filter(f => f.id !== id));
       toast.success('Kayıt silindi');
-    } catch (error) {
+    } catch {
       toast.error('Silme işlemi başarısız');
     }
   };
@@ -97,7 +97,7 @@ export default function AdminFeedbackPage() {
       await updateFeedbackStatus(id, status);
       setFeedbacks(feedbacks.map(f => f.id === id ? { ...f, status } : f));
       toast.success('Durum güncellendi');
-    } catch (error) {
+    } catch {
       toast.error('Durum güncellenemedi');
     }
   };
@@ -105,6 +105,22 @@ export default function AdminFeedbackPage() {
   const filteredFeedbacks = filter === 'all' 
     ? feedbacks 
     : feedbacks.filter(f => f.type === filter);
+
+  const getTypeLabel = (type: FeedbackEntry['type']) => {
+    if (type === 'sikayet') return 'Şikayet';
+    if (type === 'geri-bildirim') return 'Görüş / öneri';
+    return 'İletişim formu';
+  };
+
+  const getTypeBadgeClass = (type: FeedbackEntry['type']) => {
+    if (type === 'sikayet') {
+      return 'bg-red-500/20 text-red-300 border border-red-500/30';
+    }
+    if (type === 'geri-bildirim') {
+      return 'bg-blue-500/20 text-blue-300 border border-blue-500/30';
+    }
+    return 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+  };
 
   const getStatusBadge = (status: FeedbackStatus) => {
     const badges = {
@@ -198,7 +214,17 @@ export default function AdminFeedbackPage() {
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'
             }`}
           >
-            Geri Bildirimler ({feedbacks.filter(f => f.type === 'geri-bildirim').length})
+            Görüş / Öneri ({feedbacks.filter(f => f.type === 'geri-bildirim').length})
+          </button>
+          <button
+            onClick={() => setFilter('iletisim')}
+            className={`px-4 py-2 rounded-lg transition-colors ${
+              filter === 'iletisim'
+                ? 'bg-primary-red text-white'
+                : 'bg-white/10 text-gray-300 hover:bg-white/20'
+            }`}
+          >
+            İletişim Formu ({feedbacks.filter(f => f.type === 'iletisim').length})
           </button>
           <button
             onClick={loadFeedbacks}
@@ -229,19 +255,19 @@ export default function AdminFeedbackPage() {
               </div>
             ))}
             <div className="text-center text-gray-400 py-4">
-              🔄 Geri bildirimler yükleniyor...
+              Bildirimler yükleniyor...
             </div>
           </div>
         ) : filteredFeedbacks.length === 0 ? (
           <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-glass-xl p-12 text-center">
             <div className="text-6xl mb-4">📭</div>
             <p className="text-gray-300 text-xl font-semibold mb-2">
-              {filter === 'all' ? 'Henüz Geri Bildirim Yok' : `${filter === 'sikayet' ? 'Şikayet' : 'Geri Bildirim'} Bulunamadı`}
+              {filter === 'all' ? 'Henüz kayıtlı bildirim yok' : `${getTypeLabel(filter)} bulunamadı`}
             </p>
             <p className="text-gray-400 text-sm">
               {feedbacks.length === 0 
-                ? 'Kullanıcılar form gönderdikçe burada görünecektir.' 
-                : 'Başka bir filtre deneyin.'}
+                ? 'Yeni bildirimler geldikçe burada listelenecektir.' 
+                : 'Farklı bir filtre seçerek tekrar kontrol edebilirsiniz.'}
             </p>
           </div>
         ) : (
@@ -253,12 +279,8 @@ export default function AdminFeedbackPage() {
               >
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex gap-3 items-center">
-                    <span className={`px-3 py-1 rounded-lg text-sm font-medium ${
-                      feedback.type === 'sikayet' 
-                        ? 'bg-red-500/20 text-red-300 border border-red-500/30' 
-                        : 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
-                    }`}>
-                      {feedback.type === 'sikayet' ? '⚠️ Şikayet' : '💡 Geri Bildirim'}
+                    <span className={`px-3 py-1 rounded-lg text-sm font-medium ${getTypeBadgeClass(feedback.type)}`}>
+                      {getTypeLabel(feedback.type)}
                     </span>
                     {getStatusBadge(feedback.status)}
                   </div>
@@ -273,10 +295,12 @@ export default function AdminFeedbackPage() {
 
                 <div className="mb-4">
                   <p className="text-white text-lg mb-2">{feedback.message}</p>
-                  {(feedback.name || feedback.phone) && (
-                    <div className="flex gap-4 text-sm text-gray-400 mt-3">
+                  {(feedback.name || feedback.email || feedback.phone || feedback.courseInterest) && (
+                    <div className="flex flex-wrap gap-4 text-sm text-gray-400 mt-3">
                       {feedback.name && <span>👤 {feedback.name}</span>}
+                      {feedback.email && <span>✉️ {feedback.email}</span>}
                       {feedback.phone && <span>📞 {feedback.phone}</span>}
+                      {feedback.courseInterest && <span>🎯 {feedback.courseInterest}</span>}
                     </div>
                   )}
                 </div>

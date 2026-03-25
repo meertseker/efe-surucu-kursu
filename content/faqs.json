@@ -1,62 +1,62 @@
 [
   {
     "id": "1",
-    "question": "Ehliyet sınavına nasıl hazırlanırım?",
-    "answer": "Ehliyet sınavına hazırlık sürecinde teorik ve pratik eğitimlerinizi düzenli olarak takip etmeniz önemlidir. Kursumuzda deneyimli eğitmenlerimiz size sınav tekniklerini öğretir, örnek sorular çözer ve sınav sürecinde size rehberlik eder. Ayrıca online test sistemimiz ile istediğiniz zaman pratik yapabilirsiniz."
+    "question": "Kayıt için hangi evraklar gerekiyor?",
+    "answer": "Başvuru öncesinde kimlik, öğrenim belgesi, sürücü olur sağlık raporu ve biyometrik fotoğraf gibi temel evraklar istenir. Evrak listesi adayın durumuna ve güncel mevzuata göre değişebileceği için kayıt öncesinde danışmadan son listeyi teyit etmeniz en sağlıklı yöntemdir."
   },
   {
     "id": "2",
-    "question": "Kaç saat ders almalıyım?",
-    "answer": "Yasal olarak minimum 12 saat teorik ve 12 saat pratik ders almanız gerekmektedir. Ancak biz öğrencilerimizin ihtiyaçlarına göre ek ders paketleri sunuyoruz. Standart paketimiz 16 saat pratik ders içerir, yoğun paketimiz ise 24 saat pratik eğitim sunar."
+    "question": "Fiyata neler dahil, neler hariç?",
+    "answer": "Sitedeki fiyatlar kurs hizmeti için bilgi amaçlı başlangıç bedelini gösterir. Resmi sınav harçları, sağlık raporu, sürücü belgesi harcı ve benzeri resmi ödeme kalemleri ayrıca değerlendirilir."
   },
   {
     "id": "3",
-    "question": "Otomatik vites mi manuel vites mi daha iyi?",
-    "answer": "Her ikisinin de avantajları vardır. Otomatik vites öğrenmesi daha kolay ve şehir içinde kullanımı daha rahat olsa da, manuel vites ehliyeti ile her türlü aracı kullanabilirsiniz. Manuel vites ehliyeti otomatik vitesli araçları da kapsar, ancak otomatik vites ehliyeti sadece otomatik vitesli araçları kullanmanıza izin verir."
+    "question": "Manuel mi otomatik mi seçmeliyim?",
+    "answer": "Araç kullanım planınız belirleyici olur. Manuel belge daha geniş araç kullanımı sağlar; otomatik ise özellikle ilk kez sürüşe başlayacak adaylar için daha rahat bir başlangıç sunabilir. Kararsızsanız günlük kullanım hedefinize göre birlikte değerlendirebiliriz."
   },
   {
     "id": "4",
-    "question": "Sınav ücreti paket fiyatına dahil mi?",
-    "answer": "Hayır, sınav ücretleri MEB tarafından belirlenir ve ayrı olarak ödenir. Paket fiyatlarımız sadece eğitim ücretlerini kapsar. Ancak sınavlara kayıt işlemlerinde size rehberlik eder ve gerekli evrak işlemlerinde yardımcı oluruz."
+    "question": "Ders planı nasıl yapılıyor?",
+    "answer": "Kayıt sonrasında uygunluk durumunuza göre teori ve direksiyon takvimi oluşturulur. Çalışma saatleri, sınav dönemi ve adayın hazır bulunuşluğu birlikte değerlendirilerek daha düzenli bir plan çıkarılır."
   },
   {
     "id": "5",
-    "question": "Yaş sınırı var mı?",
-    "answer": "B sınıfı ehliyet için minimum yaş 18'dir. 17 yaşını doldurmuş adaylar kurs eğitimine başlayabilir, ancak sınava sadece 18 yaşını doldurduktan sonra girebilirler."
+    "question": "B sınıfı ehliyet için yaş şartı nedir?",
+    "answer": "B sınıfı sürücü belgesinde temel yaş şartı 18'dir. Başvuru tarihine göre uygulanacak güncel koşulları kayıt sırasında birlikte kontrol etmek gerekir."
   },
   {
     "id": "6",
-    "question": "Hangi bölgelerde eğitim veriyorsunuz?",
-    "answer": "Merkez ofisimiz Büyükçekmece'de bulunmaktadır. Ancak pratik eğitimler için Avcılar, Küçükçekmece, Beylikdüzü ve çevre ilçelerde de servis hizmeti sunuyoruz. İstediğiniz yerden alıp, istediğiniz yere bırakabiliriz."
+    "question": "Hangi bölgelerden başvuru alıyorsunuz?",
+    "answer": "Merkezimiz Büyükçekmece'dedir. Başvurular ağırlıklı olarak Büyükçekmece ve çevre ilçelerden alınır; ders planı ve buluşma noktası adayın programına göre ayrıca netleştirilir."
   },
   {
     "id": "7",
-    "question": "Ders saatleri nasıl belirleniyor?",
-    "answer": "Ders saatlerinizi kendi programınıza göre esnek bir şekilde planlayabilirsiniz. Hafta içi 09:00-19:00, Cumartesi 09:00-17:00 saatleri arasında randevu alabilirsiniz. Öğrencilerimize maksimum esneklik sağlamak için yoğun çalışma saatlerimiz vardır."
+    "question": "Direksiyon derslerinde hangi konulara odaklanılıyor?",
+    "answer": "Adayın seviyesine göre kalkış, park, yokuş, kavşak, ayna-sinyal kontrolü ve trafik akışına uyum gibi başlıklar üzerinde durulur. Sınava yakın adaylarda tekrar planı bu ihtiyaçlara göre daraltılır."
   },
   {
     "id": "8",
-    "question": "Başarısız olursam ne olur?",
-    "answer": "Sınavda başarısız olmanız durumunda ek ders paketi alarak pratik yapabilirsiniz. Ayrıca eğitmenlerimiz zayıf olduğunuz konularda özel çalışma programı hazırlar. Kursumuzun başarı oranı %95'in üzerindedir ve öğrencilerimizin büyük çoğunluğu ilk sınavda başarılı olur."
+    "question": "E-sınav ve direksiyon sınavı süreci nasıl ilerliyor?",
+    "answer": "Önce kayıt ve eğitim süreci tamamlanır, ardından uygun sınav takvimi adayla paylaşılır. Güncel dönem planı, sınav tarihleri ve gerekli hazırlık adımları kayıt sırasında açık şekilde aktarılır."
   },
   {
     "id": "9",
-    "question": "Ödeme seçenekleri nelerdir?",
-    "answer": "Nakit, kredi kartı (taksit seçenekleri mevcut) ve havale ile ödeme yapabilirsiniz. Ayrıca öğrenciler ve işsizler için özel indirimlerimiz bulunmaktadır. Detaylı bilgi için bizi arayabilirsiniz."
+    "question": "Sınavda başarısız olursam süreç nasıl devam eder?",
+    "answer": "Eksik kalan konular değerlendirilir ve gerekiyorsa ek çalışma planı hazırlanır. Yeniden sınav hakkı ve resmi ödeme adımları dönem mevzuatına göre değişebileceği için, o tarihte geçerli süreç size ayrıca aktarılır."
   },
   {
     "id": "10",
-    "question": "Eğitim araçlarınız nasıl?",
-    "answer": "2023-2024 model, tam donanımlı, klimalı, ABS ve hava yastığı bulunan güvenli araçlarımız vardır. Hem manuel hem de otomatik vitesli araçlarımız mevcuttur. Tüm araçlarımız düzenli bakımdan geçer ve MEB standartlarına uygundur."
+    "question": "Ödeme seçenekleri hakkında nasıl bilgi alabilirim?",
+    "answer": "Güncel ödeme planı, kampanya varsa dönemsel koşulları ve taksit seçenekleri danışma üzerinden paylaşılır. Net teklif için telefonla ya da form üzerinden bilgi bırakabilirsiniz."
   },
   {
     "id": "11",
-    "question": "Direksiyon sınavı nasıl geçer?",
-    "answer": "Direksiyon sınavı park, yokuş kalkış, dönüş teknikleri ve trafikte sürüş gibi temel becerileri ölçer. Kursumuzda sınav parkuruna benzer alanlarda bolca pratik yaparsınız. Eğitmenlerimiz sınav esnasında dikkat edilmesi gereken noktaları detaylıca anlatır."
+    "question": "Özel direksiyon dersi kimler için uygun?",
+    "answer": "Ehliyeti olup trafikte rahat hissetmeyenler, belirli manevralarda tekrar isteyenler veya sınava yakın ek pratik planlamak isteyenler için uygundur. Hedefiniz netleştiğinde ders içeriği buna göre şekillendirilir."
   },
   {
     "id": "12",
-    "question": "Yabancı uyruklu öğrenci kabul ediyor musunuz?",
-    "answer": "Evet, yabancı uyruklu öğrencilere de eğitim veriyoruz. Türkiye'de geçerli ikamet izniniz olması ve yasal süreçleri tamamlamanız yeterlidir. Gerekli evrak konusunda size yardımcı oluruz."
+    "question": "Yabancı uyruklu adaylar kayıt olabilir mi?",
+    "answer": "Yabancı uyruklu adaylarda istenen evrak ve denklik koşulları değişebilir. Bu nedenle başvuru öncesinde mevcut belge durumunu danışmayla paylaşmanız gerekir; uygun kayıt çerçevesi size özel olarak açıklanır."
   }
 ]

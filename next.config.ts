@@ -33,7 +33,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'efesurucukursu.com',
+        hostname: 'www.efesurucukursu.com.tr',
       },
       {
         protocol: 'https',

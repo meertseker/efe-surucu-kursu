@@ -6,7 +6,7 @@ import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
   title: 'Kurslarımız - Efe Sürücü Kursu',
-  description: 'B sınıfı ehliyet, otomatik ve manuel vites eğitimi, yoğun paket ve ek direksiyon dersleri.',
+  description: 'B sınıfı manuel ve otomatik ehliyet, A1-A2 motosiklet ve özel direksiyon dersi seçeneklerini karşılaştırın.',
 };
 
 export default function CoursesPage() {
@@ -27,7 +27,7 @@ export default function CoursesPage() {
             Kurslarımız
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md">
-            Size en uygun eğitim paketini seçin ve güvenle sürmeye başlayın
+            Kurs içeriğini, başlangıç ücret çerçevesini ve hangi aday için uygun olduğunu tek sayfada görün
           </p>
         </div>
       </section>
@@ -35,6 +35,9 @@ export default function CoursesPage() {
       {/* Courses Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto mb-10 rounded-2xl border border-secondary-orange/30 bg-secondary-orange/10 backdrop-blur-xl p-5 text-sm text-gray-200">
+            Fiyatlar bilgi amaçlı başlangıç bedelidir. Kayıt öncesinde güncel dönem planı, resmi harçlar, sağlık raporu ve diğer resmi ödeme kalemleri ayrıca netleştirilir.
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {courses.map((course) => (
               <CourseCard
@@ -57,16 +60,16 @@ export default function CoursesPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary-red/10 via-secondary-orange/10 to-transparent"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 drop-shadow-lg">
-            Hangi Kursu Seçeceğinizden Emin Değil Misiniz?
+            Hangi kurs size daha uygun?
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Size en uygun paketi bulmak için bizimle iletişime geçin
+            Manuel-otomatik kararı, motosiklet sınıfı ve özel ders ihtiyacınızı birlikte değerlendirebiliriz
           </p>
           <a
             href="/iletisim"
             className="inline-block px-8 py-4 bg-primary-red text-white rounded-xl font-semibold text-lg shadow-glow hover:shadow-glow-lg transition-all duration-300 hover:scale-105 hover:bg-primary-red-dark"
           >
-            📞 Bize Ulaşın
+            Bilgi Al
           </a>
         </div>
       </section>
@@ -75,7 +78,7 @@ export default function CoursesPage() {
         siteName={settings.siteName}
         phone={settings.contact.phone}
         email={settings.contact.email}
-        address={settings.contact.address}
+        address={settings.contact.fullAddress}
         socialMedia={settings.socialMedia}
       />
     </div>

@@ -59,7 +59,7 @@ export default function InstructorCard({
               clipRule="evenodd"
             />
           </svg>
-          <span className="text-sm font-semibold text-success-600">{experience} deneyim</span>
+          <span className="text-sm font-semibold text-success-600">{experience}</span>
         </div>
 
         {/* Bio */}
@@ -67,7 +67,7 @@ export default function InstructorCard({
 
         {/* Specialties */}
         <div>
-          <p className="text-sm font-semibold text-gray-700 mb-2">Uzmanlık Alanları:</p>
+          <p className="text-sm font-semibold text-gray-700 mb-2">Odak Alanları:</p>
           <div className="flex flex-wrap gap-2">
             {specialties.map((specialty, index) => (
               <span

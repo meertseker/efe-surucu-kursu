@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllBlogSlugs } from '@/lib/mdx';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://efesurucukursu.com'; // Update with your actual domain
+  const baseUrl = 'https://www.efesurucukursu.com.tr';
   
   // Get all blog post slugs
   const blogSlugs = getAllBlogSlugs();
@@ -40,10 +40,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/sss`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/iletisim`,
       lastModified: new Date(),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/gizlilik-politikasi`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/kullanim-kosullari`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
     },
   ];
 

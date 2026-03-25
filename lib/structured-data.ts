@@ -2,17 +2,19 @@ import { getSiteSettings } from './content';
 import type { WithContext, LocalBusiness, BreadcrumbList, FAQPage, Service, Review, Article } from 'schema-dts';
 import type { Course, BlogPost } from './types';
 
+const siteUrl = 'https://www.efesurucukursu.com.tr';
+
 export function getLocalBusinessSchema(): WithContext<LocalBusiness> {
   const settings = getSiteSettings();
   
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': 'https://efesurucukursu.com',
+    '@id': siteUrl,
     name: settings.siteName,
-    image: 'https://efesurucukursu.com/images/logo.png',
+    image: `${siteUrl}/logo.png`,
     description: settings.seo.description,
-    url: 'https://efesurucukursu.com',
+    url: siteUrl,
     telephone: settings.contact.phone,
     email: settings.contact.email,
     address: {
@@ -31,15 +33,9 @@ export function getLocalBusinessSchema(): WithContext<LocalBusiness> {
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
         opens: '09:00',
-        closes: '19:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '09:00',
-        closes: '17:00',
+        closes: '21:00',
       },
     ],
     sameAs: [
@@ -163,7 +159,7 @@ export function getArticleSchema(post: BlogPost): WithContext<Article> {
     '@type': 'Article',
     headline: post.title,
     description: post.excerpt,
-    image: post.image ? `https://efesurucukursu.com${post.image}` : undefined,
+    image: post.image ? `${siteUrl}${post.image}` : undefined,
     datePublished: post.date,
     dateModified: post.date,
     author: {
@@ -175,12 +171,12 @@ export function getArticleSchema(post: BlogPost): WithContext<Article> {
       name: settings.siteName,
       logo: {
         '@type': 'ImageObject',
-        url: 'https://efesurucukursu.com/images/logo.png',
+        url: `${siteUrl}/logo.png`,
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': `https://efesurucukursu.com/blog/${post.slug}`,
+      '@id': `${siteUrl}/blog/${post.slug}`,
     },
   };
 }

@@ -8,7 +8,7 @@ import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
   title: 'Blog - Efe Sürücü Kursu',
-  description: 'Ehliyet, güvenli sürüş ve trafik kuralları hakkında faydalı bilgiler.',
+  description: 'Büyükçekmece odaklı ehliyet seçimi, direksiyon pratiği ve sınav hazırlığı hakkında rehber içerikler.',
 };
 
 export default function BlogPage() {
@@ -26,7 +26,7 @@ export default function BlogPage() {
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-white mb-4 drop-shadow-lg">Blog</h1>
           <p className="text-xl text-gray-300">
-            Ehliyet ve sürüş hakkında faydalı bilgiler
+            Ehliyet seçimi, direksiyon pratiği ve sınav hazırlığı için daha somut rehberler
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export default function BlogPage() {
 
         {posts.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-400">Henüz blog yazısı bulunmuyor.</p>
+            <p className="text-gray-400">Yeni içerikler yakında burada yer alacak.</p>
           </div>
         )}
       </main>
@@ -103,7 +103,7 @@ export default function BlogPage() {
         siteName={settings.siteName}
         phone={settings.contact.phone}
         email={settings.contact.email}
-        address={settings.contact.address}
+        address={settings.contact.fullAddress}
         socialMedia={settings.socialMedia}
       />
     </div>

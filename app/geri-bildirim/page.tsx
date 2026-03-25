@@ -6,7 +6,7 @@ import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
   title: 'Şikayet ve Geri Bildirim - Efe Sürücü Kursu',
-  description: 'Efe Sürücü Kursu hizmetleri hakkında şikayet ve geri bildirimlerinizi bizimle paylaşın.',
+  description: 'Efe Sürücü Kursu hizmetleriyle ilgili görüş, öneri ve çözüm beklentinizi bizimle paylaşın.',
 };
 
 export default function FeedbackPage() {
@@ -25,7 +25,7 @@ export default function FeedbackPage() {
             Şikayet ve Geri Bildirim
           </h1>
           <p className="text-xl text-white/90 max-w-2xl mx-auto drop-shadow-md">
-            Görüş ve önerileriniz bizim için çok değerli. Lütfen düşüncelerinizi bizimle paylaşın.
+            Memnuniyetinizi, önerinizi veya çözüm bekleyen bir konuyu doğrudan bizimle paylaşabilirsiniz.
           </p>
         </div>
       </section>
@@ -39,14 +39,13 @@ export default function FeedbackPage() {
               <h2 className="text-2xl font-bold mb-4 text-white">Neden Geri Bildiriminiz Önemli?</h2>
               <div className="space-y-4 text-gray-300">
                 <p>
-                  Müşteri memnuniyeti bizim önceliğimizdir. Şikayetleriniz ve geri bildirimleriniz, 
-                  hizmet kalitemizi artırmamıza ve size daha iyi bir deneyim sunmamıza yardımcı olur.
+                  Geri bildirimler, kayıt ve eğitim sürecindeki aksaklıkları daha hızlı görmemize ve hizmet akışını iyileştirmemize yardımcı olur.
                 </p>
                 <ul className="list-disc list-inside space-y-2 ml-4">
-                  <li>Tüm geri bildirimler dikkatle incelenir</li>
-                  <li>Şikayetler en kısa sürede değerlendirilir</li>
-                  <li>Önerileriniz hizmet geliştirmede kullanılır</li>
-                  <li>Gizliliğiniz korunur</li>
+                  <li>Tüm bildirimler kayda alınıp incelenir</li>
+                  <li>Gereken durumlarda iletişim bilgileri üzerinden geri dönüş yapılır</li>
+                  <li>Tekrarlayan sorunlar için süreç iyileştirmesi yapılır</li>
+                  <li>Paylaştığınız bilgiler gizlilik çerçevesinde korunur</li>
                 </ul>
               </div>
             </div>
@@ -58,7 +57,7 @@ export default function FeedbackPage() {
         siteName={settings.siteName}
         phone={settings.contact.phone}
         email={settings.contact.email}
-        address={settings.contact.address}
+        address={settings.contact.fullAddress}
         socialMedia={settings.socialMedia}
       />
     </div>

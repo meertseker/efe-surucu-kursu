@@ -8,13 +8,19 @@ import Footer from '@/components/ui/Footer';
 
 export const metadata: Metadata = {
   title: 'Hakkımızda - Efe Sürücü Kursu',
-  description: 'Deneyimli eğitmen kadromuz, profesyonel eğitim anlayışımız ve başarı hikayemiz hakkında bilgi edinin.',
+  description: 'Efe Sürücü Kursu\'nun Büyükçekmece merkezli eğitim yaklaşımı, kayıt süreci ve aday desteği hakkında bilgi alın.',
 };
 
 export default function AboutPage() {
   const instructors = getInstructors();
   const settings = getSiteSettings();
   const stats = settings.stats;
+  const aboutStats = [
+    { value: stats.yearsOfExperience, label: 'Yılı aşkın yerel tecrübe', suffix: '+', delay: 0 },
+    { value: 7, label: 'Gün danışma desteği', suffix: '', delay: 0.1 },
+    { value: stats.totalStudents, label: 'Kişilik sınıf kontenjanı', suffix: '', delay: 0.2 },
+    { value: stats.instructors, label: 'Kişilik eğitim ekibi', suffix: '', delay: 0.3 },
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800">
@@ -30,8 +36,8 @@ export default function AboutPage() {
             Hakkımızda
           </h1>
           <p className="text-xl text-white/90 max-w-3xl mx-auto drop-shadow-md">
-            {stats.yearsOfExperience} yıllık deneyimimiz ile İstanbul Büyükçekmece'nin
-            en güvenilir sürücü kursu
+            2003&apos;ten beri Büyükçekmece&apos;de kayıt, teorik eğitim ve direksiyon sürecini
+            daha anlaşılır ilerletmeye odaklanan yerel sürücü kursu yaklaşımı
           </p>
         </div>
       </section>
@@ -41,47 +47,46 @@ export default function AboutPage() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <StatsCard
-              value={stats.yearsOfExperience}
-              label="Yıl Deneyim"
-              suffix="+"
+              value={aboutStats[0].value}
+              label={aboutStats[0].label}
+              suffix={aboutStats[0].suffix}
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               }
-              delay={0}
+              delay={aboutStats[0].delay}
             />
             <StatsCard
-              value={stats.successRate}
-              label="Başarı Oranı"
-              prefix="%"
+              value={aboutStats[1].value}
+              label={aboutStats[1].label}
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               }
-              delay={0.1}
+              delay={aboutStats[1].delay}
             />
             <StatsCard
-              value={stats.totalStudents}
-              label="Mezun Öğrenci"
-              suffix="+"
+              value={aboutStats[2].value}
+              label={aboutStats[2].label}
+              suffix={aboutStats[2].suffix}
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               }
-              delay={0.2}
+              delay={aboutStats[2].delay}
             />
             <StatsCard
-              value={stats.instructors}
-              label="Eğitmen"
+              value={aboutStats[3].value}
+              label={aboutStats[3].label}
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               }
-              delay={0.3}
+              delay={aboutStats[3].delay}
             />
           </div>
         </div>
@@ -91,8 +96,8 @@ export default function AboutPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">Neden Biz?</h2>
-            <p className="text-xl text-gray-300">Farkımızı yaratan özelliklerimiz</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4 drop-shadow-lg">Ehliyet Aşamaları</h2>
+            <p className="text-xl text-gray-300">Kayıttan sınav ve belge teslimine kadar süreci adım adım paylaşıyoruz</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {settings.features.map((feature, index) => (
@@ -121,7 +126,7 @@ export default function AboutPage() {
               Eğitmen Kadromuz
             </h2>
             <p className="text-xl text-gray-300">
-              Deneyimli ve profesyonel eğitmenlerimiz
+              Gerçek kişi adı yerine eğitim ve aday desteği yaklaşımımızı paylaşıyoruz
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -146,16 +151,16 @@ export default function AboutPage() {
         <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-lg">
-            Aramıza Katılın!
+            Kayıt öncesinde süreci konuşalım
           </h2>
           <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto drop-shadow-md">
-            Binlerce başarılı öğrencimize siz de katılın
+            Uygun kurs türünü, evrak listesini ve ders planını sizin durumunuza göre netleştirelim
           </p>
           <a
             href="/iletisim"
             className="inline-block px-8 py-4 backdrop-blur-xl bg-white/95 text-primary-red rounded-2xl font-semibold text-lg shadow-[0_10px_40px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300 border border-white/50"
           >
-            ✓ Hemen Başvur
+            Bilgi Al
           </a>
         </div>
       </section>
@@ -164,7 +169,7 @@ export default function AboutPage() {
         siteName={settings.siteName}
         phone={settings.contact.phone}
         email={settings.contact.email}
-        address={settings.contact.address}
+        address={settings.contact.fullAddress}
         socialMedia={settings.socialMedia}
       />
     </div>

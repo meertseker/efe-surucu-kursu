@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 d="M10 19l-7-7m0 0l7-7m-7 7h18"
               />
             </svg>
-            Blog'a Dön
+            Blog&apos;a Dön
           </Link>
 
           {/* Header */}
@@ -126,17 +126,17 @@ export default async function BlogPostPage({ params }: PageProps) {
             <div className="absolute inset-0 bg-gradient-radial from-secondary-gold/20 via-transparent to-transparent animate-pulse-slow"></div>
             <div className="relative z-10">
               <h2 className="text-2xl font-bold mb-4 drop-shadow-lg">
-                Ehliyet Almak İçin Hazır mısınız?
+                Size uygun süreci netleştirelim
               </h2>
               <p className="mb-6 text-white/90">
-                Deneyimli eğitmenlerimiz ve modern araçlarımızla size en iyi
-                eğitimi sunuyoruz.
+                Kurs seçimi, kayıt evrakları ve direksiyon planı hakkında
+                size uygun çerçeveyi birlikte konuşabiliriz.
               </p>
               <Link
                 href="/iletisim"
                 className="inline-block backdrop-blur-xl bg-white/95 text-primary-red px-8 py-3 rounded-lg font-semibold shadow-[0_10px_40px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.4)] transition-all hover:scale-105 border border-white/50"
               >
-                Hemen Başvur
+                Bilgi Al
               </Link>
             </div>
           </div>
@@ -147,7 +147,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         siteName={settings.siteName}
         phone={settings.contact.phone}
         email={settings.contact.email}
-        address={settings.contact.address}
+        address={settings.contact.fullAddress}
         socialMedia={settings.socialMedia}
       />
     </div>

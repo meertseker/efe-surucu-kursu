@@ -24,30 +24,53 @@ const jakarta = Plus_Jakarta_Sans({
 });
 
 const settings = getSiteSettings();
+const siteUrl = 'https://www.efesurucukursu.com.tr';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://efesurucukursu.com'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: settings.seo.title,
     template: '%s | Efe Sürücü Kursu',
   },
   description: settings.seo.description,
   keywords: settings.seo.keywords,
+  applicationName: settings.siteName,
+  alternates: {
+    canonical: '/',
+  },
   authors: [{ name: 'Efe Sürücü Kursu' }],
   creator: 'Efe Sürücü Kursu',
   publisher: 'Efe Sürücü Kursu',
+  icons: {
+    icon: [
+      { url: '/logo.png', type: 'image/png' },
+    ],
+    shortcut: ['/logo.png'],
+    apple: [
+      { url: '/logo.png', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: settings.seo.title,
     description: settings.seo.description,
     type: "website",
     locale: "tr_TR",
-    url: 'https://efesurucukursu.com',
+    url: siteUrl,
     siteName: settings.siteName,
+    images: [
+      {
+        url: '/logo.png',
+        width: 687,
+        height: 322,
+        alt: settings.siteName,
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: settings.seo.title,
     description: settings.seo.description,
+    images: ['/logo.png'],
   },
   robots: {
     index: true,
@@ -61,7 +84,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || 'your-google-verification-code',
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || undefined,
   },
 };
 
@@ -82,8 +105,10 @@ export default function RootLayout({
         
         {/* PWA Meta Tags */}
         <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-        <meta name="theme-color" content="#3b82f6" />
+        <link rel="icon" href="/logo.png" type="image/png" />
+        <link rel="shortcut icon" href="/logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/logo.png" />
+        <meta name="theme-color" content="#9A3222" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="apple-mobile-web-app-title" content="Efe Sürücü Kursu" />

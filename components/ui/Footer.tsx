@@ -36,8 +36,8 @@ export default function Footer({ siteName, phone, email, address, socialMedia }:
               />
             </div>
             <p className="text-gray-300 leading-relaxed">
-              İstanbul Büyükçekmece'nin güvenilir sürücü kursu. 15 yıllık deneyimimiz ile size
-              en iyi eğitimi sunuyoruz.
+              Efe Sürücü Kursu, Büyükçekmece&apos;de kayıt, eğitim planı ve sınav sürecini daha
+              anlaşılır ilerletmek isteyen adaylar için yerel sürücü kursu hizmeti sunar.
             </p>
           </div>
 
@@ -49,7 +49,9 @@ export default function Footer({ siteName, phone, email, address, socialMedia }:
                 { label: 'Ana Sayfa', href: '/' },
                 { label: 'Kurslar', href: '/kurslar' },
                 { label: 'Hakkımızda', href: '/hakkimizda' },
+                  { label: 'SSS', href: '/sss' },
                 { label: 'Blog', href: '/blog' },
+                  { label: 'Geri Bildirim', href: '/geri-bildirim' },
                 { label: 'İletişim', href: '/iletisim' },
               ].map((link) => (
                 <li key={link.href}>
@@ -83,7 +85,7 @@ export default function Footer({ siteName, phone, email, address, socialMedia }:
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <a href={`tel:${phone}`} className="text-gray-300 hover:text-secondary-gold transition-colors">
+                <a href={`tel:${phone.replace(/\s/g, '')}`} className="text-gray-300 hover:text-secondary-gold transition-colors">
                   {phone}
                 </a>
               </li>
@@ -132,7 +134,7 @@ export default function Footer({ siteName, phone, email, address, socialMedia }:
 
           {/* Social Media */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-white">Sosyal Medya</h3>
+            <h3 className="text-lg font-semibold mb-6 text-white">Resmi Hesaplar</h3>
             <div className="flex gap-4">
               {socialMedia?.facebook && (
                 <a
@@ -185,8 +187,8 @@ export default function Footer({ siteName, phone, email, address, socialMedia }:
             </div>
             <div className="mt-6 p-4 backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl">
               <p className="text-sm text-gray-300">
-                📞 Hemen aramak için <br />
-                <a href={`tel:${phone}`} className="text-secondary-gold hover:text-secondary-amber font-semibold transition-colors">
+                Kayıt, fiyat ve evrak bilgisi icin <br />
+                <a href={`tel:${phone.replace(/\s/g, '')}`} className="text-secondary-gold hover:text-secondary-amber font-semibold transition-colors">
                   {phone}
                 </a>
               </p>
@@ -201,10 +203,10 @@ export default function Footer({ siteName, phone, email, address, socialMedia }:
               © {currentYear} {siteName}. Tüm hakları saklıdır.
             </p>
             <div className="flex gap-6">
-              <Link href="#" className="text-gray-300 hover:text-secondary-gold text-sm transition-colors">
+              <Link href="/gizlilik-politikasi" className="text-gray-300 hover:text-secondary-gold text-sm transition-colors">
                 Gizlilik Politikası
               </Link>
-              <Link href="#" className="text-gray-300 hover:text-secondary-gold text-sm transition-colors">
+              <Link href="/kullanim-kosullari" className="text-gray-300 hover:text-secondary-gold text-sm transition-colors">
                 Kullanım Koşulları
               </Link>
             </div>

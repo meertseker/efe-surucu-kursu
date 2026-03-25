@@ -53,7 +53,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img 
-                src="/logo.png" 
+                src={logo || "/logo.png"} 
                 alt={siteName}
                 className="h-12 w-auto object-contain drop-shadow-[0_0_15px_rgba(154,50,34,0.6)]"
               />
@@ -135,7 +135,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
                   }}
                 />
                 
-                <span className="relative z-10">Kayıt Ol</span>
+                <span className="relative z-10">Bilgi Al</span>
               </motion.div>
             </Link>
           </motion.div>
@@ -221,7 +221,7 @@ export default function Navigation({ siteName, logo }: NavigationProps) {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block px-4 py-3 bg-gradient-to-r from-primary-red to-secondary-orange text-white rounded-xl font-semibold text-center shadow-glow-red"
                 >
-                  Kayıt Ol
+                  Bilgi Al
                 </Link>
               </motion.div>
             </motion.div>

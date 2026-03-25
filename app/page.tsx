@@ -1,4 +1,4 @@
-import { getPopularCourses, getSiteSettings, getCourses } from '@/lib/content';
+import { getSiteSettings, getCourses } from '@/lib/content';
 import { getRecentBlogPosts } from '@/lib/mdx';
 import { formatDate } from '@/lib/utils';
 import Hero from '@/components/ui/Hero';
@@ -7,35 +7,30 @@ import StatsCard from '@/components/ui/StatsCard';
 import FeatureCard from '@/components/ui/FeatureCard';
 import CourseCard from '@/components/ui/CourseCard';
 import BlogCard from '@/components/ui/BlogCard';
-import TestimonialCard from '@/components/ui/TestimonialCard';
 import Footer from '@/components/ui/Footer';
 
 export default function Home() {
   const settings = getSiteSettings();
   const courses = getCourses();
-  const popularCourses = courses.filter(c => c.popular);
   const recentPosts = getRecentBlogPosts();
   const stats = settings.stats;
-
-  // Sample testimonials
-  const testimonials = [
+  const homeStats = [
+    { value: 15000, label: 'Başarılı öğrenci', suffix: '+', delay: 0 },
+    { value: 20, label: 'Kişilik sınıf kontenjanı', suffix: '', delay: 0.1 },
+    { value: stats.instructors, label: 'Kişilik eğitim ekibi', suffix: '', delay: 0.2 },
+  ];
+  const trustPoints = [
     {
-      name: 'Ayşe Yılmaz',
-      course: 'B Sınıfı Ehliyet',
-      rating: 5,
-      text: 'Harika bir eğitim! Eğitmenler çok profesyonel ve sabırlı. Direksiyon derslerinde kendimi çok güvende hissettim.',
+      title: 'Kurs seçimini netleştirme',
+      text: 'Manuel mi otomatik mi sorusunu günlük kullanım planınıza göre birlikte değerlendiriyoruz.',
     },
     {
-      name: 'Mehmet Demir',
-      course: 'B Sınıfı Ehliyet',
-      rating: 5,
-      text: 'Efe Sürücü Kursu\'nu herkese tavsiye ederim. Kaliteli eğitim ve uygun fiyatlar.',
+      title: 'Sınava yakın tekrar planı',
+      text: 'Park, kalkış, kavşak ve trafik akışı gibi zorlanılan başlıklar için odaklı direksiyon tekrarı planlanıyor.',
     },
     {
-      name: 'Zeynep Kaya',
-      course: 'Yoğun Paket',
-      rating: 5,
-      text: 'Ehliyet sürecim çok rahat geçti. Teşekkürler Efe Sürücü Kursu!',
+      title: 'Evrak ve ödeme çerçevesi',
+      text: 'Kayıt aşamasında hangi belgenin ve hangi ödeme kaleminin gerektiği baştan açık şekilde anlatılıyor.',
     },
   ];
 
@@ -49,63 +44,52 @@ export default function Home() {
 
       {/* Hero Section */}
       <Hero
-        title="Güvenli Gelecek İçin Doğru Adres"
-        subtitle={`${stats.yearsOfExperience} yıllık deneyimimiz, %${stats.successRate} başarı oranı ve binlerce mezun öğrencimizle ehliyet eğitiminde güvenilir adres.`}
-        primaryCta={{ text: 'Kurslarımız', href: '/kurslar' }}
-        secondaryCta={{ text: 'WhatsApp ile İletişim', href: 'https://wa.me/902125550123?text=Merhaba,%20ehliyet%20kursu%20hakkında%20bilgi%20almak%20istiyorum' }}
+        title="Büyükçekmece'de Ehliyet Sürecinizi Daha Net Planlayın"
+        subtitle={`${stats.yearsOfExperience} yıla yaklaşan yerel tecrübemizle kayıt, ders planı ve sınav hazırlığını aynı akış içinde ilerletiyoruz. B sınıfı, A1-A2 ve özel direksiyon dersi için önce ihtiyacınızı netleştiriyoruz.`}
+        primaryCta={{ text: 'Bilgi ve Fiyat Al', href: '/iletisim' }}
+        secondaryCta={{ text: 'Telefonla Ulaşın', href: `tel:${settings.contact.phone.replace(/\s/g, '')}` }}
         stats={[
-          { value: `${stats.yearsOfExperience}+`, label: 'Yıl Deneyim' },
-          { value: `%${stats.successRate}`, label: 'Müşteri Memnuniyeti' },
-          { value: `${stats.totalStudents}+`, label: 'Mezun Öğrenci' },
+          { value: `${stats.yearsOfExperience}+`, label: 'Yıl yerel tecrübe' },
+          { value: '7 gün', label: 'İletişim' },
+          { value: 'Hızlı', label: 'Sonuç' },
         ]}
       />
 
       {/* Stats Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <StatsCard
-              value={stats.yearsOfExperience}
-              label="Yıl Deneyim"
-              suffix="+"
+              value={homeStats[0].value}
+              label={homeStats[0].label}
+              suffix={homeStats[0].suffix}
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               }
-              delay={0}
+              delay={homeStats[0].delay}
             />
             <StatsCard
-              value={stats.successRate}
-              label="Başarı Oranı"
-              prefix="%"
+              value={homeStats[1].value}
+              label={homeStats[1].label}
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
               }
-              delay={0.1}
+              delay={homeStats[1].delay}
             />
             <StatsCard
-              value={stats.totalStudents}
-              label="Mezun Öğrenci"
-              suffix="+"
+              value={homeStats[2].value}
+              label={homeStats[2].label}
+              suffix={homeStats[2].suffix}
               icon={
                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               }
-              delay={0.2}
-            />
-            <StatsCard
-              value={stats.instructors}
-              label="Eğitmen"
-              icon={
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              }
-              delay={0.3}
+              delay={homeStats[2].delay}
             />
           </div>
         </div>
@@ -116,10 +100,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-h2 font-bold text-gray-900 dark:text-white mb-4">
-              Neden Efe Sürücü Kursu?
+              Ehliyet Aşamaları
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Farkımızı yaratan özelliklerimiz
+              Kayıttan sınav ve belge teslimine kadar süreci adım adım görün
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -147,10 +131,10 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              Popüler Hizmetlerimiz
+              Size uygun eğitim başlıkları
             </h2>
             <p className="text-xl text-gray-900 dark:text-white">
-              Size en uygun ehliyet paketini seçin
+              B sınıfı, motosiklet ve özel direksiyon dersi seçeneklerini karşılaştırın
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -170,27 +154,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Trust Points Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-h2 font-bold text-gray-900 dark:text-white mb-4">
-              Öğrencilerimiz Ne Diyor?
+              Adaylar en çok bu konuları soruyor
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Başarı hikayelerini dinleyin
+              Sahte yoruma benzemeyen, süreç içinde gerçekten karar verdiren başlıkları öne çıkarıyoruz
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard
-                key={index}
-                name={testimonial.name}
-                course={testimonial.course}
-                rating={testimonial.rating}
-                text={testimonial.text}
-                delay={index * 0.1}
-              />
+            {trustPoints.map((item, index) => (
+              <div
+                key={item.title}
+                className="backdrop-blur-xl bg-white/90 dark:bg-gray-900/90 rounded-3xl p-8 shadow-glass-lg border border-white/30 dark:border-white/10"
+              >
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-r from-primary-red to-secondary-orange text-white font-bold mb-5">
+                  0{index + 1}
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                  {item.text}
+                </p>
+              </div>
             ))}
           </div>
         </div>
@@ -207,7 +197,7 @@ export default function Home() {
                 Blog Yazılarımız
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-400">
-                Faydalı bilgiler ve ipuçları
+                Sık sorulan konular için kısa ve somut rehberler
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -243,23 +233,23 @@ export default function Home() {
         <div className="absolute inset-0 backdrop-blur-sm bg-black/20"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-h2 font-bold mb-6 text-white drop-shadow-lg">
-            Ehliyetinize Bugün Başlayın!
+            Önce süreci netleştirelim
           </h2>
           <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto drop-shadow-md">
-            Hemen kayıt olun, güvenli sürüşe adım atın. Deneyimli eğitmenlerimiz ve yüksek başarı oranımızla ehliyetinize kavuşun.
+            Hangi kursun size uygun olduğunu, kayıt evraklarını ve başlangıç ücret çerçevesini aynı görüşmede konuşalım.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
               href="/iletisim"
               className="px-8 py-4 backdrop-blur-xl bg-white/95 text-primary-red rounded-2xl font-semibold text-lg shadow-[0_10px_40px_rgba(255,255,255,0.3)] hover:shadow-[0_15px_50px_rgba(255,255,255,0.4)] hover:scale-105 transition-all duration-300 border border-white/50"
             >
-              ✉ Ücretsiz Bilgi Al
+              Bilgi Formunu Doldur
             </a>
             <a
-              href="/kurslar"
+              href={`tel:${settings.contact.phone.replace(/\s/g, '')}`}
               className="px-8 py-4 backdrop-blur-xl bg-white/10 border-2 border-white/50 hover:bg-white/20 text-white rounded-2xl font-semibold text-lg shadow-glass-xl hover:shadow-glass-xl transition-all duration-300 hover:scale-105"
             >
-              📋 Kurslarımız
+              Telefonla Ulaşın
             </a>
           </div>
         </div>
@@ -270,7 +260,7 @@ export default function Home() {
         siteName={settings.siteName}
         phone={settings.contact.phone}
         email={settings.contact.email}
-        address={settings.contact.address}
+        address={settings.contact.fullAddress}
         socialMedia={settings.socialMedia}
       />
     </div>

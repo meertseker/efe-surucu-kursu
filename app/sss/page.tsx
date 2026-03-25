@@ -11,19 +11,19 @@ const settings = getSiteSettings();
 
 export const metadata: Metadata = {
   title: 'Sıkça Sorulan Sorular',
-  description: 'Efe Sürücü Kursu hakkında merak ettiğiniz her şey. Ehliyet sınavı, ders saatleri, paketler ve daha fazlası hakkında sorularınızın cevapları.',
+  description: 'Kayıt evrakları, kurs ücret çerçevesi, sınav süreci ve direksiyon planı hakkında sık sorulan sorular.',
   keywords: ['ehliyet SSS', 'sürücü kursu soruları', 'efe sürücü kursu', 'ehliyet sınavı'],
   openGraph: {
     title: 'Sıkça Sorulan Sorular | Efe Sürücü Kursu',
     description: 'Ehliyet kursu hakkında merak ettiğiniz soruların cevapları.',
-    url: 'https://efesurucukursu.com/sss',
+    url: 'https://www.efesurucukursu.com.tr/sss',
   },
 };
 
 export default function SSSPage() {
   const faqSchema = getFAQPageSchema(faqs);
   const breadcrumbSchema = getBreadcrumbSchema([
-    { name: 'SSS', url: 'https://efesurucukursu.com/sss' }
+    { name: 'SSS', url: 'https://www.efesurucukursu.com.tr/sss' }
   ]);
 
   return (
@@ -50,8 +50,8 @@ export default function SSSPage() {
               Sıkça Sorulan Sorular
             </h1>
             <p className="text-xl text-white/90 max-w-3xl drop-shadow-md">
-              Ehliyet kursu hakkında merak ettiğiniz soruların cevapları burada. 
-              Aradığınızı bulamadıysanız bize ulaşabilirsiniz.
+              Kayıt, ücret, sınav ve direksiyon süreciyle ilgili en sık sorulan başlıkları tek yerde topladık.
+              Size özel durum varsa danışmadan ayrıca bilgi alabilirsiniz.
             </p>
           </div>
         </section>
@@ -66,17 +66,17 @@ export default function SSSPage() {
             {/* Contact CTA */}
             <div className="mt-12 bg-gradient-to-r from-primary-red/20 to-secondary-orange/20 rounded-2xl p-8 text-center border border-primary-red/30 backdrop-blur-xl">
               <h2 className="text-2xl font-bold text-white mb-4">
-                Başka Sorunuz mu Var?
+                Sorunuz burada yer almıyor mu?
               </h2>
               <p className="text-gray-300 mb-6">
-                Cevabını bulamadığınız sorular için bize ulaşabilirsiniz.
+                Evrak, dönem planı veya kurs seçimiyle ilgili özel sorularınız için bize ulaşabilirsiniz.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a
                   href="/iletisim"
                   className="inline-flex items-center justify-center px-6 py-3 bg-primary-red text-white rounded-lg hover:bg-primary-red-dark transition-all duration-300 font-semibold shadow-glow hover:shadow-glow-lg hover:scale-105"
                 >
-                  İletişime Geç
+                  Soru Gönder
                 </a>
                 <a
                   href={`tel:${settings.contact.phone.replace(/\s/g, '')}`}
@@ -94,7 +94,7 @@ export default function SSSPage() {
         siteName={settings.siteName}
         phone={settings.contact.phone}
         email={settings.contact.email}
-        address={settings.contact.address}
+        address={settings.contact.fullAddress}
         socialMedia={settings.socialMedia}
       />
     </>
