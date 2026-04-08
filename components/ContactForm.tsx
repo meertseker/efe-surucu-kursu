@@ -48,9 +48,9 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      // Admin panelde kesin görünmesi için önce Firestore kaydı oluştur.
       await createFeedbackEntry({
         type: 'iletisim',
+        sourceForm: 'iletisim',
         name: data.name,
         email: data.email,
         phone: data.phone,
@@ -58,34 +58,24 @@ export default function ContactForm() {
         message: data.message,
       });
 
-      let emailNotificationFailed = false;
-      try {
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
-
-        if (!response.ok) {
-          emailNotificationFailed = true;
-        }
-      } catch {
-        emailNotificationFailed = true;
-      }
+      // E-posta bildirimi kullanıcı akışını bloklamasın (best-effort).
+      void fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      }).catch((error) => {
+        console.error('İletişim e-posta bildirimi gönderilemedi:', error);
+      });
 
       // Track successful submission
       trackContactFormComplete();
       if (data.courseInterest) {
         trackCourseInterest(data.courseInterest);
       }
-
-      if (emailNotificationFailed) {
-        toast.success('Mesajınız kaydedildi. En kısa sürede size dönüş yapacağız.');
-      } else {
-        toast.success('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
-      }
+      
+      toast.success('Mesajınız alındı. En kısa sürede size dönüş yapacağız.');
 
       reset();
       setFormStarted(false);

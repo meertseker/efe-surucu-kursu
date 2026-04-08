@@ -102,21 +102,43 @@ export default function AdminFeedbackPage() {
     }
   };
 
-  const filteredFeedbacks = filter === 'all' 
-    ? feedbacks 
-    : feedbacks.filter(f => f.type === filter);
+  const isContactEntry = (entry: FeedbackEntry) =>
+    entry.type === 'iletisim' || entry.sourceForm === 'iletisim';
 
-  const getTypeLabel = (type: FeedbackEntry['type']) => {
-    if (type === 'sikayet') return 'Şikayet';
-    if (type === 'geri-bildirim') return 'Görüş / öneri';
+  const filteredFeedbacks = filter === 'all'
+    ? feedbacks
+    : feedbacks.filter((f) => {
+      if (filter === 'iletisim') {
+        return isContactEntry(f);
+      }
+      if (filter === 'geri-bildirim') {
+        return f.type === 'geri-bildirim' && !isContactEntry(f);
+      }
+      return f.type === filter;
+    });
+
+  const getFilterLabel = (value: typeof filter) => {
+    if (value === 'sikayet') return 'Şikayet';
+    if (value === 'geri-bildirim') return 'Görüş / öneri';
+    if (value === 'iletisim') return 'İletişim formu';
+    return 'Tümü';
+  };
+
+  const getTypeLabel = (entry: FeedbackEntry) => {
+    if (isContactEntry(entry)) return 'İletişim formu';
+    if (entry.type === 'sikayet') return 'Şikayet';
+    if (entry.type === 'geri-bildirim') return 'Görüş / öneri';
     return 'İletişim formu';
   };
 
-  const getTypeBadgeClass = (type: FeedbackEntry['type']) => {
-    if (type === 'sikayet') {
+  const getTypeBadgeClass = (entry: FeedbackEntry) => {
+    if (isContactEntry(entry)) {
+      return 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
+    }
+    if (entry.type === 'sikayet') {
       return 'bg-red-500/20 text-red-300 border border-red-500/30';
     }
-    if (type === 'geri-bildirim') {
+    if (entry.type === 'geri-bildirim') {
       return 'bg-blue-500/20 text-blue-300 border border-blue-500/30';
     }
     return 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30';
@@ -214,7 +236,7 @@ export default function AdminFeedbackPage() {
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'
             }`}
           >
-            Görüş / Öneri ({feedbacks.filter(f => f.type === 'geri-bildirim').length})
+            Görüş / Öneri ({feedbacks.filter((f) => f.type === 'geri-bildirim' && !isContactEntry(f)).length})
           </button>
           <button
             onClick={() => setFilter('iletisim')}
@@ -224,7 +246,7 @@ export default function AdminFeedbackPage() {
                 : 'bg-white/10 text-gray-300 hover:bg-white/20'
             }`}
           >
-            İletişim Formu ({feedbacks.filter(f => f.type === 'iletisim').length})
+            İletişim Formu ({feedbacks.filter((f) => f.type === 'iletisim' || f.sourceForm === 'iletisim').length})
           </button>
           <button
             onClick={loadFeedbacks}
@@ -262,7 +284,7 @@ export default function AdminFeedbackPage() {
           <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-glass-xl p-12 text-center">
             <div className="text-6xl mb-4">📭</div>
             <p className="text-gray-300 text-xl font-semibold mb-2">
-              {filter === 'all' ? 'Henüz kayıtlı bildirim yok' : `${getTypeLabel(filter)} bulunamadı`}
+              {filter === 'all' ? 'Henüz kayıtlı bildirim yok' : `${getFilterLabel(filter)} bulunamadı`}
             </p>
             <p className="text-gray-400 text-sm">
               {feedbacks.length === 0 
@@ -279,8 +301,8 @@ export default function AdminFeedbackPage() {
               >
                 <div className="flex justify-between items-start mb-4">
                   <div className="flex gap-3 items-center">
-                    <span className={`px-3 py-1 rounded-lg text-sm font-medium ${getTypeBadgeClass(feedback.type)}`}>
-                      {getTypeLabel(feedback.type)}
+                    <span className={`px-3 py-1 rounded-lg text-sm font-medium ${getTypeBadgeClass(feedback)}`}>
+                      {getTypeLabel(feedback)}
                     </span>
                     {getStatusBadge(feedback.status)}
                   </div>

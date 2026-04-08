@@ -18,6 +18,7 @@ export type FeedbackStatus = 'new' | 'in_review' | 'resolved';
 export interface FeedbackEntry {
   id?: string;
   type: FeedbackType;
+  sourceForm?: 'iletisim';
   message: string;
   name?: string;
   email?: string;
@@ -29,6 +30,7 @@ export interface FeedbackEntry {
 
 export interface CreateFeedbackInput {
   type: FeedbackType;
+  sourceForm?: 'iletisim';
   message: string;
   name?: string;
   email?: string;
@@ -60,35 +62,36 @@ function normalizeFeedbackError(error: unknown): FeedbackError {
 }
 
 export async function createFeedbackEntry(input: CreateFeedbackInput): Promise<string> {
-  try {
-    console.log('🔥 Firestore yazma başlıyor...', input);
+  const buildDataToWrite = (type: FeedbackType) => ({
+    type,
+    ...(input.sourceForm ? { sourceForm: input.sourceForm } : {}),
+    message: input.message,
+    name: input.name || '',
+    email: input.email || '',
+    phone: input.phone || '',
+    courseInterest: input.courseInterest || '',
+    status: 'new' as FeedbackStatus,
+    createdAt: serverTimestamp(),
+  });
+
+  const writeFeedbackDoc = async (type: FeedbackType) => {
+    const dataToWrite = buildDataToWrite(type);
+
+    console.log('🔥 Firestore yazma başlıyor...', { ...input, type });
     console.log('🔥 DB instance:', db);
     console.log('🔥 DB app name:', db.app.name);
     console.log('🔥 DB app options:', db.app.options);
     console.log('🔥 Collection name:', COLLECTION_NAME);
-    
-    const dataToWrite = {
-      type: input.type,
-      message: input.message,
-      name: input.name || '',
-      email: input.email || '',
-      phone: input.phone || '',
-      courseInterest: input.courseInterest || '',
-      status: 'new' as FeedbackStatus,
-      createdAt: serverTimestamp(),
-    };
-    
     console.log('🔥 Yazılacak veri:', dataToWrite);
     console.log('🔥 addDoc fonksiyonu çağrılıyor...');
-    
-    // Timeout'u 30 saniyeye çıkarıyoruz ve daha detaylı log
+
     const timeoutPromise = new Promise<never>((_, reject) => {
       setTimeout(() => {
         console.error('⏰ 30 saniye timeout! Firebase yanıt vermiyor.');
         reject(new Error('TIMEOUT_ERROR'));
       }, 30000);
     });
-    
+
     const addDocPromise = addDoc(collection(db, COLLECTION_NAME), dataToWrite)
       .then((docRef) => {
         console.log('✅ addDoc başarılı!', docRef.id);
@@ -104,13 +107,30 @@ export async function createFeedbackEntry(input: CreateFeedbackInput): Promise<s
         console.error('❌ Tam hata objesi:', JSON.stringify(error, Object.getOwnPropertyNames(error)));
         throw error;
       });
-    
-    const docRef = await Promise.race([addDocPromise, timeoutPromise]);
+
+    return Promise.race([addDocPromise, timeoutPromise]);
+  };
+
+  try {
+    const docRef = await writeFeedbackDoc(input.type);
     
     console.log('✅ Firestore yazma başarılı! Doc ID:', docRef.id);
     return docRef.id;
   } catch (error: unknown) {
-    const feedbackError = normalizeFeedbackError(error);
+    let feedbackError = normalizeFeedbackError(error);
+
+    // Canlıda rules güncellenmediyse "iletisim" yazımı permission-denied verebilir.
+    // Bu durumda geri-bildirim tipine düşüp sourceForm ile adminde iletişim olarak göstereceğiz.
+    if (input.type === 'iletisim' && feedbackError.code === 'permission-denied') {
+      try {
+        console.warn('⚠️ iletisim type permission-denied. Fallback: geri-bildirim');
+        const docRef = await writeFeedbackDoc('geri-bildirim');
+        console.log('✅ Fallback yazma başarılı! Doc ID:', docRef.id);
+        return docRef.id;
+      } catch (fallbackError: unknown) {
+        feedbackError = normalizeFeedbackError(fallbackError);
+      }
+    }
 
     console.error('❌ CATCH bloğunda yakalanan hata:', error);
     console.error('❌ Hata tipi:', typeof error);
