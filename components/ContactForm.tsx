@@ -48,43 +48,51 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+      // Admin panelde kesin görünmesi için önce Firestore kaydı oluştur.
+      await createFeedbackEntry({
+        type: 'iletisim',
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        courseInterest: data.courseInterest,
+        message: data.message,
       });
 
-      const result = await response.json();
-
-      if (response.ok) {
-        await createFeedbackEntry({
-          type: 'iletisim',
-          name: data.name,
-          email: data.email,
-          phone: data.phone,
-          courseInterest: data.courseInterest,
-          message: data.message,
+      let emailNotificationFailed = false;
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
         });
 
-        // Track successful submission
-        trackContactFormComplete();
-        if (data.courseInterest) {
-          trackCourseInterest(data.courseInterest);
+        if (!response.ok) {
+          emailNotificationFailed = true;
         }
-        
-        toast.success('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
-        reset();
-        setFormStarted(false);
-      } else {
-        // Track error
-        trackContactFormError(result.error || 'Submission failed');
-        toast.error(result.error || 'Bir hata oluştu, lütfen tekrar deneyiniz.');
+      } catch {
+        emailNotificationFailed = true;
       }
-    } catch {
-      trackContactFormError('Network error');
-      toast.error('Bir hata oluştu, lütfen daha sonra tekrar deneyiniz.');
+
+      // Track successful submission
+      trackContactFormComplete();
+      if (data.courseInterest) {
+        trackCourseInterest(data.courseInterest);
+      }
+
+      if (emailNotificationFailed) {
+        toast.success('Mesajınız kaydedildi. En kısa sürede size dönüş yapacağız.');
+      } else {
+        toast.success('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.');
+      }
+
+      reset();
+      setFormStarted(false);
+    } catch (error) {
+      const message = error instanceof Error ? error.message.split('\n')[0] : 'Submission failed';
+      trackContactFormError(message);
+      toast.error('Mesajınız kaydedilemedi, lütfen tekrar deneyiniz.');
     } finally {
       setIsSubmitting(false);
     }

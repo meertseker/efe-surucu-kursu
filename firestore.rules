@@ -6,7 +6,7 @@ service cloud.firestore {
     // Feedback collection rules
     match /feedbackEntries/{feedbackId} {
       // Anyone can create feedback entries
-      allow create: if request.resource.data.type in ['sikayet', 'geri-bildirim']
+      allow create: if request.resource.data.type in ['sikayet', 'geri-bildirim', 'iletisim']
                     && request.resource.data.status == 'new'
                     && request.resource.data.message is string
                     && request.resource.data.message.size() >= 10;
